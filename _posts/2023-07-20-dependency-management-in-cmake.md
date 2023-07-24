@@ -2,7 +2,7 @@
 layout: post
 title: "Dependency Management in CMake"
 description: "Taking a look at simple and automated dependency management trick in CMake."
-tag: Build, Dependency, DevOps, CMake
+tag: DevOps and Build Engineering
 ---
 First blog post, opening the scene with the simple [CMake](https://cmake.org/) hints.
 
