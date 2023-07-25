@@ -13,7 +13,7 @@ When I say large, I mean the 30–40 GB repositories that we work with. Well, it
 Here's the full set of git commands that we executed in order:
 ```bash
 git config --global core.compression 0  
-git clone --depth 1 <repo_URL>  
+git clone --depth 1 <repo_url>  
 git fetch --unshallow  
 git pull --all
 ```
