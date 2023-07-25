@@ -15,7 +15,6 @@ Here's the full set of git commands that we executed in order:
 git config --global core.compression 0  
 git clone --depth 1 <repo_URL>  
 git fetch --unshallow  
-git fetch --unshallow  
 git pull --all
 ```
 
@@ -27,7 +26,7 @@ Setting ``core.compression`` to ``0`` will disable compression of objects in the
 
 ``git clone --depth 1 <repo_URL>``
 
-Cloning a repository with the --depth 1 option will ensure that only the latest commit will be fetched, which saved us from unnecessary git commit history but it's good to keep in mind that it will not fetch the entire git commit history. So if you need to perform some operations in the git history, this will not help at all. (It's also called a shallow clone.)
+Cloning a repository with the ``--depth 1`` option will ensure that only the latest commit will be fetched, which saved us from unnecessary git commit history but it's good to keep in mind that it will not fetch the entire git commit history. So if you need to perform some operations in the git history, this will not help at all. (It's also called a shallow clone.)
 
 ``git fetch --unshallow``
 
@@ -35,7 +34,7 @@ After cloning a repository with a limited commit history (shallow clone), we can
 
 ``git pull -all``
 
-After fetching complete history, we executed ``pull -all`` to ensure everything was fetched and ready.
+After fetching complete history, we executed ``git pull -all`` to ensure everything was fetched and ready.
 
 ### Resources
 [Here's](https://stackoverflow.com/questions/34389446/how-do-i-download-a-large-git-repository) the Stack Overflow thread that we explored during the investigation of this problem.
