@@ -6,7 +6,7 @@ tag: DevOps and Build Engineering
 ---
 Greetings everyone! 
 
-This is my second blog post and this time I'll share a story about a small git operation that we automated with my colleague [İ. Çağkan Çağlayanel](https://crosline.github.io/) to setup large git repositories on build machines.
+This time I'll share a story about a small git operation that we automated with my colleague [İ. Çağkan Çağlayanel](https://crosline.github.io/) to setup large git repositories on build machines.
 
 When I say large, I mean the 30–40 GB repositories that we work with. Well, it is probably nothing when you compare it to the AAA industry, but things are learned.
 
