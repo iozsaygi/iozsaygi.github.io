@@ -26,7 +26,7 @@ Setting ``core.compression`` to ``0`` will disable compression of objects in the
 
 ``git clone --depth 1 <repo_URL>``
 
-Cloning a repository with the ``--depth 1`` option will ensure that only the latest commit will be fetched, which saved us from unnecessary git commit history but it's good to keep in mind that it will not fetch the entire git commit history. So if you need to perform some operations in the git history, this will not help at all. (It's also called a shallow clone.)
+Cloning a repository with the ``--depth 1`` option will ensure that only the latest commit will be fetched, which saved us from unnecessary git commit history but it's good to keep in mind that it will not fetch the entire git commit history. So if you need to perform some operations in the git history, this will not help at all. (It's also called a shallow clone)
 
 ``git fetch --unshallow``
 
