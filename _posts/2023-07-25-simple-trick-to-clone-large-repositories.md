@@ -19,7 +19,7 @@ git fetch --unshallow
 git pull --all
 ```
 
-Let's inspect each command one by one:
+### Let's inspect each command one by one
 
 ``git config --global core.compression 0``
 
