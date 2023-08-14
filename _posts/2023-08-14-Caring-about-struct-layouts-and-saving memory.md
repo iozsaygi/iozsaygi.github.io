@@ -15,20 +15,20 @@ Here's the good old read-only struct; we expect to get a total of ``4 bytes``, r
 
 Unfortunately, no. The compiler will add an extra 2 bytes to align memory, causing much more memory usage.
 ```csharp
-public readonly struct Data  
-{  
-    public readonly byte ID; // Byte  
-    public readonly short Progress; // 2 Bytes  
-    public readonly byte Attachment; // Byte  
+public readonly struct Data
+{
+    public readonly byte ID; // Byte
+    public readonly short Progress; // 2 Bytes
+    public readonly byte Attachment; // Byte
 }
 ```
 
 If we run the code below, we'll see that the output is actually 6 bytes. (Notice how we added the ``unsafe`` keyword to be able to use the ``sizeof`` operation.)
 ```csharp
-internal abstract unsafe class Program  
-{  
-    public static void Main(string[] args)  
-    {        
+internal abstract unsafe class Program
+{
+    public static void Main(string[] args)
+    {
 		Console.WriteLine($"Size of {nameof(Data)} is {sizeof(Data)}.");
     }
 }
