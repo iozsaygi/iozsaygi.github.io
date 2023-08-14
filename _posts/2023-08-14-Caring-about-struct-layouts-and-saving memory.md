@@ -28,8 +28,8 @@ If we run the code below, we'll see that the output is actually 6 bytes. (Notice
 internal abstract unsafe class Program  
 {  
     public static void Main(string[] args)  
-    {
-    Console.WriteLine($"Size of {nameof(Data)} is {sizeof(Data)}.");
+    {        
+		Console.WriteLine($"Size of {nameof(Data)} is {sizeof(Data)}.");
     }
 }
 ```
