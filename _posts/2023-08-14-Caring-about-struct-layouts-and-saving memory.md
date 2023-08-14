@@ -51,7 +51,9 @@ public readonly struct DataWithExplicitLayout
 Let's inspect the attributes we've used so far.
 
 1. ``[StructLayout(LayoutKind.Explicit, Size = 4)]``
+	
 	With this option, we are telling the compiler that we will manage the memory layout of this struct. Preventing the compiler from adding extra ghost bytes to the struct.
 
 2. ``[FieldOffset(0)], [FieldOffset(1)], [FieldOffset(2)]``
+	
 	By using this attribute, we are indicating the physical position of the fields in memory, which lets us have complete control over our structure's memory layout. In this case, _FieldOffset[2]_ and _FieldOffset[3]__ are reserved for our short field (which is 2 bytes).
