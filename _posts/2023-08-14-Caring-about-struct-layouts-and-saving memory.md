@@ -57,3 +57,8 @@ Let's inspect the attributes we've used so far.
 2. ``[FieldOffset(0)], [FieldOffset(1)], [FieldOffset(2)]``
 	
 	By using this attribute, we are indicating the physical position of the fields in memory, which lets us have complete control over our structure's memory layout. In this case, _FieldOffset[2]_ and _FieldOffset[3]_ are reserved for our short field (which is 2 bytes).
+
+### Last words
+Performance is crucial when it comes to game development, and this little trick can prove useful when we have to consider every single byte of memory during development. If we optimize our structure's memory layout, this also means that we can operate on even more data by effectively using our memory.
+
+I hope you have enjoyed reading so far. Thank you.
