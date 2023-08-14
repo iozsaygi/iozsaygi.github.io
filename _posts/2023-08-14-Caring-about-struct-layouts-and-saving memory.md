@@ -14,7 +14,7 @@ Let's take a look at some examples.
 Here's the good old read-only struct; we expect to get a total of ``4 bytes``, right?
 
 Unfortunately, no. The compiler will add an extra 2 bytes to align memory, causing much more memory usage.
-```cs
+```csharp
 public readonly struct Data  
 {  
     public readonly byte ID; // Byte  
@@ -24,7 +24,7 @@ public readonly struct Data
 ```
 
 If we run the code below, we'll see that the output is actually 6 bytes. (Notice how we added the ``unsafe`` keyword to be able to use the ``sizeof`` operation.)
-```cs
+```csharp
 internal abstract unsafe class Program  
 {  
     public static void Main(string[] args)  
