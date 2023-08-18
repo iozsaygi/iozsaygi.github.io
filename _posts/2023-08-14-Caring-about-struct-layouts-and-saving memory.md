@@ -66,7 +66,7 @@ Let's inspect the attributes we've used so far.
 	
 	With this option, we are telling the compiler that we will manage the memory layout of this struct. Preventing the compiler from adding extra ghost bytes to the struct.
 
-2. ``[FieldOffset(0)], [FieldOffset(2)], [FieldOffset(1)]``
+2. ``[FieldOffset(0)]``, ``[FieldOffset(2)]`` and ``[FieldOffset(1)]``
 	
 	By using this attribute, we are indicating the physical position of the fields in memory, which lets us have complete control over our structure's memory layout. In this case, _FieldOffset[2]_ and _FieldOffset[3]_ are reserved for our short field (which is 2 bytes) and FieldOffset[0] and FieldOffset[1] are reserved for our byte fields.
 
