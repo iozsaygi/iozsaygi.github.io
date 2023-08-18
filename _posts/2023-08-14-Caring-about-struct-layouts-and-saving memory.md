@@ -33,7 +33,7 @@ internal abstract unsafe class Program
     }
 }
 ```
-Let's review two different cases that fix this issue.
+Let’s review two different cases to fix this issue.
 
 ### Read-only struct with ascending field declaration
 Even our field declaration order matters when it comes to size. Notice how we declared fields in ascending order related to their sizes. When we try to check the size of this struct with the ``sizeof`` keyword, we will get an output of ``4 bytes``. Which is fascinating.
