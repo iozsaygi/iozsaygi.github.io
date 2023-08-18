@@ -33,18 +33,30 @@ internal abstract unsafe class Program
     }
 }
 ```
-Let's fix this by explicitly specifying memory layouts in our struct.
+Let's review two different cases that fix this issue.
+
+### Read-only struct with ascending field declaration
+Even our field declaration order matters when it comes to size. Notice how we declared fields in ascending order related to their sizes. When we try to check the size of this struct with the ``sizeof`` keyword, we will get an output of ``4 bytes``. Which is fascinating.
+```csharp
+public readonly struct DataWithAscendingOrder
+{
+    public readonly byte ID; // Byte
+    public readonly byte Attachment; // Byte
+    public readonly short Progress; // 2 Bytes
+}
+```
+
+But what if we don't want to change the declaration order of our fields? ``StructLayout`` and ``FieldOffset`` attributes to the rescue!
 
 ### Read-only struct with explicit memory layout
-Here's our explicitly aligned read-only struct. We still expect to get 4 bytes of size, and yes! Since we explicitly aligned the memory of our fields. The compiler will not add an extra 2 ghost bytes to our struct. (Also notice how we changed the declaration of our fields to ascending order.)
-
+Here's our explicitly aligned read-only struct. We still expect to get 4 bytes of size, and yes! Since we explicitly aligned the memory of our fields. The compiler will not add an extra 2 ghost bytes to our struct.
 ```csharp
-[StructLayout(LayoutKind.Explicit, Size = 4)]  
-public readonly struct DataWithExplicitLayout  
+[StructLayout(LayoutKind.Explicit, Size = 4)]
+public readonly struct DataWithExplicitLayout
 {  
     [FieldOffset(0)] public readonly byte ID; // Byte
-    [FieldOffset(1)] public readonly byte Attachment; // Byte
     [FieldOffset(2)] public readonly short Progress; // 2 Bytes
+    [FieldOffset(1)] public readonly byte Attachment; // Byte
 }
 ```
 
@@ -54,9 +66,9 @@ Let's inspect the attributes we've used so far.
 	
 	With this option, we are telling the compiler that we will manage the memory layout of this struct. Preventing the compiler from adding extra ghost bytes to the struct.
 
-2. ``[FieldOffset(0)], [FieldOffset(1)], [FieldOffset(2)]``
+2. ``[FieldOffset(0)], [FieldOffset(2)], [FieldOffset(1)]``
 	
-	By using this attribute, we are indicating the physical position of the fields in memory, which lets us have complete control over our structure's memory layout. In this case, _FieldOffset[2]_ and _FieldOffset[3]_ are reserved for our short field (which is 2 bytes).
+	By using this attribute, we are indicating the physical position of the fields in memory, which lets us have complete control over our structure's memory layout. In this case, _FieldOffset[2]_ and _FieldOffset[3]_ are reserved for our short field (which is 2 bytes) and FieldOffset[0] and FieldOffset[1] are reserved for our byte fields..
 
 ### Last words
 Performance is crucial when it comes to game development, and this little trick can prove useful when we have to consider every single byte of memory during development. If we optimize our structure's memory layout, this also means that we can operate on even more data by effectively using our memory.
