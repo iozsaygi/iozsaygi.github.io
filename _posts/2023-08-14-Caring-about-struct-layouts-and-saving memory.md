@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Caring about struct layouts and saving memory"
-description: "Use of explicit struct memory layout management to improve memory usage."
-tag: C#
+title: Caring about struct layouts and saving memory
+description: Use of explicit struct memory layout management to improve memory usage.
+tags: C# Optimization
 ---
 Generally, when using structs, we are not sure if the size of the struct matches the size that we expect.
 
