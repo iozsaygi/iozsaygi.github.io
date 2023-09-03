@@ -73,4 +73,4 @@ Let's inspect the attributes we've used so far.
 ### Last words
 Performance is crucial when it comes to game development, and these little tricks can prove useful when we have to consider every single byte of memory during development. If we optimize our structure’s memory layout, this also means that we can operate on even more data by effectively using our memory.
 
-I hope you have enjoyed reading so far. Thank you.
+I hope you have enjoyed reading. Thank you.
