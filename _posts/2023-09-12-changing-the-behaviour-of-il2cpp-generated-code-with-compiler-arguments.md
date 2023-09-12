@@ -27,7 +27,7 @@ class MyCustomPreprocessBuild: IPreprocessBuildWithReport
 	
 	public void OnPreprocessBuild(BuildReport report)
 	{
-		PlayerSettings.SetAdditionalIl2CppArgs("-emit-null-checks"); 
+		PlayerSettings.SetAdditionalIl2CppArgs("{AdditionalCompilerArguments}"); 
 	}
 }
 ```
@@ -35,3 +35,12 @@ class MyCustomPreprocessBuild: IPreprocessBuildWithReport
 It will get called automatically by Unity's build pipeline during the builds, while respecting the callback order specified as a property.
 
 There are many more arguments that we can pass to the IL2CPP compiler; let's explore those commands.
+
+### Additional compiler arguments
+Of course, Unity has many more arguments, but here are the main ones that piqued our interest:
+
+``-configuration``
+Used to specify build configuration, using ``-configuration Release`` configuration will optimize the IL2CPP-generated code for release builds.
+
+``-emit-null-checks``
+We thought that if we port our game's source code to fully support value-type objects instead of reference-type ones, this would also mean we could avoid null checks in our gameplay code. If we can avoid null checks in our gameplay code, we can also try to avoid null checks in IL2CPP-generated code to prevent branching. It can be set to ``true`` or ``false``.
