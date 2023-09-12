@@ -14,7 +14,10 @@ There is an API in Unity's codebase that lets us pass arguments to the compiler 
 
 ### PlayerSettings.SetAdditionalIl2CppArgs
 The API is pretty straight forward:
-``public static void SetAdditionalIl2CppArgs(string additionalArgs);`` it is a static method and just takes a string parameter to pass it on to the IL2CPP compiler.
+
+``public static void SetAdditionalIl2CppArgs(string additionalArgs);`` 
+
+It is a static method and just takes a string parameter to pass it on to the IL2CPP compiler.
 
 Here's the example usage:
 ```cs
