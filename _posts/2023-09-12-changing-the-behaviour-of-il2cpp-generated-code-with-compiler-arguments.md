@@ -54,3 +54,16 @@ In rare cases (mostly for research), I needed to disable control flow optimizati
 ``-strip-bytecode=false``
 
 In our build pipeline, we were automatically disabling the byte code strip process just to improve the debugging experience for our builds in the test environment.
+
+``-disable-opt bounds-checks``
+
+This argument disables the checks for array element accessing operations, which can increase performance since it removes all the array element accessing checks during runtime, but it comes with a risk of undefined behaviour. Should be used carefully.
+
+These were the top arguments that were interesting for us; there are more arguments to explore, and I am pretty sure [ChatGPT](https://chat.openai.com/) can provide us with way more arguments based on our needs.
+
+### Lastly
+It was amazing to see how build pipeline changes can greatly impact the performance of our gameplay code. In some scenarios, we can achieve higher frame rates by structuring our game code and modifying our build arguments.
+
+It was definitely an amazing topic to research, and I hope you'll find it useful and use it at some point during your development.
+
+Thank you for reading it out!
