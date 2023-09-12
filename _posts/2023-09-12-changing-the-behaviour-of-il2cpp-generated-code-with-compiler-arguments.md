@@ -31,3 +31,7 @@ class MyCustomPreprocessBuild: IPreprocessBuildWithReport
 	}
 }
 ```
+
+It will get called automatically by Unity's build pipeline during the builds, while respecting the callback order specified as a property.
+
+There are many more arguments that we can pass to the IL2CPP compiler; let's explore those commands.
