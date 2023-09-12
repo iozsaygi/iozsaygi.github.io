@@ -46,3 +46,11 @@ Used to specify build configuration, using ``-configuration Release`` configurat
 ``-emit-null-checks``
 
 We thought that if we port our game's source code to fully support value-type objects instead of reference-type ones, this would also mean we could avoid null checks in our gameplay code. If we can avoid null checks in our gameplay code, we can also try to avoid null checks in IL2CPP-generated code to prevent branching. It can be set to ``true`` or ``false``.
+
+``-disable-opt control-flow``
+
+In rare cases (mostly for research), I needed to disable control flow optimizations to try to understand how IL2CPP-generated code is actually structured during conversion. This was not necessary for our case, but I wanted to take a look.
+
+``-strip-bytecode=false``
+
+In our build pipeline, we were automatically disabling the byte code strip process just to improve the debugging experience for our builds in the test environment.
