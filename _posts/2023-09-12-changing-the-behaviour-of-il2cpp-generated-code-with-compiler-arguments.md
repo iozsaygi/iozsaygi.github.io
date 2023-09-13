@@ -10,7 +10,7 @@ During the development of a game title where I worked as a DevOps/Build engineer
 
 I immediately started to do research and wanted to share my research in this blog post since I didn't see any blog posts or content that shared a list of IL2CPP compiler arguments that we can use to modify IL2CPP-generated code.
 
-There is an API in Unity's codebase that lets us pass arguments to the compiler during builds; let's start by exploring it first.
+The first thing I explored was Unity's API, which lets us pass arguments as strings to the IL2CPP compiler. Let's start by exploring it first.
 
 ### PlayerSettings.SetAdditionalIl2CppArgs
 The API is pretty straight forward:
