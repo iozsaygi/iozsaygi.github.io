@@ -85,7 +85,5 @@ In terms of SDL integration, most of the repetitive tasks should be automated at
 ### Wrapping up
 These were the minimal script examples to automate some of the repetitive tasks that I faced during my development journey with C/C++ and SDL. As I mentioned before, scripts still can be improved by adding different logic for other platforms.
 
-The full working example of this pipeline can be found in the 2D isometric engine that I am working on. You can check it out by visiting [Qmack Engine](https://github.com/iozsaygi/qmack-engine) repository.
-
 Thank you for reading my very first blog post. Hopefully, I will write even more blog posts in the future!
 
