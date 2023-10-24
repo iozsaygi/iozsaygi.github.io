@@ -97,7 +97,7 @@ Here, we are creating a new instance of the subsystem streaming controller and r
 ```cs
 await subsystemStreamingController.LoadQueuedSubsystemsAsync();
 ```
-We are trying to load the queued subsystems into memory and wait until all load operations are complete.
+We are trying to load the queued subsystems into memory and wait until all load operations are complete. I think it is also good practice to not open the gameplay scene even if a single-load operation fails for subsystems. Because gameplay systems will not be able to function with broken subsystems.
 
 
 #### Creating clones of loaded subsystems in scene
