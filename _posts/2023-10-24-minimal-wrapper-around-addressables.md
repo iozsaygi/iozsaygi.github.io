@@ -189,7 +189,7 @@ public void InstantiateLoadedSubsystems(Transform parent)
 {  
     foreach (var loadedGameObject in loadedSubsystems)  
     {        
-    var instantiatedGameObjectReference =  
+	    var instantiatedGameObjectReference =  
             Object.Instantiate(loadedGameObject, Vector3.zero, Quaternion.identity);  
   
         instantiatedGameObjectReference.transform.SetParent(parent, true);  
