@@ -87,8 +87,8 @@ This is the actual array that holds references to the addressable subsystem pref
 #### Creating instance and requesting subsystem for loading
 ```cs
 subsystemStreamingController = new SubsystemStreamingController();  
-            foreach (var registeredSubsystemAssetReference in registeredSubsystemAddressables)
-            subsystemStreamingController.RequestSubsystemForLoading(registeredSubsystemAssetReference);  
+foreach (var registeredSubsystemAssetReference in registeredSubsystemAddressables)
+    subsystemStreamingController.RequestAssetForInitialization(registeredSubsystemAssetReference);  
 ```
 Here, we are creating a new instance of the subsystem streaming controller and requesting load operation for each addressable subsystem reference we have in the ``registeredSubsystemAddressables`` array.
 
