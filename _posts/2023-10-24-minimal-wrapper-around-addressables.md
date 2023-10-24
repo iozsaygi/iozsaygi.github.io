@@ -18,7 +18,7 @@ using UnityEngine;
 
 namespace AAA.Source.Framework.Subsystem.Runtime
 {
-[DisallowMultipleComponent]
+    [DisallowMultipleComponent]
     public abstract class BaseSubsystem : MonoBehaviour
     {
         public abstract void OnSceneInitialize();
