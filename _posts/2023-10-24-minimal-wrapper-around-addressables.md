@@ -209,7 +209,7 @@ public void InitializeInstantiatedSubsystems()
 {  
     foreach (var instantiatedSubsystem in instantiatedSubsystems)  
     {        
-	    var baseSubsystem = instantiatedSubsystem.GetComponent<BaseSubsystem>();  
+	var baseSubsystem = instantiatedSubsystem.GetComponent<BaseSubsystem>();  
         baseSubsystem.OnSceneInitialize();  
   
         Debugger.Log(LogLevel.Trace, nameof(SubsystemStreamingController),  
