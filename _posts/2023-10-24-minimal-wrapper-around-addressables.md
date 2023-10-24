@@ -201,3 +201,20 @@ public void InstantiateLoadedSubsystems(Transform parent)
 }
 ```
 Minimal function that creates the clones of loaded subsystems in the scene; nothing really fancy.
+
+
+#### Initialize instantiated subsystems
+```cs
+public void InitializeInstantiatedSubsystems()  
+{  
+    foreach (var instantiatedSubsystem in instantiatedSubsystems)  
+    {        
+	    var baseSubsystem = instantiatedSubsystem.GetComponent<BaseSubsystem>();  
+        baseSubsystem.OnSceneInitialize();  
+  
+        Debugger.Log(LogLevel.Trace, nameof(SubsystemStreamingController),  
+            $"Initialized {baseSubsystem.name}");  
+    }
+}
+```
+Iterates over the instantiated subsystems and calls the ``OnSceneInitialize()`` function that we inspected earlier. Again, an easy step to implement.
