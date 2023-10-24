@@ -50,6 +50,7 @@ After setting up the initial code for the ``GameplayDebuggerSubsystem``, I creat
 Now let's take a look at another minimal class that is actually placed in the scene hierarchy manually. It is just holding reference to the subsystem prefabs that are marked as addressables and the subsystem streaming controller class.
 
 ### Controller class to manage subsystems
+Minimal subsystem manager that actually contains references to the addressable subsystem prefabs.
 ```cs
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -75,3 +76,7 @@ namespace AAA.Source.Framework.Subsystem.Runtime
     }
 }
 ```
+Let's highlight specific parts of it for further explanation.
+
+``[SerializeField] private AssetReferenceGameObject[] registeredSubsystemAddressables;``
+This is the actual array that holds references to the addressable subsystem prefabs that will be loaded into memory by the ``SubsystemStreamingController`` class.
