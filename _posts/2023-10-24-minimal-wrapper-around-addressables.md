@@ -218,3 +218,17 @@ public void InitializeInstantiatedSubsystems()
 }
 ```
 Iterates over the instantiated subsystems and calls the ``OnSceneInitialize()`` function that we inspected earlier. Again, an easy step to implement.
+
+Alright, we implemented all this stuff, but what now? What did we really achieve for our game development environment?
+
+
+### What did we really achieve with this
+It was an easy process to implement this hierarchy, at least for the prototype project. It will probably lack features if it gets deployed in the production environment.
+
+Which problems exactly do we solve by doing this?
+
+1. Race conditions: now that we are actually using our own initialization pipeline, we get to control which subsystem will be initialized before or after another subsystem.
+
+2. Adding or removing specific features: if at some point we need to remove an existing feature that relies on a single subsystem, we can easily remove that feature (hopefully without changing any code) just by removing the related addressable instance and prefab.
+
+3. Memory allocations: we are loading subsystems as addressables; required memory resources will be allocated for prefabs at runtime instead of during the loading process of the scene or game. It will result in faster loading times.
