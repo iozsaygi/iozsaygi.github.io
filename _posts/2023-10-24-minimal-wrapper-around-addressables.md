@@ -135,3 +135,40 @@ public void RequestSubsystemForLoading(AssetReferenceGameObject assetReferenceGa
 }
 ```
 Basically, it checks if we have reached the load operation capacity before queueing the subsystem for loading. I implemented this just to feel **"safe"** I guess. New load requests will not be handled if the streamer has already reached its capacity for load operations.
+
+
+#### Load queued subsystems async
+```cs
+public async Task LoadQueuedSubsystemsAsync()  
+{  
+    var assetLoadTasks = new Task<GameObject>[subsystemLoadingQueue.Count];  
+    byte index = 0;  
+  
+    while (subsystemLoadingQueue.Count > 0)  
+    {        var assetReference = subsystemLoadingQueue.Dequeue();  
+        var asyncOperationHandle = assetReference.LoadAssetAsync<GameObject>();  
+        assetLoadTasks[index] = asyncOperationHandle.Task.ContinueWith(loadedTask =>  
+        {  
+            if (!loadedTask.IsFaulted && !loadedTask.IsCanceled)  
+                return asyncOperationHandle.Result;  
+  
+            Debugger.Log(LogLevel.Critical, $"{nameof(SubsystemStreamingController)}",  
+                $"Failed to load subsystem into memory, the reason was: {loadedTask.Exception?.Message}");  
+  
+            return null;  
+        });  
+        index++;    }  
+    subsystemLoadingQueue.Clear();  
+    await Task.WhenAll(assetLoadTasks);  
+  
+    foreach (var assetLoadTask in assetLoadTasks)  
+    {        if (!assetLoadTask.IsCompleted || assetLoadTask.Result.gameObject == null)  
+            continue;  
+  
+        Debugger.Log(LogLevel.Trace, $"{nameof(SubsystemStreamingController)}",  
+            $"Loaded {assetLoadTask.Result.gameObject.name} into memory");  
+  
+        if (!loadedSubsystems.Contains(assetLoadTask.Result.gameObject))  
+            loadedSubsystems.Add(assetLoadTask.Result.gameObject);  
+    }}
+```
