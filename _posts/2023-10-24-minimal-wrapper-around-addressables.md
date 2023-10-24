@@ -222,6 +222,9 @@ Iterates over the instantiated subsystems and calls the ``OnSceneInitialize()`` 
 Alright, we implemented all this stuff, but what now? What did we really achieve for our game development environment?
 
 
+### Communication between subsystems
+I haven't implemented the communication or reference injection pipeline for this hierarchy yet, but I am strongly thinking about the [Singleton pattern](https://en.wikipedia.org/wiki/Singleton_pattern) to achieve this. It should be okay to treat each gameplay subsystem class as a singleton object; I will learn it on the fly.
+
 ### What did we really achieve with this
 It was an easy process to implement this hierarchy, at least for the prototype project. It will probably lack features if it gets deployed in the production environment.
 
