@@ -78,7 +78,7 @@ namespace AAA.Source.Framework.Subsystem.Runtime
 ```
 Let's highlight specific parts of it for further explanation.
 
-
+- Fields
 ```cs
 [SerializeField] private AssetReferenceGameObject[] registeredSubsystemAddressables;
 ```
