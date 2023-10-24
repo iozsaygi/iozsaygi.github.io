@@ -90,3 +90,14 @@ subsystemStreamingController = new SubsystemStreamingController();
             foreach (var registeredSubsystemAssetReference in registeredSubsystemAddressables)
 ```
 Here, we are creating a new instance of the subsystem streaming controller and requesting load operation for each addressable subsystem reference we have in the ``registeredSubsystemAddressables`` array.
+
+
+```cs
+await subsystemStreamingController.LoadQueuedSubsystemsAsync();
+```
+We are trying to load the queued subsystems into memory and wait until all load operations are complete.
+
+```cs
+subsystemStreamingController.InstantiateLoadedSubsystems(transform);
+```
+After load operations are complete, actual instances of subsystems are created in the scene at runtime.
