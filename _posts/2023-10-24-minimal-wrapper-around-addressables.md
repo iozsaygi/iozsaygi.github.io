@@ -227,8 +227,8 @@ It was an easy process to implement this hierarchy, at least for the prototype p
 
 Which problems exactly do we solve by doing this?
 
-1. Race conditions: now that we are actually using our own initialization pipeline, we get to control which subsystem will be initialized before or after another subsystem.
+1. ``Race conditions``: now that we are actually using our own initialization pipeline, we get to control which subsystem will be initialized before or after another subsystem.
 
-2. Adding or removing specific features: if at some point we need to remove an existing feature that relies on a single subsystem, we can easily remove that feature (hopefully without changing any code) just by removing the related addressable instance and prefab.
+2. ``Adding or removing specific features``: if at some point we need to remove an existing feature that relies on a single subsystem, we can easily remove that feature (hopefully without changing any code) just by removing the related addressable instance and prefab.
 
-3. Memory allocations: we are loading subsystems as addressables; required memory resources will be allocated for prefabs at runtime instead of during the loading process of the scene or game. It will result in faster loading times.
+3. ``Memory allocations``: we are loading subsystems as addressables; required memory resources will be allocated for prefabs at runtime instead of during the loading process of the scene or game. It will result in faster loading times.
