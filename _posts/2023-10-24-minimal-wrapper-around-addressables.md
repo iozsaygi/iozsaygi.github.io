@@ -25,3 +25,21 @@ namespace AAA.Source.Framework.Subsystem.Runtime
     }
 }
 ```
+Now here is a basic example of a gameplay subsystem that is a child of the ``BaseSubsystem`` class and implements the ``OnSceneInitialize`` method to create prefabs that it requires to function.
+```cs
+using AAA.Source.Framework.Subsystem.Runtime;
+using UnityEngine;
+
+namespace AAA.Source.Gameplay.Debugger.Runtime
+{
+    public class GameplayDebuggerSubsystem : BaseSubsystem
+    {
+        [SerializeField] private GameObject gameplayDebuggerCanvasPrefab;
+        
+        public override void OnSceneInitialize()
+        {            Instantiate(gameplayDebuggerCanvasPrefab, Vector3.zero, Quaternion.identity).transform
+                .SetParent(transform, true);
+        }    
+    }
+}
+```
