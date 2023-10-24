@@ -236,6 +236,6 @@ Which problems exactly do we solve by doing this?
 I haven't implemented the communication or reference injection pipeline for this hierarchy yet, but I am strongly thinking about the [Singleton pattern](https://en.wikipedia.org/wiki/Singleton_pattern) to achieve this. It should be okay to treat each gameplay subsystem class as a singleton object; I will learn it on the fly.
 
 ### Final thoughts
-It was probably the longest blog of mine; thank you for showing incredible patience and reading it through. It was the minimal hierarchy that I actually implemented in the near future for one of my prototype game projects in Unity. Hopefully, it will help someone out there.
+It was probably the longest blog of mine; thank you for showing incredible patience and reading it through. It was the minimal hierarchy that I actually just implemented for one of my prototype game projects in Unity. Hopefully, it will help someone out there.
 
 Thanks a lot, and see you in the next one!
