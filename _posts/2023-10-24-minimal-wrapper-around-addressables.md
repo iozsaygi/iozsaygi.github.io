@@ -37,8 +37,8 @@ namespace AAA.Source.Gameplay.Debugger.Runtime
         [SerializeField] private GameObject gameplayDebuggerCanvasPrefab;
         
         public override void OnSceneInitialize()
-        {            Instantiate(gameplayDebuggerCanvasPrefab, Vector3.zero, Quaternion.identity).transform
-                .SetParent(transform, true);
+        {            
+            Instantiate(gameplayDebuggerCanvasPrefab, Vector3.zero, Quaternion.identity).transform.SetParent(transform, true);
         }    
     }
 }
