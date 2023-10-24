@@ -125,7 +125,7 @@ public void RequestSubsystemForLoading(AssetReferenceGameObject assetReferenceGa
 {  
     if (subsystemLoadingQueue.Count == subsystemLoadingQueueCapacity)  
     {        
-    Debugger.Log(LogLevel.Warning, $"{nameof(SubsystemStreamingController)}",  
+        Debugger.Log(LogLevel.Warning, $"{nameof(SubsystemStreamingController)}",  
             "Subsystem loading queue already reached its capacity and still receiving requests to load new subsystems");  
   
         return;  
@@ -168,7 +168,7 @@ public async Task LoadQueuedSubsystemsAsync()
   
     foreach (var assetLoadTask in assetLoadTasks)  
     {        
-	    if (!assetLoadTask.IsCompleted || assetLoadTask.Result.gameObject == null)  
+	if (!assetLoadTask.IsCompleted || assetLoadTask.Result.gameObject == null)  
             continue;  
   
         Debugger.Log(LogLevel.Trace, $"{nameof(SubsystemStreamingController)}",  
