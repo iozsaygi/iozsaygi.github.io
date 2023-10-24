@@ -157,12 +157,15 @@ public async Task LoadQueuedSubsystemsAsync()
   
             return null;  
         });  
-        index++;    }  
+        index++;    
+    }  
+    
     subsystemLoadingQueue.Clear();  
     await Task.WhenAll(assetLoadTasks);  
   
     foreach (var assetLoadTask in assetLoadTasks)  
-    {        if (!assetLoadTask.IsCompleted || assetLoadTask.Result.gameObject == null)  
+    {        
+	    if (!assetLoadTask.IsCompleted || assetLoadTask.Result.gameObject == null)  
             continue;  
   
         Debugger.Log(LogLevel.Trace, $"{nameof(SubsystemStreamingController)}",  
@@ -170,5 +173,6 @@ public async Task LoadQueuedSubsystemsAsync()
   
         if (!loadedSubsystems.Contains(assetLoadTask.Result.gameObject))  
             loadedSubsystems.Add(assetLoadTask.Result.gameObject);  
-    }}
+    }
+}
 ```
