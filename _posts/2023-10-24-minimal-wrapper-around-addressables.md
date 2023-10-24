@@ -58,8 +58,7 @@ namespace AAA.Source.Framework.Subsystem.Runtime
 {  
     [DisallowMultipleComponent]  
     public class SubsystemManagementController : MonoBehaviour  
-    {  
-        // ReSharper disable once IdentifierTypo  
+    {
         [SerializeField] private AssetReferenceGameObject[] registeredSubsystemAddressables;  
         [SerializeField] private SubsystemStreamingController subsystemStreamingController;  
   
