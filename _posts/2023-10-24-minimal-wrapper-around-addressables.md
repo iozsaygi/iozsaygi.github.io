@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Minimal wrapper around addressables
+title: Minimal wrapper around addressables to implement subsystem hierarchy
 description: Minimal C# addressable wrapper that I implemented for one of my prototypes.
 tags:
   - Unity
