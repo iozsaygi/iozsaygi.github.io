@@ -177,3 +177,6 @@ public async Task LoadQueuedSubsystemsAsync()
     }
 }
 ```
+Yep, that's a long one, I agree. Basically, it iterates on the queue that holds references to the addressable subsystem objects. Each time, it removes a subsystem from the queue and starts loading it into memory.
+
+After iterating over the queue, it just logs the name of the loaded subsystem and stores it in the list. That list will be used to create instances of subsystems in the scene.
