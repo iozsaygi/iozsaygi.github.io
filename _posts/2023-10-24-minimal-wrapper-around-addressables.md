@@ -84,19 +84,23 @@ Let's highlight specific parts of it for further explanation.
 ```
 This is the actual array that holds references to the addressable subsystem prefabs that will be loaded into memory by the ``SubsystemStreamingController`` class.
 
-
+#### Creating instance and requesting subsystem for loading
 ```cs
 subsystemStreamingController = new SubsystemStreamingController();  
             foreach (var registeredSubsystemAssetReference in registeredSubsystemAddressables)
+            subsystemStreamingController.RequestSubsystemForLoading(registeredSubsystemAssetReference);  
 ```
 Here, we are creating a new instance of the subsystem streaming controller and requesting load operation for each addressable subsystem reference we have in the ``registeredSubsystemAddressables`` array.
 
 
+#### Loading queued subsystems
 ```cs
 await subsystemStreamingController.LoadQueuedSubsystemsAsync();
 ```
 We are trying to load the queued subsystems into memory and wait until all load operations are complete.
 
+
+#### Creating clones of loaded subsystems in scene
 ```cs
 subsystemStreamingController.InstantiateLoadedSubsystems(transform);
 ```
