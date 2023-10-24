@@ -84,10 +84,10 @@ Let's highlight specific parts of it for further explanation.
 ```
 This is the actual array that holds references to the addressable subsystem prefabs that will be loaded into memory by the ``SubsystemStreamingController`` class.
 
+
 ```cs
 subsystemStreamingController = new SubsystemStreamingController();  
             foreach (var registeredSubsystemAssetReference in registeredSubsystemAddressables)
 ```
-Here, we are creating a new instance of the subsystem streaming controller and requesting load operations for each addressable subsystem reference we have in the registeredSubsystemAddressables array.
-
+Here, we are creating a new instance of the subsystem streaming controller and requesting load operations for each addressable subsystem reference we have in the ``registeredSubsystemAddressables`` array.
 ``
