@@ -221,10 +221,6 @@ Iterates over the instantiated subsystems and calls the ``OnSceneInitialize()`` 
 
 Alright, we implemented all this stuff, but what now? What did we really achieve for our game development environment?
 
-
-### Communication between subsystems
-I haven't implemented the communication or reference injection pipeline for this hierarchy yet, but I am strongly thinking about the [Singleton pattern](https://en.wikipedia.org/wiki/Singleton_pattern) to achieve this. It should be okay to treat each gameplay subsystem class as a singleton object; I will learn it on the fly.
-
 ### What did we really achieve with this
 It was an easy process to implement this hierarchy, at least for the prototype project. It will probably lack features if it gets deployed in the production environment.
 
@@ -235,6 +231,9 @@ Which problems exactly do we solve by doing this?
 2. ``Adding or removing specific features``: if at some point we need to remove an existing feature that relies on a single subsystem, we can easily remove that feature (hopefully without changing any code) just by removing the related addressable instance and prefab.
 
 3. ``Memory allocations``: we are loading subsystems as addressables; required memory resources will be allocated for prefabs at runtime instead of during the loading process of the scene or game. It will result in faster loading times.
+
+### Communication between subsystems
+I haven't implemented the communication or reference injection pipeline for this hierarchy yet, but I am strongly thinking about the [Singleton pattern](https://en.wikipedia.org/wiki/Singleton_pattern) to achieve this. It should be okay to treat each gameplay subsystem class as a singleton object; I will learn it on the fly.
 
 ### Final thoughts
 It was probably the longest blog of mine; thank you for showing incredible patience and reading it through. It was the minimal hierarchy that I actually implemented in the near future for one of my prototype game projects in Unity. Hopefully, it will help someone out there.
