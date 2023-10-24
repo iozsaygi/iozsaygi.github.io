@@ -146,7 +146,7 @@ public async Task LoadQueuedSubsystemsAsync()
   
     while (subsystemLoadingQueue.Count > 0)  
     {        
-	    var assetReference = subsystemLoadingQueue.Dequeue();  
+	var assetReference = subsystemLoadingQueue.Dequeue();  
         var asyncOperationHandle = assetReference.LoadAssetAsync<GameObject>();  
         assetLoadTasks[index] = asyncOperationHandle.Task.ContinueWith(loadedTask =>  
         {  
