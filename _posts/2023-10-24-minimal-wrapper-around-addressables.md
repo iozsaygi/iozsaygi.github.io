@@ -89,5 +89,5 @@ This is the actual array that holds references to the addressable subsystem pref
 subsystemStreamingController = new SubsystemStreamingController();  
             foreach (var registeredSubsystemAssetReference in registeredSubsystemAddressables)
 ```
-Here, we are creating a new instance of the subsystem streaming controller and requesting load operations for each addressable subsystem reference we have in the ``registeredSubsystemAddressables`` array.
+Here, we are creating a new instance of the subsystem streaming controller and requesting load operation for each addressable subsystem reference we have in the ``registeredSubsystemAddressables`` array.
 ``
