@@ -39,6 +39,39 @@ namespace AAA.Source.Gameplay.Debugger.Runtime
         public override void OnSceneInitialize()
         {            
             Instantiate(gameplayDebuggerCanvasPrefab, Vector3.zero, Quaternion.identity).transform.SetParent(transform, true);
+        } 
+    }
+}
+```
+``GameplayDebuggerSubsystem`` basically contains a reference to a prefab(s) that it needs to function and creates its required prefabs during the initialization of the scene. It is the most basic subsystem that I can imagine right now; nothing fancy, just creating new game objects.
+
+After setting up the initial code for the ``GameplayDebuggerSubsystem``, I created a prefab of it and marked it as addressable so we could actually load it into memory and start using it at runtime whenever we needed.
+
+Now let's take a look at another minimal class that is actually placed in the scene hierarchy manually. It is just holding reference to the subsystem prefabs that are marked as addressables and the subsystem streaming controller class.
+
+### Controller class to manage subsystems
+```cs
+using UnityEngine;
+using UnityEngine.AddressableAssets;
+
+namespace AAA.Source.Framework.Subsystem.Runtime
+{  
+    [DisallowMultipleComponent]  
+    public class SubsystemManagementController : MonoBehaviour  
+    {  
+        // ReSharper disable once IdentifierTypo  
+        [SerializeField] private AssetReferenceGameObject[] registeredSubsystemAddressables;  
+        [SerializeField] private SubsystemStreamingController subsystemStreamingController;  
+  
+        private async void Start()  
+        {            
+            subsystemStreamingController = new SubsystemStreamingController();  
+            foreach (var registeredSubsystemAssetReference in registeredSubsystemAddressables)  
+                subsystemStreamingController.RequestAssetForInitialization(registeredSubsystemAssetReference);  
+  
+            await subsystemStreamingController.LoadQueuedSubsystemsAsync();  
+            subsystemStreamingController.InstantiateLoadedSubsystems(transform);  
+            subsystemStreamingController.InitializeInstantiatedSubsystems();  
         }    
     }
 }
