@@ -124,7 +124,8 @@ This class contains all the fun! Actual loading and initialization are handled h
 public void RequestSubsystemForLoading(AssetReferenceGameObject assetReferenceGameObject)  
 {  
     if (subsystemLoadingQueue.Count == subsystemLoadingQueueCapacity)  
-    {        Debugger.Log(LogLevel.Warning, $"{nameof(SubsystemStreamingController)}",  
+    {        
+    Debugger.Log(LogLevel.Warning, $"{nameof(SubsystemStreamingController)}",  
             "Subsystem loading queue already reached its capacity and still receiving requests to load new subsystems");  
   
         return;  
