@@ -88,7 +88,7 @@ This is the actual array that holds references to the addressable subsystem pref
 ```cs
 subsystemStreamingController = new SubsystemStreamingController();  
 foreach (var registeredSubsystemAssetReference in registeredSubsystemAddressables)
-    subsystemStreamingController.RequestAssetForInitialization(registeredSubsystemAssetReference);  
+    subsystemStreamingController.RequestSubsystemForLoading(registeredSubsystemAssetReference);  
 ```
 Here, we are creating a new instance of the subsystem streaming controller and requesting load operation for each addressable subsystem reference we have in the ``registeredSubsystemAddressables`` array.
 
@@ -112,3 +112,26 @@ After load operations are complete, actual instances of subsystems are created i
 subsystemStreamingController.InitializeInstantiatedSubsystems();
 ```
 Remember the ``OnSceneInitialize()`` callback? This is the place where it gets called. After creating instances of subsystems, we are initializing them one by one.
+
+Now, let's get to the fun part. Subsystem streaming class that actually handles the inner operations like loading, creation, and initialization.
+
+### Subsystem streaming controller
+This class contains all the fun! Actual loading and initialization are handled here. Let's inspect each function that we used in the earlier sections.
+
+
+#### Request subsystem for loading
+```cs
+public void RequestSubsystemForLoading(AssetReferenceGameObject assetReferenceGameObject)  
+{  
+    if (subsystemLoadingQueue.Count == subsystemLoadingQueueCapacity)  
+    {        Debugger.Log(LogLevel.Warning, $"{nameof(SubsystemStreamingController)}",  
+            "Subsystem loading queue already reached its capacity and still receiving requests to load new subsystems");  
+  
+        return;  
+    }  
+    subsystemLoadingQueue.Enqueue(assetReferenceGameObject);  
+    Debugger.Log(LogLevel.Trace, $"{nameof(SubsystemStreamingController)}",  
+        "Queued new subsystem for loading");  
+}
+```
+Basically, it checks if we have reached the load operation capacity before queueing the subsystem for loading. I implemented this just to feel "safe," I guess. New load requests will not be handled if the streamer has already reached its capacity for load operations.
