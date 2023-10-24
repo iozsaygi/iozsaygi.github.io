@@ -11,15 +11,15 @@ But what exactly is a subsystem? In my case, a subsystem is basically a set of c
 
 Let's actually start by inspecting the base subsystem class and an example child object of it.
 
-### Base Subsystem class and usage example
+### Base Subsystem class and example usage
 Here's the minimal definition of a base subsystem class that I used: it only has an abstraction for the initialization callback, which is called from a class that actually handles subsystem prefabs as addressables. (We'll take a look at that class too in the later parts of this blog.)
 ```cs
 using UnityEngine;
 
-namespace AAA.Source.Framework.Subsystem.Runtime  
+namespace AAA.Source.Framework.Subsystem.Runtime
 {
-	[DisallowMultipleComponent]
-    public abstract class BaseSubsystem : MonoBehaviour  
+[DisallowMultipleComponent]
+    public abstract class BaseSubsystem : MonoBehaviour
     {
         public abstract void OnSceneInitialize();
     }
