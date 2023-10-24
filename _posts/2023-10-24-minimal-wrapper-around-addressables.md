@@ -84,7 +84,7 @@ Let's highlight specific parts of it for further explanation.
 ```
 This is the actual array that holds references to the addressable subsystem prefabs that will be loaded into memory by the ``SubsystemStreamingController`` class.
 
-#### Creating instance and requesting subsystem for loading
+#### Creating instance and requesting load operations for subsystems
 ```cs
 subsystemStreamingController = new SubsystemStreamingController();  
 foreach (var registeredSubsystemAssetReference in registeredSubsystemAddressables)
@@ -105,3 +105,10 @@ We are trying to load the queued subsystems into memory and wait until all load 
 subsystemStreamingController.InstantiateLoadedSubsystems(transform);
 ```
 After load operations are complete, actual instances of subsystems are created in the scene at runtime.
+
+
+#### Initialization of created subsystem clones
+```cs
+subsystemStreamingController.InitializeInstantiatedSubsystems();
+```
+Remember the ``OnSceneInitialize()`` callback? This is the place where it gets called. After creating instances of subsystems, we are initializing them one by one.
