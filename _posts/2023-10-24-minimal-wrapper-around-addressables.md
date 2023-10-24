@@ -134,4 +134,4 @@ public void RequestSubsystemForLoading(AssetReferenceGameObject assetReferenceGa
         "Queued new subsystem for loading");  
 }
 ```
-Basically, it checks if we have reached the load operation capacity before queueing the subsystem for loading. I implemented this just to feel "safe," I guess. New load requests will not be handled if the streamer has already reached its capacity for load operations.
+Basically, it checks if we have reached the load operation capacity before queueing the subsystem for loading. I implemented this just to feel **"safe"** I guess. New load requests will not be handled if the streamer has already reached its capacity for load operations.
