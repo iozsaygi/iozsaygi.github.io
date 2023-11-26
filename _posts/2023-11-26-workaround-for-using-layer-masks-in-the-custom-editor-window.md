@@ -88,8 +88,12 @@ public class LayerMaskInsideEditorWindow : EditorWindow
   
             if (raycastHit.collider == null) return;  
             GameObject.CreatePrimitive(PrimitiveType.Cube).transform.position = raycastHit.point;  
-        }    }}
+        }    
+    }
+}
 ```
+And we'll get working raycasting inside the custom editor window.
 
+We took a risk; we used the internal Unity API, but somehow it got the job done. I am sure there are better ways to handle this, specifically by not using internal Unity APIs.
 
 I am still trying to figure out why and how we need to use this type of workaround to make layer masks actually work in custom editor windows.
