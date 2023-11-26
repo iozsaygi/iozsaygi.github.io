@@ -100,6 +100,10 @@ We took a risk; we used the internal Unity API, but somehow it got the job done.
 [Here's](https://discussions.unity.com/t/how-to-create-layermask-field-in-a-custom-editorwindow/13356) the Unity discussion thread related to this blog.
 
 ### Conclusion
-I am still trying to figure out why and how we need to use this type of workaround to make layer masks actually work in custom editor windows. I strongly believe that this is a bad practice that we should not be using. Writing a blog post about something that is bad practice might sound strange, but I also wanted to keep track of risky features. I will be looking into ways to handle this without using the internal Unity API, but until then, this gets the job done with a simple two-line change.
+I am still trying to figure out why and how we need to use this type of workaround to make layer masks actually work in custom editor windows. 
+
+I strongly believe that this is a bad practice that we should not be using. Writing a blog post about something that is bad practice might sound strange, but I also wanted to keep track of risky features. 
+
+I will be looking into ways to handle this without using the internal Unity API, but until then, this gets the job done with a simple two-line change.
 
 Thank you for reading out and exploring a risky feature with me!
