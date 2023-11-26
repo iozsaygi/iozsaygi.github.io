@@ -29,12 +29,12 @@ public class LayerMaskInsideEditorWindow : EditorWindow
   
     private void OnGUI()  
     {        
-	    rayLength = EditorGUILayout.FloatField("Ray Length", rayLength);  
+	rayLength = EditorGUILayout.FloatField("Ray Length", rayLength);  
         targetLayer = EditorGUILayout.LayerField("Target Layer", targetLayer);  
   
         if (GUILayout.Button("Execute"))  
         {            
-	        var ray = new Ray(new Vector3(0.0f, 50.0f, 0.0f), Vector3.down);  
+	    var ray = new Ray(new Vector3(0.0f, 50.0f, 0.0f), Vector3.down);  
             Physics.Raycast(ray, out var raycastHit, rayLength, targetLayer);  
   
             if (raycastHit.collider == null) return;  
