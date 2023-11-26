@@ -46,3 +46,16 @@ public class LayerMaskInsideEditorWindow : EditorWindow
 No matter what I tried, raycasting was not even working. So I decided to take a look at the amazing world of the internet and see how other people actually fixed this issue. After jumping around discussion threads a bit, I found an answer that uses the ``UnityEditorInternal`` namespace.
 
 Of course, Unity is not providing this API for us to use; as its name suggests, it is for Unity's internal API only. So we are definitely taking a risk here because we don't know when this API is actually going to change. Oh, but on the bright side, we learned a new way to handle this specific feature.
+
+Let's take a look at how we can utilize this namespace to handle layer masks in our custom editor windows.
+
+### Utilizing UnityEditorInternal namespace
+The first change we are going to introduce is temporary layer mask caching during the OnGUI function.
+```cs
+var temporaryLayerMask = EditorGUILayout.MaskField(  
+    InternalEditorUtility.LayerMaskToConcatenatedLayersMask(targetLayer), InternalEditorUtility.layers);
+```
+Then we'll set the field of the editor window to a temporary layer mask we cached by using internal API of Unity.
+```cs
+targetLayer = InternalEditorUtility.ConcatenatedLayersMaskToLayerMask(temporaryLayerMask);
+```
