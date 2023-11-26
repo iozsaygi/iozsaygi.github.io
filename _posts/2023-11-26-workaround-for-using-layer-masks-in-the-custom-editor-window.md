@@ -9,4 +9,6 @@ When creating an editor tool that heavily relies on raycasting, I wanted to impl
 
 But somehow, the raycats were not working at all; it was all set and correct in the editor window fields, but something was missing. After a few hours of hair pulling, I finally explored a workaround that actually lets programmers use layer masks inside the custom editor window.
 
-But keep in mind that the code that I am about to reveal is written with Unity version ``2022.3.13f1`` (which is the latest LTS version available), so the API might differ based on your Unity version.
+But keep in mind that the code that I am about to reveal is written with Unity version ``2022.3.13f1`` (which is the latest LTS version available at the time that I am writing this blog), so the API might differ based on your Unity version.
+
+Let's start by inspecting very simple editor code that tries to cast a ray and create a primitive game object at the ray's intersection point.
