@@ -59,3 +59,37 @@ Then we'll set the field of the editor window to a temporary layer mask we cache
 ```cs
 targetLayer = InternalEditorUtility.ConcatenatedLayersMaskToLayerMask(temporaryLayerMask);
 ```
+So the latest state of our editor window class will be something like this:
+```cs
+using UnityEditor;  
+using UnityEditorInternal;  
+using UnityEngine;  
+
+public class LayerMaskInsideEditorWindow : EditorWindow  
+{  
+    private float rayLength;  
+    private LayerMask targetLayer;  
+  
+    [MenuItem("Unity Playground/Layer Mask Inside Editor Window")]  
+    private static void Display() => GetWindow<LayerMaskInsideEditorWindow>();  
+  
+    private void OnGUI()  
+    {        
+	rayLength = EditorGUILayout.FloatField("Ray Length", rayLength);  
+  
+        var temporaryLayerMask = EditorGUILayout.MaskField(  
+            InternalEditorUtility.LayerMaskToConcatenatedLayersMask(targetLayer), InternalEditorUtility.layers);  
+        targetLayer = InternalEditorUtility.ConcatenatedLayersMaskToLayerMask(temporaryLayerMask);  
+  
+        if (GUILayout.Button("Execute"))  
+        {            
+        var ray = new Ray(new Vector3(0.0f, 50.0f, 0.0f), Vector3.down);  
+            Physics.Raycast(ray, out var raycastHit, rayLength, targetLayer);  
+  
+            if (raycastHit.collider == null) return;  
+            GameObject.CreatePrimitive(PrimitiveType.Cube).transform.position = raycastHit.point;  
+        }    }}
+```
+
+
+I am still trying to figure out why and how we need to use this type of workaround to make layer masks actually work in custom editor windows.
