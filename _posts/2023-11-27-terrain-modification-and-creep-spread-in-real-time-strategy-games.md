@@ -20,3 +20,6 @@ I've never been a competitive RTS player, but I was always a fan of the genre. I
 Some of these games introduced a really cool feature called creep spread or corruption. Basically, specific races had the ability to corrupt the land to gain an advantage during battle or improve vision through map, which would be crucial to dominating the opponent during the match.
 
 In this post, I will try my best to explain the implementation of this technique, but first, let's try to understand what corruption or creep spread is in RTS games.
+
+### Understanding the creep mechanic
+When we talk about the Undead race from Warcraft III, we'll see that they are able to corrupt the land by constructing new buildings on the terrain.
