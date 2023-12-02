@@ -31,3 +31,7 @@ The corrupted terrain has a special texture that represents a special area for t
 
 Similar to Warcraft III, StarCraft also has the very same feature for the [Zerg](https://en.wikipedia.org/wiki/Zerg) race.
 ![StarCraft II Zerg Creep](https://github.com/iozsaygi/iozsaygi.github.io/blob/main/assets/imgs/tmacsirtsg/sc2_zerg_creep.png?raw=true)
+
+Also, in most of the RTS games, creep can block opponents from constructing new buildings on terrain. For example, in StarCraft, [Terran](https://starcraft.fandom.com/wiki/Terran) players will not be able to construct a building on top of a terrain that is corrupted by Zerg players' creep.
+
+Now let's get right into Unity and see how we can implement this feature for our own RTS game!
