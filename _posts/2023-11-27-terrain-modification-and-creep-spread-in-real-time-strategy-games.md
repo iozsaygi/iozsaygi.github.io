@@ -35,3 +35,8 @@ Similar to Warcraft III, StarCraft also has the very same feature for the [Zerg]
 Also, in most of the RTS games, creep can block opponents from constructing new buildings on terrain. For example, in StarCraft, [Terran](https://starcraft.fandom.com/wiki/Terran) players will not be able to construct a building on top of a terrain that is corrupted by Zerg players' creep.
 
 Now let's get right into Unity and see how we can implement this feature for our own RTS game!
+
+### Overview
+(Explain the core idea of the implementation here)
+
+I will be separating the implementation part into several topics to ease the reading process. You can find the specific topics below.
