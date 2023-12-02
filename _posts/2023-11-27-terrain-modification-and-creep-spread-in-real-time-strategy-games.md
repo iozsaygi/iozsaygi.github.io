@@ -24,4 +24,6 @@ In this post, I will try my best to explain the implementation of this technique
 ### Understanding the creep mechanic
 When we talk about the [Undead](https://liquipedia.net/warcraft/Undead) race from Warcraft III, we'll see that they are able to corrupt the land by constructing new buildings on the terrain.
 
+Let's take a look at the image below. The corrupted terrain has a special texture that represents a special area for the Undead race. Undead units will gain additional positive effects (buffs) if they are on corrupted terrain.
+
 ![Warcraft III Undead Blight](https://github.com/iozsaygi/iozsaygi.github.io/blob/main/assets/imgs/tmacsirtsg/wc3_undead_blight.png?raw=true)
