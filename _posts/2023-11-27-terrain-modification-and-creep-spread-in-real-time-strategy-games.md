@@ -26,6 +26,7 @@ When we talk about the [Undead](https://liquipedia.net/warcraft/Undead) race fro
 
 Let's take a look at the screenshot below from Warcraft III.
 ![Warcraft III Undead Blight](https://github.com/iozsaygi/iozsaygi.github.io/blob/main/assets/imgs/tmacsirtsg/wc3_undead_blight.png?raw=true)
+
 The corrupted terrain has a special texture that represents a special area for the Undead race. Undead units will gain additional positive effects (buffs) if they are on corrupted terrain.
 
 Similar to Warcraft III, StarCraft also has the very same feature for the [Zerg](https://en.wikipedia.org/wiki/Zerg) race.
