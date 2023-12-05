@@ -37,6 +37,12 @@ Also, in most of the RTS games, creep can block opponents from constructing new 
 Now let's get right into Unity and see how we can implement this feature for our own RTS game!
 
 ### Overview
-(Explain the core idea of the implementation here)
+To keep things simple for the sake of this blog post, I will be implementing the feature in a top-down 2D environment. Also, I am not planning to share any shader code since I am not that good with shader development. So I'm sorry for those who were looking for shader source code. We will mostly stick to gameplay logic.
 
 I will be separating the implementation part into several topics to ease the reading process. You can find the specific topics below.
+
+1. Scene preparation
+2. Node structure
+3. Generating a node map
+4. Building placement
+5. Implementing creep logic
