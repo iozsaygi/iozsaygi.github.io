@@ -54,7 +54,23 @@ Here's my current game view; simple as that.
 ![Scene Preparation](https://github.com/iozsaygi/iozsaygi.github.io/blob/main/assets/imgs/tmacsirtsg/scene-preparation.png?raw=true)
 
 ### Node structure
-Nodes are the core building blocks of RTS games. They are used for pathfinding, map data generation, building placements, and many more. We will be representing nodes with a really simple read-only struct that just contains position information for each node instance.
+Nodes are the core building blocks of RTS games. They are used for pathfinding, map data generation, building placements, and many more. 
+
+We will be representing nodes with a really simple read-only struct that contains information about the node's ID, position, and neighbors.
+
+The first structure is NodeID, which just contains a unique byte value to represent our node's number in the node map. Nothing fancy.
+```cs
+public readonly struct NodeID
+{
+    // We can get away with 'byte' here because we know we will not have that many nodes.
+    public readonly byte Value;
+
+    public NodeID(byte value)
+    {
+	    Value = value;
+    }
+}
+```
 
 ```cs
 using UnityEngine;
