@@ -49,3 +49,6 @@ I will be separating the implementation part into several topics to ease the rea
 
 ### Scene preparation
 We will not have fancy things in scene just a camera with dark background color as skybox will fork just fine!
+
+Here's my current game view; simple as that.
+![Scene Preparation](https://github.com/iozsaygi/iozsaygi.github.io/blob/main/assets/imgs/tmacsirtsg/scene-preparation.png?raw=true)
