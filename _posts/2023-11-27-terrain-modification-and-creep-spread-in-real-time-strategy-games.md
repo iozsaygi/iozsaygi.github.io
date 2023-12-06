@@ -78,11 +78,15 @@ using UnityEngine;
 
 public readonly struct Node
 {
+    public readonly NodeID NodeID;
     public readonly Vector3Int Position;
+    public readonly NodeID[] Neighbors;
 
-    public Node(Vector3Int position)
+    public Node(NodeID nodeID, Vector3Int position, NodeID[] neighbors)  
     {
-	    Position = position;
+	    NodeID = nodeID;
+        Position = position;
+        Neighbors = neighbors;
     }
 }
 ```
