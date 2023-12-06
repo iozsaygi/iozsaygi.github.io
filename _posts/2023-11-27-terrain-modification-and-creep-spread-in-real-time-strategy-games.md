@@ -90,3 +90,5 @@ public readonly struct Node
     }
 }
 ```
+
+Alright, these two structs should be enough to implement the rest of the logic. We first thought about the data we had and tried to represent it with a model. Let's jump into another fun part: generating node maps.
