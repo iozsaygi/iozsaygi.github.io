@@ -41,8 +41,11 @@ To keep things simple for the sake of this blog post, I will be implementing the
 
 I will be separating the implementation part into several topics to ease the reading process. You can find the specific topics below.
 
-1. Scene preparation
+1. [Scene preparation](#scene-preparation)
 2. Node structure
 3. Generating a node map
 4. Building placement
 5. Implementing creep logic
+
+### Scene preparation
+We will not have fancy things in scene just a camera with dark background color as skybox will fork just fine!
