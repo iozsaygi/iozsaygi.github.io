@@ -53,6 +53,8 @@ We will not have fancy things in scene just a camera with dark background color 
 Here's my current game view; simple as that.
 ![Scene Preparation](https://github.com/iozsaygi/iozsaygi.github.io/blob/main/assets/imgs/tmacsirtsg/scene-preparation.png?raw=true)
 
+One thing to mention is that I will be using ``800x600`` as my reference resolution in game view to ensure consistency between screenshot sizes.
+
 ### Node structure
 Nodes are the core building blocks of RTS games. They are used for pathfinding, map data generation, building placements, and many more. 
 
