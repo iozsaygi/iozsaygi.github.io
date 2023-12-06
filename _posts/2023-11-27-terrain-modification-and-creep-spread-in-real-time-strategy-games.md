@@ -42,7 +42,7 @@ To keep things simple for the sake of this blog post, I will be implementing the
 I will be separating the implementation part into several topics to ease the reading process. You can find the specific topics below.
 
 1. [Scene preparation](#scene-preparation)
-2. Node structure
+2. [Node structure](#node-structure)
 3. Generating a node map
 4. Building placement
 5. Implementing creep logic
@@ -52,3 +52,5 @@ We will not have fancy things in scene just a camera with dark background color 
 
 Here's my current game view; simple as that.
 ![Scene Preparation](https://github.com/iozsaygi/iozsaygi.github.io/blob/main/assets/imgs/tmacsirtsg/scene-preparation.png?raw=true)
+
+### Node structure
