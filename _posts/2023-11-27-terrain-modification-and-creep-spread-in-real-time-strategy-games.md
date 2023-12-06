@@ -84,7 +84,7 @@ public readonly struct Node
 
     public Node(NodeID nodeID, Vector3Int position, NodeID[] neighbors)  
     {
-	    NodeID = nodeID;
+	NodeID = nodeID;
         Position = position;
         Neighbors = neighbors;
     }
