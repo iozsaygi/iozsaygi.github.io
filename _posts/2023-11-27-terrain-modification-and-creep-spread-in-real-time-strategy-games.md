@@ -94,3 +94,10 @@ public readonly struct Node
 ```
 
 Alright, these two structs should be enough to implement the rest of the logic. We first thought about the data we had and tried to represent it with a model. Let's jump into another fun part: generating node maps.
+
+### Generating a node map
+After generating those structs, we have to put them to good use. That's where the node map comes in. We'll have a node map class that basically generates nodes on scene by respecting the game view's size, which is ``800x600``.
+
+We'll be creating ``10x10`` nodes to ensure that we are working with integers during creation. Trying to avoid floating-point numbers. So our node map will have ``80`` nodes on each row and ``60`` nodes on each column.
+
+Let's review the MonoBehaviour below.
