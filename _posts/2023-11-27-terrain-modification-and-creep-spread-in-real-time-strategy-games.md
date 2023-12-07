@@ -43,7 +43,7 @@ I will be separating the implementation part into several topics to ease the rea
 
 1. [Scene preparation](#scene-preparation)
 2. [Node structure](#node-structure)
-3. Generating a node map
+3. [Generating a node map](#generating-a-node-map)
 4. Building placement
 5. Implementing creep logic
 
