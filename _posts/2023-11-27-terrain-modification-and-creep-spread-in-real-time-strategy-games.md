@@ -81,10 +81,10 @@ using UnityEngine;
 public readonly struct Node
 {
     public readonly NodeID NodeID;
-    public readonly Vector3Int Position;
+    public readonly Vector3 Position;
     public readonly NodeID[] Neighbors;
 
-    public Node(NodeID nodeID, Vector3Int position, NodeID[] neighbors)  
+    public Node(NodeID nodeID, Vector3 position, NodeID[] neighbors)  
     {
 	NodeID = nodeID;
         Position = position;
@@ -98,6 +98,6 @@ Alright, these two structs should be enough to implement the rest of the logic. 
 ### Generating a node map
 After generating those structs, we have to put them to good use. That's where the node map comes in. We'll have a node map class that basically generates nodes on scene by respecting the game view's size, which is ``800x600``.
 
-We'll be creating ``10x10`` nodes to ensure that we are working with integers during creation. Trying to avoid floating-point numbers. So our node map will have ``80`` nodes on each row and ``60`` nodes on each column.
+We'll be creating ``100x100`` nodes to ensure that we are working with integers during creation. Trying to avoid floating-point numbers. So our node map will have ``8`` nodes on each row and ``6`` nodes on each column.
 
 Let's review the MonoBehaviour below.
