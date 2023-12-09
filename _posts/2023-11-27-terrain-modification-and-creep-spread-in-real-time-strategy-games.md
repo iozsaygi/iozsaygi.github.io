@@ -51,7 +51,7 @@ I will be separating the implementation part into several topics to ease the rea
 We will not have fancy things in scene just a camera with dark background color as skybox will fork just fine!
 
 Here's my current game view; simple as that.
-![Scene Preparation](https://github.com/iozsaygi/iozsaygi.github.io/blob/main/assets/imgs/tmacsirtsg/scene-preparation.png?raw=true)
+![Scene Preparation](https://github.com/iozsaygi/iozsaygi.github.io/blob/main/assets/imgs/tmacsirtsg/scene_preparation.png?raw=true)
 
 One thing to mention is that I will be using ``800x600`` as my reference resolution in game view to ensure consistency between screenshot sizes.
 
