@@ -74,7 +74,7 @@ public readonly struct NodeID
 }
 ```
 
-The second structure is the node's itself. This one contains the ID value of its neighbor nodes.
+The second structure is the node's itself. This one contains its ID value, the position of itself, and the ID values of its neighbors.
 ```cs
 using UnityEngine;
 
