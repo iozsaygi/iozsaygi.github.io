@@ -37,7 +37,7 @@ Also, in most of the RTS games, creep can block opponents from constructing new 
 Now let's get right into Unity and see how we can implement this feature for our own RTS game!
 
 ### Overview
-To keep things simple for the sake of this blog post, I will be implementing the feature in a top-down 2D environment. Also, I am not planning to share any shader code since I am not that good with shader development. So I'm sorry for those who were looking for shader source code. We will mostly stick to gameplay logic.
+To keep things simple for the sake of this blog post, we will be implementing the feature in a 3D isometric environment. Also, I am not planning to share any shader code since I am not that good with shader development. So I'm sorry for those who were looking for shader source code. We will mostly stick to gameplay logic.
 
 I will be separating the implementation part into several topics to ease the reading process. You can find the specific topics below.
 
@@ -48,7 +48,7 @@ I will be separating the implementation part into several topics to ease the rea
 5. Implementing creep logic
 
 ### Scene preparation
-We will not have fancy things in scene just a camera with dark background color as skybox will fork just fine!
+A simple isometric camera with ``orthographic`` projection is pretty enough. I also added a plane object at ``(0.0f, 0.0f, 0.0f)`` to make it act as our ground.
 
 Here's my current game view; simple as that.
 ![Scene Preparation](https://github.com/iozsaygi/iozsaygi.github.io/blob/main/assets/imgs/tmacsirtsg/scene_preparation.png?raw=true)
