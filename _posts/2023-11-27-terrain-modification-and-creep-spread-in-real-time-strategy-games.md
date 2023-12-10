@@ -178,7 +178,8 @@ So it would also be so cool for us to see Node ID values in Gizmos mode. Let's g
   
         var guiStyle = new GUIStyle();  
         for (var i = 0; i < nodes.Length; i++)  
-        {            var renderPositionWithOffset = nodes[i].Position + new Vector3(0.0f, 0.5f, 0.0f);  
+        {            
+        var renderPositionWithOffset = nodes[i].Position + new Vector3(0.0f, 0.5f, 0.0f);  
             guiStyle.normal.textColor = Color.magenta;  
             Handles.Label(renderPositionWithOffset, nodes[i].NodeID.Value.ToString(), guiStyle);  
         }    
