@@ -64,8 +64,8 @@ The first structure is NodeID, which just contains a unique byte value to repres
 ```cs
 public readonly struct NodeID
 {
-	// The value that we will be using to represent invalid nodes.  
-	public const byte InvalidNodeID = 255;
+// The value that we will be using to represent invalid nodes.  
+public const byte InvalidNodeID = 255;
 
     // We can get away with 'byte' here because we know we will not have that many nodes.
     public readonly byte Value;
