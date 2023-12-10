@@ -107,6 +107,9 @@ public class NodeMap : MonoBehaviour
 {
     [SerializeField] private MeshFilter meshFilter;
     [SerializeField] private Vector3 originOffset;
+    
+    // The actual prefab that we will use to visualize the node map. Change it however you like.
+    [SerializeField] private LineRenderer lineRendererPrefab;
 
     // The actual array that we'll be generating nodes on.
     private Nodes[] nodes;
@@ -231,3 +234,6 @@ private void CreateLineRenderers()
     }
 }
 ```
+
+This is how it looks after adding line renderers; now we are able to visually separate nodes from each other at runtime.
+![Line Renderers](https://github.com/iozsaygi/iozsaygi.github.io/blob/main/assets/imgs/tmacsirtsg/line_renderers.png?raw=true)
