@@ -201,8 +201,8 @@ private void CreateLineRenderers()
 {  
     // Origin point that line renderers will be generated from.  
     var origin = new Vector3(-5.0f, 0.0f, -5.0f);  
-    // Variables to manipulate actual positions, they can also be exposed/serialized to the inspector.
     
+    // Variables to manipulate actual positions, they can also be exposed/serialized to the inspector.
     const float verticalOffset = 0.025f;  
     const byte lineLength = 10;  
     const byte spaceBetweenLines = 1;  
@@ -210,7 +210,7 @@ private void CreateLineRenderers()
     // Vertical line creation.  
     for (var i = 0; i < nodeMapSize.y + 1; i++)  
     {        
-    var horizontalLineRendererGameObject = Instantiate(lineRendererPrefab, transform.position, Quaternion.identity);  
+       var horizontalLineRendererGameObject = Instantiate(lineRendererPrefab, transform.position, Quaternion.identity);  
         horizontalLineRendererGameObject.transform.SetParent(transform, false);  
         var lineRenderer = horizontalLineRendererGameObject.GetComponent<LineRenderer>();  
         lineRenderer.positionCount = 2;  
@@ -221,7 +221,7 @@ private void CreateLineRenderers()
     // Horizontal line creation.  
     for (var i = 0; i < nodeMapSize.x + 1; i++)  
     {        
-    var verticalLineRendererGameObject = Instantiate(lineRendererPrefab, transform.position, Quaternion.identity);  
+        var verticalLineRendererGameObject = Instantiate(lineRendererPrefab, transform.position, Quaternion.identity);  
         verticalLineRendererGameObject.transform.SetParent(transform, false);  
         var lineRenderer = verticalLineRendererGameObject.GetComponent<LineRenderer>();  
         var firstPosition = new Vector3(origin.x + (i * spaceBetweenLines), origin.y + verticalOffset, -origin.z);  
