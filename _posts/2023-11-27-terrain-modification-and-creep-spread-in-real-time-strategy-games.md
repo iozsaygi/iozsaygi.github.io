@@ -108,8 +108,8 @@ public class NodeMap : MonoBehaviour
     [SerializeField] private MeshFilter meshFilter;
     [SerializeField] private Vector3 originOffset;
 
-// The actual array that we'll be generating nodes on.
-private Nodes[] nodes;
+    // The actual array that we'll be generating nodes on.
+    private Nodes[] nodes;
 }
 ```
 
@@ -179,7 +179,7 @@ So it would also be so cool for us to see Node ID values in Gizmos mode. Let's g
         var guiStyle = new GUIStyle();  
         for (var i = 0; i < nodes.Length; i++)  
         {            
-        var renderPositionWithOffset = nodes[i].Position + new Vector3(0.0f, 0.5f, 0.0f);  
+            var renderPositionWithOffset = nodes[i].Position + new Vector3(0.0f, 0.5f, 0.0f);  
             guiStyle.normal.textColor = Color.magenta;  
             Handles.Label(renderPositionWithOffset, nodes[i].NodeID.Value.ToString(), guiStyle);  
         }    
