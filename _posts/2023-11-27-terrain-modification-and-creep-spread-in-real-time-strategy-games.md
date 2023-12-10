@@ -64,6 +64,9 @@ The first structure is NodeID, which just contains a unique byte value to repres
 ```cs
 public readonly struct NodeID
 {
+	// The value that we will be using to represent invalid nodes.  
+	public const byte InvalidNodeID = 255;
+
     // We can get away with 'byte' here because we know we will not have that many nodes.
     public readonly byte Value;
 
@@ -96,3 +99,15 @@ public readonly struct Node
 Alright, these two structs should be enough to implement the rest of the logic. We first thought about the data we had and tried to represent it with a model. Let's jump into another fun part: generating node maps.
 
 ### Generating a node map
+At first, we'll be adding the required serialized fields to our MonoBehaviour. ``MeshFilter`` will basically refer to the ground object that we created earlier, and the origin offset will be ``(0.5f, 0.0f, 0.5f)`` for the sake of this blog post.
+```cs
+using UnityEngine;
+
+public class NodeMap : MonoBehaviour
+{
+    [SerializeField] private MeshFilter meshFilter;
+    [SerializeField] private Vector3 originOffset;
+}
+```
+
+We will use the vertices of the plane to divide it equally for creating nodes. Please refer to the official [Unity documentation](https://docs.unity3d.com/ScriptReference/MeshFilter-sharedMesh.html) for detailed information about mesh filters and shared meshes.
