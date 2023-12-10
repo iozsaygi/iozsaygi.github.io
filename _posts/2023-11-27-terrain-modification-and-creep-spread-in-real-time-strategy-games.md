@@ -111,3 +111,53 @@ public class NodeMap : MonoBehaviour
 ```
 
 We will use the vertices of the plane to divide it equally for creating nodes. Please refer to the official [Unity documentation](https://docs.unity3d.com/ScriptReference/MeshFilter-sharedMesh.html) for detailed information about mesh filters and shared meshes.
+
+Now we will implement the actual node generation. This is a relatively big function, so please bear with me. I tried to add comments to each section of it.
+```cs
+private void Initialize()  
+{  
+    // Register corner points of mesh.  
+    var meshCornerPoints = new Vector3[3];  
+    var vertices = meshFilter.sharedMesh.vertices;  
+  
+    // 'vertices[120]' is the origin for us. (Closest corner to the camera)  
+    meshCornerPoints[0] = meshFilter.transform.TransformPoint(vertices[120]);  
+    meshCornerPoints[1] = meshFilter.transform.TransformPoint(vertices[10]);  
+    meshCornerPoints[2] = meshFilter.transform.TransformPoint(vertices[0]);  
+  
+    // Calculate how many nodes will be available for each row and column.  
+    var horizontalLength = Vector3.Distance(meshCornerPoints[0], meshCornerPoints[1]);  
+    var verticalLength = Vector3.Distance(meshCornerPoints[1], meshCornerPoints[2]);  
+    nodes = new Node[(int)horizontalLength * (int)verticalLength];  
+  
+    // Define variables to handle generation in single for pass.  
+    var origin = meshCornerPoints[0] + originOffset;  
+    var iteration = 0;  
+    var depthOffset = 0;  
+  
+    for (byte i = 0; i < nodes.Length; i++)  
+    {        // Calculated position of the node.  
+        var placement = new Vector3(origin.x + iteration, 0.0f, origin.z + depthOffset);  
+  
+        // Neighbor calculations for each node.  
+        var rowLength = (int)horizontalLength;  
+        var forwardNeighborID = i + rowLength < nodes.Length ? new NodeID((byte)(i + rowLength)) : new NodeID(NodeID.InvalidNodeID);  
+        var backwardNeighborID = i - rowLength >= 0 ? new NodeID((byte)(i - rowLength)) : new NodeID(NodeID.InvalidNodeID);  
+        var rightNeighborID = (i + 1) % rowLength != 0 && i + 1 < nodes.Length ? new NodeID((byte)(i + 1)) : new NodeID(NodeID.InvalidNodeID);  
+        var leftNeighborID = i % rowLength != 0 ? new NodeID((byte)(i - 1)) : new NodeID(NodeID.InvalidNodeID);  
+  
+        var neighbors = new NodeID[4];  
+        neighbors[0] = forwardNeighborID;  
+        neighbors[1] = backwardNeighborID;  
+        neighbors[2] = rightNeighborID;  
+        neighbors[3] = leftNeighborID;  
+  
+        // Generate the actual node in array.  
+        nodes[i] = new Node(new NodeID(i), placement, neighbors);  
+  
+        iteration++;        if (!(iteration >= horizontalLength)) continue;  
+        iteration = 0;  
+        depthOffset += 1;  
+    }
+}
+```
