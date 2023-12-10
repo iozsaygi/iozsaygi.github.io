@@ -107,6 +107,9 @@ public class NodeMap : MonoBehaviour
 {
     [SerializeField] private MeshFilter meshFilter;
     [SerializeField] private Vector3 originOffset;
+
+	// The actual array that we'll be generating nodes on.
+	private Nodes[] nodes;
 }
 ```
 
@@ -163,3 +166,23 @@ private void Initialize()
     }
 }
 ```
+
+We can call this function at the ``Start`` or ``Awake`` callback of our MonoBehavior; it doesn't really matter for our case since we don't care about race conditions currently.
+
+So it would also be so cool for us to see Node ID values in Gizmos mode. Let's go ahead and also implement the Gizmos function to render ID values for each node we created.
+```cs
+#if UNITY_EDITOR  
+    private void OnDrawGizmosSelected()  
+    {        
+        if (nodes == null) return;  
+  
+        var guiStyle = new GUIStyle();  
+        for (var i = 0; i < nodes.Length; i++)  
+        {            var renderPositionWithOffset = nodes[i].Position + new Vector3(0.0f, 0.5f, 0.0f);  
+            guiStyle.normal.textColor = Color.magenta;  
+            Handles.Label(renderPositionWithOffset, nodes[i].NodeID.Value.ToString(), guiStyle);  
+        }    
+}#endif // UNITY_EDITOR
+```
+
+One thing to mention is that you need to include ``UnityEditor`` to be able to render labels with the [Handles](https://docs.unity3d.com/ScriptReference/Handles.html) API.
