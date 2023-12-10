@@ -108,8 +108,8 @@ public class NodeMap : MonoBehaviour
     [SerializeField] private MeshFilter meshFilter;
     [SerializeField] private Vector3 originOffset;
 
-	// The actual array that we'll be generating nodes on.
-	private Nodes[] nodes;
+// The actual array that we'll be generating nodes on.
+private Nodes[] nodes;
 }
 ```
 
