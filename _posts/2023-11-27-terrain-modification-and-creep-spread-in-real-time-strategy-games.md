@@ -210,7 +210,7 @@ private void CreateLineRenderers()
     // Vertical line creation.  
     for (var i = 0; i < nodeMapSize.y + 1; i++)  
     {        
-       var horizontalLineRendererGameObject = Instantiate(lineRendererPrefab, transform.position, Quaternion.identity);  
+        var horizontalLineRendererGameObject = Instantiate(lineRendererPrefab, transform.position, Quaternion.identity);  
         horizontalLineRendererGameObject.transform.SetParent(transform, false);  
         var lineRenderer = horizontalLineRendererGameObject.GetComponent<LineRenderer>();  
         lineRenderer.positionCount = 2;  
