@@ -137,7 +137,7 @@ private void Initialize()
 
     for (byte i = 0; i < nodes.Length; i++)
     {        
-    // Calculated position of the node.
+        // Calculated position of the node.
         var placement = new Vector3(origin.x + iteration, 0.0f, origin.z + depthOffset);
 
         // Neighbor calculations for each node
