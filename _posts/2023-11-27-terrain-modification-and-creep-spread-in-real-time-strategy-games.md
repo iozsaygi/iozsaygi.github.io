@@ -186,3 +186,6 @@ So it would also be so cool for us to see Node ID values in Gizmos mode. Let's g
 ```
 
 One thing to mention is that you need to include ``UnityEditor`` to be able to render labels with the [Handles](https://docs.unity3d.com/ScriptReference/Handles.html) API.
+
+After implementing the Gizmos rendering, our scene should look something like this:
+![Node IDs with Gizmos](https://github.com/iozsaygi/iozsaygi.github.io/blob/main/assets/imgs/tmacsirtsg/node_ids_with_gizmos.png?raw=true)
