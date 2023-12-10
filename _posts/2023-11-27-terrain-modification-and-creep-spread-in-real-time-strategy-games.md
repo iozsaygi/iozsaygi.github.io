@@ -138,6 +138,7 @@ private void Initialize()
     var horizontalLength = Vector3.Distance(meshCornerPoints[0], meshCornerPoints[1]); 
     var verticalLength = Vector3.Distance(meshCornerPoints[1], meshCornerPoints[2]);
     nodes = new Node[(int)horizontalLength * (int)verticalLength];
+    nodeMapSize = new Vector2(horizontalLength, verticalLength);
 
     // Define variables to handle generation in single for pass.
     var origin = meshCornerPoints[0] + originOffset;
