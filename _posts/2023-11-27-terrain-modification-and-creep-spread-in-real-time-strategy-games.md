@@ -183,7 +183,8 @@ So it would also be so cool for us to see Node ID values in Gizmos mode. Let's g
             guiStyle.normal.textColor = Color.magenta;  
             Handles.Label(renderPositionWithOffset, nodes[i].NodeID.Value.ToString(), guiStyle);  
         }    
-}#endif // UNITY_EDITOR
+}
+#endif // UNITY_EDITOR
 ```
 
 One thing to mention is that you need to include ``UnityEditor`` to be able to render labels with the [Handles](https://docs.unity3d.com/ScriptReference/Handles.html) API.
