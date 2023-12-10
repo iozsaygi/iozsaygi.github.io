@@ -172,17 +172,17 @@ We can call this function at the ``Start`` or ``Awake`` callback of our MonoBeha
 So it would also be so cool for us to see Node ID values in Gizmos mode. Let's go ahead and also implement the Gizmos function to render ID values for each node we created.
 ```cs
 #if UNITY_EDITOR  
-    private void OnDrawGizmosSelected()  
-    {        
-        if (nodes == null) return;  
+private void OnDrawGizmosSelected()  
+{        
+    if (nodes == null) return;  
   
-        var guiStyle = new GUIStyle();  
-        for (var i = 0; i < nodes.Length; i++)  
-        {            
-            var renderPositionWithOffset = nodes[i].Position + new Vector3(0.0f, 0.5f, 0.0f);  
-            guiStyle.normal.textColor = Color.magenta;  
-            Handles.Label(renderPositionWithOffset, nodes[i].NodeID.Value.ToString(), guiStyle);  
-        }    
+    var guiStyle = new GUIStyle();  
+    for (var i = 0; i < nodes.Length; i++)  
+    {            
+        var renderPositionWithOffset = nodes[i].Position + new Vector3(0.0f, 0.5f, 0.0f);  
+        guiStyle.normal.textColor = Color.magenta;  
+        Handles.Label(renderPositionWithOffset, nodes[i].NodeID.Value.ToString(), guiStyle);  
+    }    
 }
 #endif // UNITY_EDITOR
 ```
