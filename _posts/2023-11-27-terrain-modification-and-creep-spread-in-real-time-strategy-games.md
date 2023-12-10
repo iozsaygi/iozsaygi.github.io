@@ -37,7 +37,7 @@ Also, in most of the RTS games, creep can block opponents from constructing new 
 Now let's get right into Unity and see how we can implement this feature for our own RTS game!
 
 ### Overview
-To keep things simple for the sake of this blog post, we will be implementing the feature in a 3D isometric environment. Also, I am not planning to share any shader code since I am not that good with shader development. So I'm sorry for those who were looking for shader source code. We will mostly stick to gameplay logic.
+To keep things simple for the sake of this blog post, we will be implementing the feature in a 3D isometric environment. Also, I am not planning to share any shader code since I am not that good with shader development. So I'm sorry for those who were looking for shader source code. We will mostly stick to gameplay logic. Also note that I will be using Unity ``2022.3.14f1`` for this blog post, so the API might be different based on the time you are reading this post.
 
 I will be separating the implementation part into several topics to ease the reading process. You can find the specific topics below.
 
