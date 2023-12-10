@@ -110,6 +110,9 @@ public class NodeMap : MonoBehaviour
 
     // The actual array that we'll be generating nodes on.
     private Nodes[] nodes;
+
+    // Size of the generated node map.
+    private Vector2 nodeMapSize;
 }
 ```
 
@@ -191,3 +194,35 @@ One thing to mention is that you need to include ``UnityEditor`` to be able to r
 
 After implementing the Gizmos rendering, our scene should look something like this:
 ![Node IDs with Gizmos](https://github.com/iozsaygi/iozsaygi.github.io/blob/main/assets/imgs/tmacsirtsg/node_ids_with_gizmos.png?raw=true)
+
+Now let's also add line renderers to visually divide our plane into groups of nodes.
+```csharp
+private void CreateLineRenderers()  
+{  
+    // Origin point that line renderers will be generated from.  
+    var origin = new Vector3(-5.0f, 0.0f, -5.0f);  
+    // Variables to manipulate actual positions, they can also be exposed/serialized to the inspector.  
+    const float verticalOffset = 0.025f;  
+    const byte lineLength = 10;  
+    const byte spaceBetweenLines = 1;  
+    // Vertical line creation.  
+    for (var i = 0; i < nodeMapSize.y + 1; i++)  
+    {        var horizontalLineRendererGameObject = Instantiate(lineRendererPrefab, transform.position, Quaternion.identity);  
+        horizontalLineRendererGameObject.transform.SetParent(transform, false);  
+        var lineRenderer = horizontalLineRendererGameObject.GetComponent<LineRenderer>();  
+        lineRenderer.positionCount = 2;  
+        lineRenderer.SetPosition(0, new Vector3(origin.x, origin.y + verticalOffset, origin.z + (i * spaceBetweenLines)));  
+        lineRenderer.SetPosition(1, new Vector3(origin.x + lineLength, origin.y + verticalOffset, origin.z + (i * spaceBetweenLines)));  
+    }  
+    // Horizontal line creation.  
+    for (var i = 0; i < nodeMapSize.x + 1; i++)  
+    {        var verticalLineRendererGameObject = Instantiate(lineRendererPrefab, transform.position, Quaternion.identity);  
+        verticalLineRendererGameObject.transform.SetParent(transform, false);  
+        var lineRenderer = verticalLineRendererGameObject.GetComponent<LineRenderer>();  
+        var firstPosition = new Vector3(origin.x + (i * spaceBetweenLines), origin.y + verticalOffset, -origin.z);  
+        var secondPosition = new Vector3(origin.x + (i * spaceBetweenLines), origin.y + verticalOffset, origin.z);  
+        lineRenderer.SetPosition(0, firstPosition);  
+        lineRenderer.SetPosition(1, secondPosition);  
+    }
+}
+```
