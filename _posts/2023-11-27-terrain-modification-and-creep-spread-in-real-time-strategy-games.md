@@ -44,7 +44,7 @@ I will be separating the implementation part into several topics to ease the rea
 1. [Scene preparation](#scene-preparation)
 2. [Node structure](#node-structure)
 3. [Generating a node map](#generating-a-node-map)
-4. Building placement
+4. [Building placement](!#building-placement)
 5. Implementing creep logic
 
 ### Scene preparation
@@ -239,3 +239,5 @@ This is how it looks after adding line renderers; now we are able to visually se
 ![Line Renderers](https://github.com/iozsaygi/iozsaygi.github.io/blob/main/assets/imgs/tmacsirtsg/line_renderers.png?raw=true)
 
 Now that we have node generation and a way to visualize it at runtime, let's take a look at how we can place buildings on nodes by using raycasting.
+
+### Building placement
