@@ -237,3 +237,5 @@ private void CreateLineRenderers()
 
 This is how it looks after adding line renderers; now we are able to visually separate nodes from each other at runtime.
 ![Line Renderers](https://github.com/iozsaygi/iozsaygi.github.io/blob/main/assets/imgs/tmacsirtsg/line_renderers.png?raw=true)
+
+Now that we have node generation and a way to visualize it at runtime, let's take a look at how we can place buildings on nodes by using raycasting.
