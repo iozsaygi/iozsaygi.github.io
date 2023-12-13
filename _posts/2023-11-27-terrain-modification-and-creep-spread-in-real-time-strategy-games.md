@@ -263,4 +263,44 @@ This is how it looks after adding line renderers; now we are able to visually se
 Now that we have node generation and a way to visualize it at runtime, let's take a look at how we can place buildings on nodes by using raycasting.
 
 ### Building placement
-First, let's try to detect the node that we are pointing at with the mouse. Building placement will be much easier after we complete this step. To achieve this, we will use the raycasting code below.
+We will be creating a controller that uses raycasting to place buildings on top of nodes that we just created. We will not handle cases like not placing buildings on occupied nodes to keep this blog post simple.
+```cs
+using UnityEngine;  
+  
+public class IsometricController : MonoBehaviour  
+{  
+    // Reference of camera that we will be using.  
+    [SerializeField] private Camera mainCamera;  
+  
+    // Length of the ray.  
+    [SerializeField] private float rayDistance;  
+  
+    // The layer that we want to cast rays against.  
+    [SerializeField] private LayerMask targetLayer;  
+  
+    // Reference of node map class to calculate node positions.  
+    [SerializeField] private NodeMap nodeMap;  
+  
+    // The actual building prefab that will be placed by raycasting.  
+    [SerializeField] private GameObject buildingPrefab;  
+  
+    private void Update()  
+    {        // Wait for 'LMB' to trigger.  
+        if (!Input.GetMouseButtonDown(0)) return;  
+  
+        // Construct the actual ray and perform a single raycast.  
+        var ray = mainCamera.ScreenPointToRay(Input.mousePosition);  
+        if (!Physics.Raycast(ray, out var raycastHit, rayDistance, targetLayer)) return;  
+  
+        // Convert world position to actual node.  
+        var interactionPoint = raycastHit.point;  
+        nodeMap.FetchNodeFromWorldPoint(interactionPoint, out var node);  
+  
+        // Spawn building at the node we just converted.  
+        Instantiate(buildingPrefab, node.Position + new Vector3(0.0f, 0.5f, 0.0f), Quaternion.identity);  
+    }}
+```
+
+I tried my best to explain the logic with comments, but if I need to create a summary, we are waiting for the left mouse button (at least for PC) to be triggered and then casting rays from the camera into our world. Then we are detecting which node we are interacting with by using the ``FetchNodeFromWorldPoint`` function that we added to the node map class. Finally, we are spawning the actual building object on the node.
+
+Now that we are able to place buildings with mouse clicks, we can finally start to work on the actual gameplay implementation of creep spread.
