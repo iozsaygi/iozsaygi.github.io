@@ -242,3 +242,4 @@ This is how it looks after adding line renderers; now we are able to visually se
 Now that we have node generation and a way to visualize it at runtime, let's take a look at how we can place buildings on nodes by using raycasting.
 
 ### Building placement
+First, let's try to detect the node that we are pointing at with the mouse. Building placement will be much easier after we complete this step. To achieve this we will use the raycasting code below.
