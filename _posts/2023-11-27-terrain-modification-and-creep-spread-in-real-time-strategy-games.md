@@ -285,7 +285,8 @@ public class IsometricController : MonoBehaviour
     [SerializeField] private GameObject buildingPrefab;  
   
     private void Update()  
-    {        // Wait for 'LMB' to trigger.  
+    {        
+    // Wait for 'LMB' to trigger.  
         if (!Input.GetMouseButtonDown(0)) return;  
   
         // Construct the actual ray and perform a single raycast.  
@@ -298,7 +299,8 @@ public class IsometricController : MonoBehaviour
   
         // Spawn building at the node we just converted.  
         Instantiate(buildingPrefab, node.Position + new Vector3(0.0f, 0.5f, 0.0f), Quaternion.identity);  
-    }}
+    }
+}
 ```
 
 I tried my best to explain the logic with comments, but if I need to create a summary, we are waiting for the left mouse button (at least for PC) to be triggered and then casting rays from the camera into our world. Then we are detecting which node we are interacting with by using the ``FetchNodeFromWorldPoint`` function that we added to the node map class. Finally, we are spawning the actual building object on the node.
