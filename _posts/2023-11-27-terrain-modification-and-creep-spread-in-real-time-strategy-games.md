@@ -210,7 +210,7 @@ public void FetchNodeFromWorldPoint(Vector3 worldPoint, out Node node)
 
     for (byte i = 0; i < nodes.Length; i++)
     { 
-    var bounds = new Bounds(nodes[i].Position, Node.Size);
+        var bounds = new Bounds(nodes[i].Position, Node.Size);
         if (!bounds.Contains(worldPoint)) continue;
         node = nodes[i];
         break;
