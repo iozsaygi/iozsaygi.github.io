@@ -218,6 +218,8 @@ public void FetchNodeFromWorldPoint(Vector3 worldPoint, out Node node)
 }
 ```
 
+Well, maybe this is not the best way to achieve this. One way to optimize this would be to store nodes in a dictionary by using their IDs as keys and positions as values.
+
 Now let's also add line renderers to visually divide our plane into groups of nodes.
 ```csharp
 private void CreateLineRenderers()  
