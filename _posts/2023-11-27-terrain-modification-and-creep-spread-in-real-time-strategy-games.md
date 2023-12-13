@@ -305,4 +305,7 @@ public class IsometricController : MonoBehaviour
 
 I tried my best to explain the logic with comments, but if I need to create a summary, we are waiting for the left mouse button (at least for PC) to be triggered and then casting rays from the camera into our world. Then we are detecting which node we are interacting with by using the ``FetchNodeFromWorldPoint`` function that we added to the node map class. Finally, we are spawning the actual building object on the node.
 
+Here's a quick demo that showcases the generation logic.
+![Building Placement](https://github.com/iozsaygi/iozsaygi.github.io/blob/main/assets/imgs/tmacsirtsg/building_placement.gif?raw=true)
+
 Now that we are able to place buildings with mouse clicks, we can finally start to work on the actual gameplay implementation of creep spread.
