@@ -4,5 +4,7 @@ That was the exact moment when my dear friend Bartu Baş inspired me a lot to 
 
 So I would like to say thank you to Bartu for inspiring me on this. We were always passionate about what we did, and I am pretty sure we will keep that passion even after years and years.
 
-I really do hope that you will enjoy your stay here as much as I enjoyed writing those posts. Thank you so much for visiting.
+I really do hope that you will enjoy your stay here as much as I enjoyed writing those posts. 
+
+Thank you so much for visiting.
 [](https://www.linkedin.com/in/bartubas/overlay/about-this-profile/)
