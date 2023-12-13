@@ -85,6 +85,7 @@ public readonly struct Node
 {
     // Assuming each of our nodes has (1.0f, 1.0f, 1.0f) size.  
     public static readonly Vector3 Size = Vector3.one;
+    
     public readonly NodeID NodeID;
     public readonly Vector3 Position;
     public readonly NodeID[] Neighbors;
