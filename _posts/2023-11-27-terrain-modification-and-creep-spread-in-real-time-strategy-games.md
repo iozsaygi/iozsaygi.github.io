@@ -202,6 +202,22 @@ One thing to mention is that you need to include ``UnityEditor`` to be able to r
 After implementing the Gizmos rendering, our scene should look something like this:
 ![Node IDs with Gizmos](https://github.com/iozsaygi/iozsaygi.github.io/blob/main/assets/imgs/tmacsirtsg/node_ids_with_gizmos.png?raw=true)
 
+Before getting into line renderers, we need to convert our world positions to nodes. To do this, we'll be adding a very simple function to the node map class. Basically, the function creates bounds and checks if a given world point is inside those bounds. It also returns a node that matches the given world position. See the function below.
+```cs
+public void FetchNodeFromWorldPoint(Vector3 worldPoint, out Node node)
+{
+    node = default;
+
+    for (byte i = 0; i < nodes.Length; i++)
+    { 
+    var bounds = new Bounds(nodes[i].Position, Node.Size);
+        if (!bounds.Contains(worldPoint)) continue;
+        node = nodes[i];
+        break;
+    }
+}
+```
+
 Now let's also add line renderers to visually divide our plane into groups of nodes.
 ```csharp
 private void CreateLineRenderers()  
