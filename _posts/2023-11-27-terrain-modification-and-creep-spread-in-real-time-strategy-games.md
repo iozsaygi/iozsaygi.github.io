@@ -286,7 +286,7 @@ public class IsometricController : MonoBehaviour
   
     private void Update()  
     {        
-    // Wait for 'LMB' to trigger.  
+        // Wait for 'LMB' to trigger.  
         if (!Input.GetMouseButtonDown(0)) return;  
   
         // Construct the actual ray and perform a single raycast.  
