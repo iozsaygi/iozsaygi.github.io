@@ -45,7 +45,7 @@ I will be separating the implementation part into several topics to ease the rea
 2. [Node structure](#node-structure)
 3. [Generating a node map](#generating-a-node-map)
 4. [Building placement](#building-placement)
-5. Implementing creep logic
+5. [Implementing creep logic](#implementing-creep-logic)
 
 ### Scene preparation
 A simple isometric camera with ``orthographic`` projection is pretty enough. I also added a plane object at ``(0.0f, 0.0f, 0.0f)`` to make it act as our ground.
@@ -309,3 +309,5 @@ Here's a quick demo that showcases the building placement logic.
 ![Building Placement](https://github.com/iozsaygi/iozsaygi.github.io/blob/main/assets/imgs/tmacsirtsg/building_placement.gif?raw=true)
 
 Now that we are able to place buildings with mouse clicks, we can finally start to work on the actual gameplay implementation of creep spread.
+
+### Implementing creep logic
