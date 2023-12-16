@@ -366,6 +366,9 @@ public void Corrupt(NodeMap nodeMap)
 }
 ```
 
+Here is another quick demo the showcase creep spread on nodes.
+![Creep Spread](https://github.com/iozsaygi/iozsaygi.github.io/blob/main/assets/imgs/tmacsirtsg/creep_spread.gif?raw=true)
+
 If we want to apply an effect if a specific unit is in range, it should also be relatively easy. All we need to do is check if the unit is inside the range of corrupter building. Take a look at the pseudocode below for further explanation of the idea.
 ```cs
 public class Unit : MonoBehaviour  
