@@ -374,6 +374,7 @@ public class Unit : MonoBehaviour
     {        
         // Calculate the distance between corrupter building and the current unit.  
         var distance = Vector3.Distance(corrupterBuilding.transform.position, transform.position);  
+        
         // Check if unit is in range of corrupter building.  
         if (distance < corrupterBuilding.Range)  
         {            
