@@ -231,7 +231,7 @@ public void FetchNodesWithInDistance(Vector3 origin, float distance, out List<No
 }
 ```
 
-Now that we are done with the node map class, let's also add line renderers to visually divide our plane into groups of nodes.
+Now that we are done with the node map core logic, let's also add line renderers to visually divide our plane into groups of nodes.
 ```csharp
 private void CreateLineRenderers()  
 {  
