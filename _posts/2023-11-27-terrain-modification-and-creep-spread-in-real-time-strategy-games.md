@@ -311,3 +311,4 @@ Here's a quick demo that showcases the building placement logic.
 Now that we are able to place buildings with mouse clicks, we can finally start to work on the actual gameplay implementation of creep spread.
 
 ### Implementing creep logic
+I will be implementing the creep spread feature in a single MonoBehaviour class, but I will divide it into separate functions during the explanation. So first, let's start with our fields (variables that will adjust creep spread behaviour) that will be serialized in the Unity editor.
