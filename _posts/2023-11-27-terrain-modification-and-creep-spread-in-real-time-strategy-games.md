@@ -350,7 +350,7 @@ public void Corrupt(NodeMap nodeMap)
   
     foreach (var nodeWithInDistance in nodesWithInDistance)  
     {        
-    // Create the quad primitive.  
+        // Create the quad primitive.  
         var quadInstance = GameObject.CreatePrimitive(PrimitiveType.Quad);  
   
         // Adjust the rotation of quad to make it match with our isometric view.  
