@@ -387,3 +387,9 @@ public class Unit : MonoBehaviour
     }
 }
 ```
+
+Also, instead of checking the distance between a unit and a building, we can also store a list of corrupted nodes and check if a unit is moved to a node that is inside our corrupted nodes list. I think this is a more robust and better way to achieve this than relying on distance calculations.
+### Conclusion
+I am pretty sure the creep-spread logic is far more complex in the RTS games that I mentioned earlier. What we did was simplify the process and add it to a very simple terrain by dividing the terrain into nodes.
+
+This was the relatively longest post for me; I hope it will help someone out there with their game. Thank you for reading it out!
