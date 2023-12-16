@@ -202,7 +202,7 @@ One thing to mention is that you need to include ``UnityEditor`` to be able to r
 After implementing the Gizmos rendering, our scene should look something like this:
 ![Node IDs with Gizmos](https://github.com/iozsaygi/iozsaygi.github.io/blob/main/assets/imgs/tmacsirtsg/node_ids_with_gizmos.png?raw=true)
 
-Before getting into line renderers, we need to convert our world positions to nodes. To do this, we'll be adding a very simple function to the node map class. Basically, the function creates bounds and checks if a given world point is inside those bounds. It also returns a node that matches the given world position. See the function below.
+Before getting into line renderers, we need to convert ``Vector3`` world positions into actual nodes, and we also need to be able to fetch node data that is within distance of the given origin. To achieve both tasks, we'll be creating two separate functions in the node map class. See the functions below.
 ```cs
 public void FetchNodeFromWorldPoint(Vector3 worldPoint, out Node node)
 {
@@ -218,7 +218,18 @@ public void FetchNodeFromWorldPoint(Vector3 worldPoint, out Node node)
 }
 ```
 
-Well, maybe this is not the best way to achieve this. One way to optimize this would be to store nodes in a dictionary by using their IDs as keys and positions as values.
+Well, maybe this is not the best way to achieve this. One way to optimize this would be to store nodes in a dictionary by using their IDs as keys and positions as values. Now to the other utility function, fetching node data that is in the range of the given origin point.
+```cs
+public void FetchNodesWithInDistance(Vector3 origin, float distance, out List<Node> nodesWithInDistance)  
+{  
+    nodesWithInDistance = new List<Node>();  
+  
+    for (byte i = 0; i < nodes.Length; i++)  
+    {        
+    if (Vector3.Distance(nodes[i].Position, origin) < distance) nodesWithInDistance.Add(nodes[i]);  
+    }
+}
+```
 
 Now let's also add line renderers to visually divide our plane into groups of nodes.
 ```csharp
