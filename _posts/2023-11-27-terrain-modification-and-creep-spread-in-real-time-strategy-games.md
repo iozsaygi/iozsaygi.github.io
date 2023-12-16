@@ -309,7 +309,10 @@ public class IsometricController : MonoBehaviour
         nodeMap.FetchNodeFromWorldPoint(interactionPoint, out var node);  
   
         // Spawn building at the node we just converted.  
-        Instantiate(buildingPrefab, node.Position + new Vector3(0.0f, 0.5f, 0.0f), Quaternion.identity);  
+var buildingInstance = Instantiate(buildingPrefab, node.Position + new Vector3(0.0f, 0.5f, 0.0f), Quaternion.identity);  
+  
+// Trigger the creep spread logic.  
+buildingInstance.GetComponent<CorrupterBuilding>().Corrupt(nodeMap);
     }
 }
 ```
