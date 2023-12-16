@@ -226,7 +226,7 @@ public void FetchNodesWithInDistance(Vector3 origin, float distance, out List<No
   
     for (byte i = 0; i < nodes.Length; i++)  
     {        
-    if (Vector3.Distance(nodes[i].Position, origin) < distance) nodesWithInDistance.Add(nodes[i]);  
+        if (Vector3.Distance(nodes[i].Position, origin) < distance) nodesWithInDistance.Add(nodes[i]);  
     }
 }
 ```
