@@ -349,14 +349,16 @@ public void Corrupt(NodeMap nodeMap)
     nodeMap.FetchNodesWithInDistance(transform.position, range, out var nodesWithInDistance);  
   
     foreach (var nodeWithInDistance in nodesWithInDistance)  
-    {        // Create the quad primitive.  
+    {        
+    // Create the quad primitive.  
         var quadInstance = GameObject.CreatePrimitive(PrimitiveType.Quad);  
   
         // Adjust the rotation of quad to make it match with our isometric view.  
         quadInstance.transform.eulerAngles = new Vector3(90.0f, 0.0f, 0.0f);  
   
         // Add a slight offset to avoid 'Z' fights between ground plane and quads that we are generating.  
-        // Also match the quad's position to the node's position.        quadInstance.transform.position = nodeWithInDistance.Position + new Vector3(0.0f, 0.01f, 0.0f);  
+        // Also match the quad's position to the node's position.     
+        quadInstance.transform.position = nodeWithInDistance.Position + new Vector3(0.0f, 0.01f, 0.0f);  
   
         // Change the color to magenta just for fun.  
         quadInstance.GetComponent<MeshRenderer>().material.color = Color.magenta;  
