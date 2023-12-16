@@ -340,3 +340,26 @@ public class CorrupterBuilding : MonoBehaviour
     [SerializeField] private float range;
 }
 ```
+
+Now let's implement the spread logic. For this, I will be using basic primitive quad objects on affected nodes to represent creep visually. Feel free to use whatever you want during your own implementation. See the function below.
+```cs
+public void Corrupt(NodeMap nodeMap)  
+{  
+    // Get the nodes that is in the range of our building.  
+    nodeMap.FetchNodesWithInDistance(transform.position, range, out var nodesWithInDistance);  
+  
+    foreach (var nodeWithInDistance in nodesWithInDistance)  
+    {        // Create the quad primitive.  
+        var quadInstance = GameObject.CreatePrimitive(PrimitiveType.Quad);  
+  
+        // Adjust the rotation of quad to make it match with our isometric view.  
+        quadInstance.transform.eulerAngles = new Vector3(90.0f, 0.0f, 0.0f);  
+  
+        // Add a slight offset to avoid 'Z' fights between ground plane and quads that we are generating.  
+        // Also match the quad's position to the node's position.        quadInstance.transform.position = nodeWithInDistance.Position + new Vector3(0.0f, 0.01f, 0.0f);  
+  
+        // Change the color to magenta just for fun.  
+        quadInstance.GetComponent<MeshRenderer>().material.color = Color.magenta;  
+    }
+}
+```
