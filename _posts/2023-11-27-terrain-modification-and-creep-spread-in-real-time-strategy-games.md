@@ -325,3 +325,14 @@ Now that we are able to place buildings with mouse clicks, we can finally start 
 I will be implementing the creep spread feature in a single MonoBehaviour class, but I will divide it into separate functions during the explanation. So first, let's start with our fields (variables that will adjust creep spread behaviour) that will be serialized in the Unity editor.
 
 Let's call the class ``CorrupterBuilding``; yes, I failed to come up with a better name.
+
+We are starting by declaring a range float that specifies how far the creep will spread.
+```cs
+using UnityEngine;
+  
+public class CorrupterBuilding : MonoBehaviour
+{
+    // How far the creep will effect?  
+    [SerializeField] private float range;
+}
+```
