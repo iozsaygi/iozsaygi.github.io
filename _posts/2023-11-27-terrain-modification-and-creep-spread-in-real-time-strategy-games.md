@@ -365,3 +365,24 @@ public void Corrupt(NodeMap nodeMap)
     }
 }
 ```
+
+If we want to apply an effect if a specific unit is in range, it should also be relatively easy. All we need to do is check if the unit is inside the range of corrupter building. Take a look at the pseudocode below for further explanation of the idea.
+```cs
+public class Unit : MonoBehaviour  
+{  
+    public void ApplyEffect(CorrupterBuilding corrupterBuilding)  
+    {        
+        // Calculate the distance between corrupter building and the current unit.  
+        var distance = Vector3.Distance(corrupterBuilding.transform.position, transform.position);  
+        // Check if unit is in range of corrupter building.  
+        if (distance < corrupterBuilding.Range)  
+        {            
+            // TODO: Apply an effect.  
+        }  
+        else  
+        {  
+            // TODO: Remove available effects.  
+        }  
+    }
+}
+```
