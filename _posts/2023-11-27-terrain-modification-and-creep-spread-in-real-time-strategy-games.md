@@ -331,8 +331,6 @@ Let’s call the class `CorrupterBuilding`; yes, I failed to come up with a bet
 One thing to mention is that this class will be included as a component in the building prefab that we are using.
 
 So first, let’s start with our fields (variables that will adjust creep spread behaviour) that will be serialized in the Unity editor.
-
-We are starting by declaring a range float that specifies how far the creep will spread.
 ```cs
 using UnityEngine;
   
