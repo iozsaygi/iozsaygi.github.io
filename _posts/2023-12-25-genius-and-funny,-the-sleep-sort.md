@@ -10,4 +10,4 @@ I was playing around with sorting algorithms and then I saw the humorous sleep s
 Let's take a closer look at this algorithm and try to implement it in C by using the Windows API for threading.
 
 ### Function definitions
-We'll first implement signatures for the function we will be using. Do not forget to include ``windows.h`` to access Windows API functions for thread management.
+We'll first implement signatures for the functions we will be using. Do not forget to include ``windows.h`` to access Windows API functions for thread management.
