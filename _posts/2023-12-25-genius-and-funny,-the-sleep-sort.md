@@ -21,3 +21,6 @@ unsigned int __stdcall sleepSort_thread(void* data);
 ### Resources
 - [Sleep Sort - The King of Laziness](https://www.geeksforgeeks.org/sleep-sort-king-laziness-sorting-sleeping/)
 - [What is __stdcall?](https://stackoverflow.com/questions/297654/what-is-stdcall)
+
+### Conclusion
+The full implementation is available in my [data structures and algorithms](https://github.com/iozsaygi/dsaa/blob/main/src/sleep_sort.c) repository.
