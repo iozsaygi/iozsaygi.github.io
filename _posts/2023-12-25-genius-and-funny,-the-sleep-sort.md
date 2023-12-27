@@ -12,7 +12,7 @@ Let's take a closer look at this algorithm and try to implement it in C by using
 ### Function definitions
 We'll first implement signatures for the functions we will be using. Do not forget to include ``windows.h`` to access Windows API functions for thread management.
 
-#### 1. sleepSort_thread(void* data)
+#### 1. Thread function
 Here's the first function that we will be implementing; it will be called from a separate thread that will be created later on. Basically, we are taking data as ``void*``, but we will cast it to ``int*`` to sleep the thread.
 ```c
 unsigned int __stdcall sleepSort_thread(void* data);
