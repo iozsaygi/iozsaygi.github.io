@@ -18,8 +18,13 @@ Here's the first function that we will be implementing; it will be called from a
 unsigned int __stdcall sleepSort_thread(void* data);
 ```
 
+Also, I was wondering what the meaning of ``__stdcall`` was during the implementation. It turns out to be a Microsoft-specific keyword for the compiler. Will be declared as NULL for other environments, like UNIX.
+
+It specifies that the callee is responsible for the stack clean-up; a more detailed explanation can be found [here](https://en.wikipedia.org/wiki/X86_calling_conventions).
+
 ### Resources
 - [Sleep Sort - The King of Laziness](https://www.geeksforgeeks.org/sleep-sort-king-laziness-sorting-sleeping/)
+- [x86 calling conventions](https://en.wikipedia.org/wiki/X86_calling_conventions)
 - [What is __stdcall?](https://stackoverflow.com/questions/297654/what-is-stdcall)
 
 ### Conclusion
