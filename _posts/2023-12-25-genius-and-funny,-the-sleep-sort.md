@@ -34,7 +34,7 @@ Now that we have defined function signatures, let's take a look at actual implem
 
 #### 1. Thread function
 ```c
-    unsigned int __stdcall sleepSort_thread(void* data) {
+unsigned int __stdcall sleepSort_thread(void* data) {
     int* cast = (int*) data;
     int sec = *cast;
 
