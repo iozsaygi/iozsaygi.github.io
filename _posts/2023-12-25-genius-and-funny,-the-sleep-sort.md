@@ -50,7 +50,7 @@ unsigned int __stdcall sleepSort_thread(void* data) {
 }
 ```
 
-Basically, we are casting void pointer into integer pointer to figure out how many seconds a thread will be suspended. After that, we are calculating the seconds by multiplying the casted value by ``1000``, then actually pausing the thread by using the ``Windows`` API function.
+Basically, we are casting void pointer into integer pointer to figure out how many seconds a thread will be suspended. After that, we are calculating the seconds by multiplying the casted value by ``1000``, then actually pausing the thread by using the ``Windows`` API function. Finally, printing the casted value after sleeping.
 
 ### Resources
 - [Sleep Sort - The King of Laziness](https://www.geeksforgeeks.org/sleep-sort-king-laziness-sorting-sleeping/)
