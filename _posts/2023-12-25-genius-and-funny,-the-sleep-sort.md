@@ -34,6 +34,7 @@ It takes an array pointer and requires the length of the array in order to creat
 Now that we have defined function signatures, let's take a look at actual implementations. Lots of comment lines can be found for further explanation.
 
 #### 1. Thread function
+Here is the implementation of the separate thread function.
 ```c
 unsigned int __stdcall sleepSort_thread(void* data) {
     // Cast the given void pointer into integer pointer to figure out sleep duration.
