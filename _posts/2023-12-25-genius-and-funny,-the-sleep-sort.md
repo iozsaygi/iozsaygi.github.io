@@ -35,10 +35,16 @@ Now that we have defined function signatures, let's take a look at actual implem
 #### 1. Thread function
 ```c
 unsigned int __stdcall sleepSort_thread(void* data) {
+    // Cast the given void pointer into integer pointer to figure out sleep duration.
     int* cast = (int*) data;
+
+    // Assign the actual duration of sleep to some integer variable.
     int sec = *cast;
 
+    // Sleep the thread by assigned second value with Windows API function.
     Sleep(sec * 1000);
+
+    // Print the value after sleep process ends for thread.
     printf("%d, ", sec);
 }
 ```
