@@ -27,6 +27,7 @@ This is the actual function that will create a separate thread for each element 
 ```c
 void sleepSort_execute(int* array, size_t length);
 ```
+
 It takes an array pointer and requires the length of the array in order to create the correct number of threads. Very basic.
 
 ### Function implementations
@@ -49,6 +50,7 @@ unsigned int __stdcall sleepSort_thread(void* data) {
 }
 ```
 
+Basically, we are casting void pointer into integer pointer to figure out how many seconds a thread will be suspended. After that, we are calculating the seconds by multiplying the casted value by ``1000``, then actually pausing the thread by using the ``Windows`` API function.
 
 ### Resources
 - [Sleep Sort - The King of Laziness](https://www.geeksforgeeks.org/sleep-sort-king-laziness-sorting-sleeping/)
