@@ -22,6 +22,12 @@ Also, I was wondering what the meaning of ``__stdcall`` was during the implement
 
 It specifies that the callee is responsible for the stack clean-up; a more detailed explanation can be found [here](https://en.wikipedia.org/wiki/X86_calling_conventions).
 
+#### 2. Thread manager function
+This is the actual function that will create a separate thread for each element in the list.
+```c
+void sleepSort_execute(int* array, size_t length);
+```
+It takes an array pointer and requires the length of the array in order to create the correct number of threads. Very basic.
 ### Resources
 - [Sleep Sort - The King of Laziness](https://www.geeksforgeeks.org/sleep-sort-king-laziness-sorting-sleeping/)
 - [x86 calling conventions](https://en.wikipedia.org/wiki/X86_calling_conventions)
