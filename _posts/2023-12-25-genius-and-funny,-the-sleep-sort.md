@@ -82,6 +82,13 @@ void sleepSort_execute(int* array, size_t length) {
 }
 ```
 
+The code is pretty well documented, but let's have a general overview of it.
+- We are starting by creating a ``HANDLE`` buffer to store threads that we'll be creating for each element in the array.
+- For each element in the array, we are creating a new thread and assigning that thread to the related thread handle.
+- Then we'll simply wait for all threads to finish executing. Each thread will sleep for the duration of the exact element that it is working with. It means a single thread is going to wait three seconds if the data that is passed is an integer with a value of three.
+- After we're done waiting for each thread, we'll close the threads by shutting down the related thread handles.
+- Finally, we are clearing the resources we allocated for threads.
+
 ### Resources
 - [Sleep Sort - The King of Laziness](https://www.geeksforgeeks.org/sleep-sort-king-laziness-sorting-sleeping/)
 - [x86 calling conventions](https://en.wikipedia.org/wiki/X86_calling_conventions)
