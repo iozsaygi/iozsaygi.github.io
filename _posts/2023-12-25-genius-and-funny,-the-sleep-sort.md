@@ -53,6 +53,35 @@ unsigned int __stdcall sleepSort_thread(void* data) {
 
 Basically, we are casting void pointer into integer pointer to figure out how many seconds a thread will be suspended. After that, we are calculating the seconds by multiplying the casted value by ``1000``, then actually pausing the thread by using the ``Windows`` API function. Finally, printing the casted value after sleeping.
 
+#### 2. Thread manager function
+Now let's take a look at the actual function that will manage the threads. (Well, porting this to UNIX is still a to-do of mine.) 
+```c
+void sleepSort_execute(int* array, size_t length) {
+    assert(array != NULL);
+
+    // Create thread handle buffer to store thread for each element in the array.
+    HANDLE* threadHandles = (HANDLE*) malloc(sizeof(HANDLE) * length);
+    assert(threadHandles != NULL);
+
+    // Start a new thread for each element in the array.
+    for (size_t i = 0; i < length; i++) {
+        threadHandles[i] = (HANDLE) _beginthreadex(NULL, 0, sleepSort_thread, &array[i], 0, NULL);
+        assert(threadHandles[i] != NULL);
+    }
+
+    // Wait for all threads to finish.
+    WaitForMultipleObjects((DWORD) length, threadHandles, TRUE, INFINITE);
+
+    // Close allocated thread handles.
+    for (size_t i = 0; i < length; i++) {
+        CloseHandle(threadHandles[i]);
+    }
+
+    // Clear resources allocated for the thread handles.
+    free(threadHandles);
+}
+```
+
 ### Resources
 - [Sleep Sort - The King of Laziness](https://www.geeksforgeeks.org/sleep-sort-king-laziness-sorting-sleeping/)
 - [x86 calling conventions](https://en.wikipedia.org/wiki/X86_calling_conventions)
