@@ -95,4 +95,8 @@ The code is pretty well documented, but let's have a general overview of it.
 - [What is __stdcall?](https://stackoverflow.com/questions/297654/what-is-stdcall)
 
 ### Conclusion
-The full implementation is available in my [data structures and algorithms](https://github.com/iozsaygi/dsaa/blob/main/src/sleep_sort.c) repository.
+I wasn't expecting to meet with Sleep Sort while I was studying algorithms. It was a really fun thing to implement. It also gave me a rough introduction to multi-threading in C. The full implementation is available in my [data structures and algorithms](https://github.com/iozsaygi/dsaa/blob/main/src/sleep_sort.c) repository. 
+
+Also, before ending it up, this blog was the first post of 2024, opening the year with data structures and algorithms. Pretty legit way to start a year, I guess.
+
+Thank you for tuning in!
