@@ -14,10 +14,12 @@ Frankly, dealing with the tools and build pipelines was more interesting to me t
 Throughout those four years, I've had the chance to work on several game studios that have implemented or not implemented the DevOps culture, and I think I've got something to share.
 
 **Remove later: START**
+
 Planned sections:
 1. The role of DevOps in game development
 2. Effects of DevOps in crunch time
 3. Is DevOps really a responsibility of a single person or team?
+
 **Remove later: END**
 
 ### The role of DevOps in game development
