@@ -23,3 +23,4 @@ Planned sections:
 **Remove later: END**
 
 ### The role of DevOps in game development
+DevOps is a crucial aspect for every development team and production lifecycle; however, I think it gets even more important in game development because of its effects on iteration, testing, and crunch time (I will talk more about this in a later section).
