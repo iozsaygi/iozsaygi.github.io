@@ -35,5 +35,7 @@ I think it would be great if I made a list of responsibilities that I experience
 - **Optimizing hardware usage and maintenance**
 	- Sometimes we have a lot of things to build, and we have fewer machines or hardware. Being able to take advantage of multiple build machines to reduce build times is crucial. While a single machine is building the actual executable, it would be perfect to have another machine build and deploy assets to content delivery networks at the same time, for example. This will decrease the duration of builds, which will lead to faster iterations and save everyone's time.
 	
+	- The maintenance part is also important; ensuring there is always enough space for upcoming builds in hardware and that the tools and software are always up-to-date is achievable by creating automated scripts at the OS level.
+	
 - **Automated tests and branch protection**
 	- Content
