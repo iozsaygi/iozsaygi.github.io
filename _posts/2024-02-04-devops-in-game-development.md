@@ -26,3 +26,5 @@ Planned sections:
 DevOps is a crucial aspect for every development team and production lifecycle; however, I think it gets even more important in game development because of its effects on iteration, testing, and crunch time (I will talk more about this in a later section).
 
 In game development, we usually rely on quick iterations over the work that we've done. I am sure that no one will like the idea that they have to wait an hour to test their work before merging into the main branch, and no one will like the idea that they introduced the crash into the game because automated tests were broken. So for a DevOps engineer or DevOps team, there is a lot to cover for ensuring a stable development pipeline through the studio.
+
+I think it would be great if I made a list of responsibilities that I experienced throughout my career. I hope it will give a broad overview of the role of DevOps in game development.
