@@ -36,3 +36,7 @@ I think it would be great if I made a list of responsibilities that I experience
 	- The maintenance part is also important; ensuring there is always enough space for upcoming builds in hardware and that the tools and software are always up-to-date is achievable by creating automated scripts at the OS level.
 - **Automated tests and branch protection**
 	- Content
+- **Building and deploying assets**
+	- Content
+- **Versioning**
+	- Content
