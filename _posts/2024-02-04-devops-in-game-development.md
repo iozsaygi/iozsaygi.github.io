@@ -31,5 +31,9 @@ I think it would be great if I made a list of responsibilities that I experience
 
 - **Ensuring build stability**
 	- I cannot stress this one enough; I think it is the most important responsibility for a DevOps engineer. Always provide the development teams with stable builds, ensuring they are able to iterate on the game without friction. No one in the studio or team should be able to say, _"Hey, I cannot work right now because my builds are failing somehow."_ People need to iterate, detect bugs, and identify crashes. So ensuring that the builds are stable takes the number one priority.
+	
+- **Optimizing hardware usage and maintenance**
+	- Sometimes we have a lot of things to build, and we have fewer machines or hardware. Being able to take advantage of multiple build machines to reduce build times is crucial. While a single machine is building the actual executable, it would be perfect to have another machine build and deploy assets to content delivery networks at the same time, for example. This will decrease the duration of builds, which will lead to faster iterations and save everyone's time.
+	
 - **Automated tests and branch protection**
 	- Content
