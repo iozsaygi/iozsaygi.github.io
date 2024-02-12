@@ -42,3 +42,7 @@ I think it would be great if I made a list of responsibilities that I experience
 - **Versioning**
 	- Keeping track of old versions of the game, or the last stable version (which we often call the "stage"), is also crucial to clearly overview development. We always want to see a good overview of past releases so we can schedule new ones or address urgent issues and bug fixes accordingly.
 	- As always, specific automation pipelines can also be applied to the versioning. Think of a Jenkins pipeline that automatically uploads ``.aab`` files to the Google Play Store to avoid some of the manual work required. Or even better, automating the signing, archiving, and uploading processes of ``.ipa`` is also a perfect thing.
+
+This was the list of responsibilities that I experienced as a DevOps engineer who worked in games. I am sure it will differ based on the industry, but it was a good general overview, I think.
+
+Now there is also another topic that I really want to talk about. The crunch time is a reality of game development, and I think DevOps might be the factor that actually reduces it.
