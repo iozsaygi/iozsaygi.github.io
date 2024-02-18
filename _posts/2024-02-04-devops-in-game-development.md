@@ -46,3 +46,5 @@ I think it would be great if I made a list of responsibilities that I experience
 This was the list of responsibilities that I experienced as a DevOps engineer who worked in games. I am sure it will differ based on the industry, but it was a good general overview, I think.
 
 Now there is also another topic that I really want to talk about. The crunch time is a reality of game development, and I think DevOps might be the factor that actually reduces it.
+
+### Effects of DevOps on crunch time
