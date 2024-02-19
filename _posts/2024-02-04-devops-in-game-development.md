@@ -49,3 +49,7 @@ Now there is also another topic that I really want to talk about. The crunch tim
 
 ### Effects of DevOps on crunch time
 So crunch time is a harsh truth about the world of game development: we work extra hours, sacrificing from our daily routines to ship our beloved game. However, DevOps might be the solution for this.
+
+The speed of our iterations is one of the key factors that determines whether we are going to meet our deadline for the upcoming release. Think of a CI pipeline where everyone has to wait for hours to get their builds in their hands and then finally test them. Crunch is inevitable in this case. 
+
+DevOps principles play a great role in this by ensuring the lowest friction possible for development teams and making sure builds are constantly delivered.
