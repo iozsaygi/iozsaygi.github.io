@@ -48,3 +48,4 @@ This was the list of responsibilities that I experienced as a DevOps engineer wh
 Now there is also another topic that I really want to talk about. The crunch time is a reality of game development, and I think DevOps might be the factor that actually reduces it.
 
 ### Effects of DevOps on crunch time
+So crunch time is a harsh truth about the world of game development: we work extra hours, sacrificing from our daily routines to ship our beloved game. However, DevOps might be the solution for this.
