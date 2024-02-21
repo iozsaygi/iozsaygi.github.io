@@ -55,3 +55,5 @@ The speed of our iterations is one of the key factors that determines whether we
 DevOps principles play a great role in this by ensuring the lowest friction possible for development teams and making sure builds are constantly delivered.
 
 Also, automated test pipelines can lift some of the burden from QA teams to ensure QA time is used wisely. For instance, if we just want to test input-related bugs, we can automate this by creating a monkey test pipeline instead of wasting QA's time. This will create some space for the QA team so they can focus on other, more important test cases and hopefully speed up development and avoid a crunch.
+
+Well, sometimes crunch is inevitable, but I think we have a lot to do as DevOps engineers to help people avoid it.
