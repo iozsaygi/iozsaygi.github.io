@@ -53,3 +53,5 @@ So crunch time is a harsh truth about the world of game development: we work ext
 The speed of our iterations is one of the key factors that determines whether we are going to meet our deadline for the upcoming release. Think of a CI pipeline where everyone has to wait for hours to get their builds in their hands and then finally test them. Crunch is inevitable in this case. 
 
 DevOps principles play a great role in this by ensuring the lowest friction possible for development teams and making sure builds are constantly delivered.
+
+Also, automated test pipelines can lift some of the burden from QA teams to ensure QA time is used wisely. For instance, if we just want to test input-related bugs, we can automate this by creating a monkey test pipeline instead of wasting QA's time. This will create some space for the QA team so they can focus on other, more important test cases and hopefully speed up development and avoid a crunch.
