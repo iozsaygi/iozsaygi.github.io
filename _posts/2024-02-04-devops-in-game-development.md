@@ -13,15 +13,6 @@ Frankly, dealing with the tools and build pipelines was more interesting to me t
 
 Throughout those four years, I've had the chance to work on several game studios that have implemented or not implemented the DevOps culture, and I think I've got something to share.
 
-**Remove later: START**
-
-Planned sections:
-1. The role of DevOps in game development
-2. Effects of DevOps in crunch time
-3. Is DevOps really a responsibility of a single person or team?
-
-**Remove later: END**
-
 ### The role of DevOps in game development
 DevOps is a crucial aspect for every development team and production lifecycle; however, I think it gets even more important in game development because of its effects on iteration, testing, and crunch time (I will talk more about this in a later section).
 
@@ -57,3 +48,5 @@ DevOps principles play a great role in this by ensuring the lowest friction poss
 Also, automated test pipelines can lift some of the burden from QA teams to ensure QA time is used wisely. For instance, if we just want to test input-related bugs, we can automate this by creating a monkey test pipeline instead of wasting QA's time. This will create some space for the QA team so they can focus on other, more important test cases and hopefully speed up development and avoid a crunch.
 
 Well, sometimes crunch is inevitable, but I think we have a lot to do as DevOps engineers to help people avoid it.
+
+### Applying DevOps principles from scratch
