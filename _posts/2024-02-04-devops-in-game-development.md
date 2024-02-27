@@ -57,3 +57,8 @@ I think I had even more fun when I was the person who implemented DevOps princip
 But I feel like ensuring that the team that I am working with embraces DevOps is kind of the hardest part. Most of the time, we think DevOps is the responsibility of a single person, but I think teams should also be aware of it.
 
 Ensuring people are effectively using DevOps tools and utilizing them in the most efficient way is sometimes the hardest. Usually, it takes time and practice.
+
+### Conclusion
+So this was the first blog post that felt kind of like chat. I tried to emphasize how DevOps can affect our game development environment. I didn't want to dive too much into technical stuff.
+
+Thank you for reading it out!
