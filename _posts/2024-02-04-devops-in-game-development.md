@@ -53,3 +53,7 @@ Well, sometimes crunch is inevitable, but I think we have a lot to do as DevOps 
 So I got the chance to work on a team that already implemented DevOps principles into their workflow, and I also got the chance to work on a team that didn't implement DevOps principles into their workflow.
 
 I think I had even more fun when I was the person who implemented DevOps principles into the team's workflow. Because I get to choose which CI tool to use, I get to choose how the build pipeline is going to be built. Deciding on those big pieces was exciting for me. Of course, seeing how it affects development and teamwork is priceless.
+
+But I feel like ensuring that the team that I am working with embraces DevOps is kind of the hardest part. Most of the time, we think DevOps is the responsibility of a single person, but I think teams should also be aware of it.
+
+Ensuring people are effectively using DevOps tools and utilizing them in the most efficient way is sometimes the hardest. Usually, it takes time and practice.
