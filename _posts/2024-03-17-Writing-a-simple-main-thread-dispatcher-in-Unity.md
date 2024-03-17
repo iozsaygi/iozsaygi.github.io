@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Writing a simple main thread dispatcher
+title: Writing a simple main thread dispatcher in Unity
 description: Creating a very simple but useful main thread dispatcher in the Unity engine.
 tags:
   - Unity
