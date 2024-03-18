@@ -11,4 +11,21 @@ There are several types of solutions to this. One of the easiest in terms of imp
 
 In this post, we'll be writing a very simple main-thread dispatcher in Unity, so we can get rid of those errors.
 
-### Implementing an interval-based task that runs on another thread
+### Implementing a wrapper for dispatchable tasks
+First things first, we'll start by creating a custom value type that will contain references to tasks that we want to execute in the main thread. A simple read-only structure can achieve this.
+
+```csharp
+using System;
+
+public readonly struct DispatchableTaskBundle  
+{  
+    public readonly Action Task;  
+  
+    public DispatchableTaskBundle(Action task)  
+    {        
+        Task = task;  
+    }
+}
+```
+
+Just contains reference to task; we are going to fill those tasks from another thread that we'll be creating later on.
