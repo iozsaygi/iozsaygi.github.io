@@ -17,13 +17,13 @@ First things first, we'll start by creating a custom value type that will contai
 ```csharp
 using System;
 
-public readonly struct DispatchableTaskBundle  
-{  
-    public readonly Action Task;  
-  
-    public DispatchableTaskBundle(Action task)  
-    {        
-        Task = task;  
+public readonly struct DispatchableTaskBundle
+{
+    public readonly Action Task;
+
+    public DispatchableTaskBundle(Action task)
+    {
+        Task = task;
     }
 }
 ```
