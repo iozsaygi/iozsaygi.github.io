@@ -29,3 +29,5 @@ public readonly struct DispatchableTaskBundle
 ```
 
 Just contains reference to task; we are going to fill those tasks from another thread that we'll be creating later on.
+
+### Implementing a queue-based dispatcher
