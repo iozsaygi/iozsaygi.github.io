@@ -31,3 +31,9 @@ public readonly struct DispatchableTaskBundle
 Just contains reference to task; we are going to fill those tasks from another thread that we'll be creating later on.
 
 ### Implementing a queue-based dispatcher
+Well, the main component of our system is the dispatcher itself. It will be receiving the bundles we created from other threads and executing the context of the bundle in Unity's main thread.
+
+The whole concept looks like this:
+```csharp
+// TODO: Insert dispatcher code.
+```
