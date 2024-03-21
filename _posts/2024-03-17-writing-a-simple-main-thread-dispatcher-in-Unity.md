@@ -111,7 +111,8 @@ public class ThreadedSpriteGenerator
     private void GenerateSpriteOnMainThread()  
     {
         while (isThreadRunning)  
-        {            // Sleep the thread by an 'interval' amount.  
+        {
+            // Sleep the thread by an 'interval' amount.  
             Thread.Sleep(interval * 1000);  
   
             // Create the actual task bundle that will be queued.  
@@ -119,10 +120,13 @@ public class ThreadedSpriteGenerator
             {  
                 // Create the game object.  
                 var gameObject = new GameObject(nameof(ThreadedSpriteGenerator))  
-                {                    transform =  
+                {     
+                    transform =  
                     {                        // Randomize the position of game object.  
                         position = new Vector2(Random.Range(-5.0f, 5.0f), Random.Range(-5.0f, 5.0f))  
-                    }                };  
+                    }          
+                };  
+
                 // Add sprite renderer component and update the texture.  
                 var spriteRenderer = gameObject.AddComponent<SpriteRenderer>();  
                 spriteRenderer.sprite = sprite;  
@@ -131,6 +135,7 @@ public class ThreadedSpriteGenerator
                 spriteRenderer.color =  
                     new Color(Random.value, Random.value, Random.value, 1.0f);  
             });  
+
             // Queue the created task in main thread.  
             mainThreadDispatcher.RegisterTaskBundleForDispatching(dispatchableTaskBundle);  
         }    
