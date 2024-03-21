@@ -158,3 +158,10 @@ public class SceneProxy : MonoBehaviour
 ```
 
 I don't think this even needs a rundown, to be honest; it just enables and disables the worker thread class and shares the references around.
+
+### Wrapping up
+The complete implementation can be found in this [repository](https://github.com/iozsaygi/unity-main-thread-dispatcher).
+
+Recently, I implemented a very basic metronome application to study multi-threaded and dependency injection (also to help me while drumming), and that application actually gave me the idea for this blog post. You can find the application repository [here](https://github.com/iozsaygi/tempo-pal).
+
+It was a funny topic to talk about, and I hope you also liked it. See you next time!
