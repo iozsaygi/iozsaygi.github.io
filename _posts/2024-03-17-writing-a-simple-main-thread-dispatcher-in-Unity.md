@@ -46,8 +46,9 @@ public class MainThreadDispatcher : MonoBehaviour
 
     public void RegisterTaskBundleForDispatching(DispatchableTaskBundle dispatchableTaskBundle)
     {
-    dispatchableTaskBundles.Enqueue(dispatchableTaskBundle);  
-    }  
+        dispatchableTaskBundles.Enqueue(dispatchableTaskBundle);  
+    }
+
     private void Update()  
     {        
     if (dispatchableTaskBundles.IsEmpty) return;  
