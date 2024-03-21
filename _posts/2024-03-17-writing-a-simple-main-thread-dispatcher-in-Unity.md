@@ -88,22 +88,29 @@ public class ThreadedSpriteGenerator
     private bool isThreadRunning;  
   
     public ThreadedSpriteGenerator(byte interval, Sprite sprite, MainThreadDispatcher mainThreadDispatcher)  
-    {        this.interval = interval;  
+    {
+        this.interval = interval;  
         this.sprite = sprite;  
         this.mainThreadDispatcher = mainThreadDispatcher;  
         isThreadRunning = false;  
-    }  
+    }
+    
     public void Begin()  
-    {        thread = new Thread(GenerateSpriteOnMainThread);  
+    {
+        thread = new Thread(GenerateSpriteOnMainThread);  
         isThreadRunning = true;  
         thread.Start();  
-    }  
+    }
+    
     public void Abort()  
-    {        thread.Abort();  
+    {
+        thread.Abort();  
         isThreadRunning = false;  
-    }  
+    }
+    
     private void GenerateSpriteOnMainThread()  
-    {        while (isThreadRunning)  
+    {
+        while (isThreadRunning)  
         {            // Sleep the thread by an 'interval' amount.  
             Thread.Sleep(interval * 1000);  
   
@@ -126,7 +133,9 @@ public class ThreadedSpriteGenerator
             });  
             // Queue the created task in main thread.  
             mainThreadDispatcher.RegisterTaskBundleForDispatching(dispatchableTaskBundle);  
-        }    }}
+        }    
+    }
+}
 ```
 
 Yep, it will probably look overwhelming, but it is quite simple.
@@ -149,12 +158,16 @@ public class SceneProxy : MonoBehaviour
     private ThreadedSpriteGenerator threadedSpriteGenerator;  
   
     private void OnEnable()  
-    {        threadedSpriteGenerator = new ThreadedSpriteGenerator(3, sprite, mainThreadDispatcher);  
+    {   
+        threadedSpriteGenerator = new ThreadedSpriteGenerator(3, sprite, mainThreadDispatcher);  
         threadedSpriteGenerator.Begin();  
     }  
+    
     private void OnDisable()  
-    {        threadedSpriteGenerator.Abort();  
-    }}
+    {
+        threadedSpriteGenerator.Abort();  
+    }
+}
 ```
 
 I don't think this even needs a rundown, to be honest; it just enables and disables the worker thread class and shares the references around.
