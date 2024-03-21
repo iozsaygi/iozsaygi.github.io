@@ -128,3 +128,7 @@ public class ThreadedSpriteGenerator
             mainThreadDispatcher.RegisterTaskBundleForDispatching(dispatchableTaskBundle);  
         }    }}
 ```
+
+Yep, it will probably look overwhelming, but it is quite simple.
+
+We are simply creating a new game object and adding a sprite renderer to it at every defined interval. This completely happens on another thread, but the actual logic gets executed on the main thread because of the dispatcher we recently implemented.
