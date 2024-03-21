@@ -132,3 +132,29 @@ public class ThreadedSpriteGenerator
 Yep, it will probably look overwhelming, but it is quite simple.
 
 We are simply creating a new game object and adding a sprite renderer to it at every defined interval. This completely happens on another thread, but the actual logic gets executed on the main thread because of the dispatcher we recently implemented.
+
+Now let's connect these two main components by creating a proxy class.
+
+### Implementing a proxy class
+It will be pretty basic, just enabling and disabling threaded operations and injecting references around.
+```csharp
+using UnityEngine;  
+  
+[DisallowMultipleComponent]  
+public class SceneProxy : MonoBehaviour  
+{  
+    [SerializeField] private MainThreadDispatcher mainThreadDispatcher;  
+    [SerializeField] private Sprite sprite;  
+  
+    private ThreadedSpriteGenerator threadedSpriteGenerator;  
+  
+    private void OnEnable()  
+    {        threadedSpriteGenerator = new ThreadedSpriteGenerator(3, sprite, mainThreadDispatcher);  
+        threadedSpriteGenerator.Begin();  
+    }  
+    private void OnDisable()  
+    {        threadedSpriteGenerator.Abort();  
+    }}
+```
+
+I don't think this even needs a rundown, to be honest; it just enables and disables the worker thread class and shares the references around.
