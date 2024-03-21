@@ -122,7 +122,8 @@ public class ThreadedSpriteGenerator
                 var gameObject = new GameObject(nameof(ThreadedSpriteGenerator))  
                 {     
                     transform =  
-                    {                        // Randomize the position of game object.  
+                    {         
+                        // Randomize the position of game object.  
                         position = new Vector2(Random.Range(-5.0f, 5.0f), Random.Range(-5.0f, 5.0f))  
                     }          
                 };  
