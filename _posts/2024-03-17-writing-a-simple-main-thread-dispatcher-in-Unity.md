@@ -50,11 +50,20 @@ public class MainThreadDispatcher : MonoBehaviour
     }
 
     private void Update()  
-    {        
-    if (dispatchableTaskBundles.IsEmpty) return;  
+    {
+        if (dispatchableTaskBundles.IsEmpty) return;  
   
-        dispatchableTaskBundles.TryDequeue(out var dispatchableTaskBundle);  
-        dispatchableTaskBundle.Task.Invoke();  
+        dispatchableTaskBundles.TryDequeue(out var dispatchableTaskBundle);
+        dispatchableTaskBundle.Task.Invoke();
     }
 }
 ```
+
+Let's run down the class quickly:
+- We are defining a concurrent queue (which is pretty much thread-safe) to contain registered bundles for dispatching. Visit [here](https://learn.microsoft.com/en-us/dotnet/api/system.collections.concurrent.concurrentqueue-1?view=net-8.0) for learning more about concurrent queues.
+- We have defined a very basic function to register dispatchable task bundles that are created from other threads into our queue.
+- In the update function (called every frame), we are checking if there are any tasks to dispatch on the main thread. If yes, then we are popping a task from the queue and invoking it on the main thread.
+
+Well, this is the very basic version of dispatcher, instead of using updates, maybe we can try to directly dispatch tasks as soon as they start to arrive in our queue. It is pretty much subject to debate.
+
+Now that we have our dispatcher, let's take a look at the dummy class that works on another thread.
