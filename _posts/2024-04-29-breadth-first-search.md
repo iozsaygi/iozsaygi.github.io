@@ -107,6 +107,6 @@ void bfs_execute(struct bfs_graph* graph, int startingNode) {
 ```
 
 ### Wrapping up
-Nowadays, I don't have that much time to study specific algorithms, so it was really nice to be able to study BFS. The full implementation can be found in my [data structures and algorithms](https://github.com/iozsaygi/dsaa/blob/main/src/breadth_first_search.c) repository.
+Nowadays, I don't have that much time to study specific algorithms, so it was really nice to be able to study BFS. The full implementation can be found in my [data structures and algorithms repository](https://github.com/iozsaygi/dsaa/blob/main/src/breadth_first_search.c).
 
 Thank you for reading.
