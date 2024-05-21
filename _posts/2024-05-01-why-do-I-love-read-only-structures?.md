@@ -67,3 +67,12 @@ public class DataController
 ```
 
 In the usage case above, both struct and class will be allocated on the heap since struct instance is declared as a member of heap allocated class.
+
+However, I think one of the best advantages of the structure is definitely the [data locality](https://gameprogrammingpatterns.com/data-locality.html) it introduces. Consider a case where you have to work with large datasets, maybe an array of thousands of elements. Iterating over an ??**array of class instances** is much **slower** than iterating over an **array of struct instances**. (I wish I had some benchmark data to show, but lessons are learned for future blog posts.)
+
+With the array that holds a class instance, you are pretty much chasing a pointer to that class instance that is located randomly around the RAM. It will definitely cause wasted cycles while the code is trying to receive that pointer from its random location.
+
+### Resources
+* [lock](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/lock)
+* [Data Locality](https://gameprogrammingpatterns.com/data-locality.html)
+* [Better CPU Caching with Structs](https://www.jacksondunstan.com/articles/3399)
