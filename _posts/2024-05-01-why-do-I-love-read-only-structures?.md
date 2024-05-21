@@ -42,3 +42,5 @@ public readonly struct Safe
 This is much safer to iterate on since you know it is not going to get modified by other parts of the code or threads. Of course, it can still be changed by reallocation, but it is a totally different case to look at.
 
 However, there's a case where it can be hard to use readonly structs, and that case is serialization. I heard there are .NET libraries that can serialize or deserialize read-only structures, but I never gave them a try before.
+
+### Impacts of stack allocations
