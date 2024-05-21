@@ -55,7 +55,7 @@ public struct DataPackage
 
     public DataPackage(byte data)
     {
-    Data = data;
+        Data = data;
     }
 }
 
