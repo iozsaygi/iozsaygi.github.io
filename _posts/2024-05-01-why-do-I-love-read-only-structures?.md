@@ -70,9 +70,7 @@ In the usage case above, both struct and class will be allocated on the heap sin
 
 However, I think one of the best advantages of the structure is definitely the [data locality](https://gameprogrammingpatterns.com/data-locality.html) it introduces. Consider a case where you have to work with large datasets, maybe an array of thousands of elements. Iterating over an **array of class instances** is much **slower** than iterating over an **array of struct instances**. (I wish I had some benchmark data to show, but lessons are learned for future blog posts.)
 
-With the array that holds a class instance, you are pretty much chasing a pointer to that class instance that is located randomly around the RAM. It will definitely cause wasted cycles while the code is trying to receive that pointer from its random location.
-
-But in the case where you are storing instances of structs in the array, your logic will be able to run faster than its class version because all of the data it needs is allocated on the stack, and the CPU can actually reach it faster from its cache.
+With the array that holds a class instance, you are pretty much chasing a pointer to that class instance that is located randomly around the RAM. It will definitely cause wasted cycles while the code is trying to receive that pointer from its random location. But in the case where you are storing instances of structs in the array, your logic will be able to run faster than its class version because all of the data it needs is allocated on the stack, and the CPU can actually reach it faster from its cache.
 
 ### Resources
 * [lock](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/lock)
