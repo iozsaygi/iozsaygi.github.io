@@ -16,3 +16,29 @@ First, let's summarize general reasons to use them, and then take a detailed loo
 3. Possible optimization opportunities for the compiler
 
 ### Immutability and thread safety
+So a lot of times, when writing multithreaded code, we often worry about race conditions and data immutability. Take the following struct definition as an example; it is pretty much open to being modified from anywhere, everywhere.
+```csharp
+public struct NotSoSafe
+{
+    public int Data;
+}
+```
+
+So if you are using this struct with a collection, you can eventually [lock](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/lock) it and try to prevent it from being modified by other threads while you are working on that data in your specific thread. Which might work, but still doesn't achieve full immutability.
+
+So consider following usage of the same struct, which is full readonly and locks itself from changing (after allocation) from other parts of code.
+```csharp
+public readonly struct Safe
+{
+    public readonly int Data;
+
+    public Safe(int data)
+    {
+	    Data = data;
+    }
+}
+```
+
+This is much safer to iterate on since you know it is not going to get modified by other parts of the code or threads. Of course, it can still be changed by reallocation, but it is a totally different case to look at.
+
+However, there's a case where it can be hard to use readonly structs, and that case is serialization. I heard there are .NET libraries that can serialize or deserialize read-only structures, but I never gave them a try before.
