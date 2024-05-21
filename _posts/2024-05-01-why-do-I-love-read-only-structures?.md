@@ -13,7 +13,6 @@ First, let's summarize general reasons to use them, and then take a detailed loo
 
 1. Immutability and thread safety
 2. Impacts of stack allocations
-3. Possible optimization opportunities for the compiler
 
 ### Immutability and thread safety
 So a lot of times, when writing multithreaded code, we often worry about race conditions and data immutability. Take the following struct definition as an example; it is pretty much open to being modified from anywhere, everywhere.
@@ -72,9 +71,10 @@ However, I think one of the best advantages of the structure is definitely the [
 
 With the array that holds a class instance, you are pretty much chasing a pointer to that class instance that is located randomly around the RAM. It will definitely cause wasted cycles while the code is trying to receive that pointer from its random location. But in the case where you are storing instances of structs in the array, your logic will be able to run faster than its class version because all of the data it needs is allocated on the stack, and the CPU can actually reach it faster from its cache.
 
-### Possible optimization opportunities for the compiler
-
 ### Resources
 * [lock](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/lock)
 * [Data Locality](https://gameprogrammingpatterns.com/data-locality.html)
 * [Better CPU Caching with Structs](https://www.jacksondunstan.com/articles/3399)
+
+### Conclusion
+So this was the blog post where I learned that if I want to talk about optimization, I have to proof it with a benchmark. This was a huge lesson for me to learn, and I will definitely apply it to future posts. But still, thank you for taking the time to read it through!
