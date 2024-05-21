@@ -34,7 +34,7 @@ public readonly struct Safe
 
     public Safe(int data)
     {
-	    Data = data;
+	Data = data;
     }
 }
 ```
