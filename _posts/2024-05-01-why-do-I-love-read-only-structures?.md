@@ -44,3 +44,26 @@ This is much safer to iterate on since you know it is not going to get modified 
 However, there's a case where it can be hard to use readonly structs, and that case is serialization. I heard there are .NET libraries that can serialize or deserialize read-only structures, but I never gave them a try before.
 
 ### Impacts of stack allocations
+So before I dive into this, there is one crucial thing that I want to mention. Structs will be allocated on the stack, but at some point, if you declare a struct instance **inside of a class**, it will be allocated on the heap with that class instance.
+
+Take a look at the following usage example:
+```csharp
+// Created a basic struct that holds data as 'byte' type.  
+public struct DataPackage
+{
+    public byte Data;
+
+    public DataPackage(byte data)
+    {
+    Data = data;
+    }
+}
+
+// Class that operates on the data package instance.
+public class DataController
+{
+    public DataPackage DataPackage;
+}
+```
+
+In the usage case above, both struct and class will be allocated on the heap since struct instance is declared as a member of heap allocated class.
