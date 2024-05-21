@@ -72,6 +72,8 @@ However, I think one of the best advantages of the structure is definitely the [
 
 With the array that holds a class instance, you are pretty much chasing a pointer to that class instance that is located randomly around the RAM. It will definitely cause wasted cycles while the code is trying to receive that pointer from its random location.
 
+But in the case where you are storing instances of structs in the array, your logic will be able to run faster than its class version because all of the data it needs is allocated on the stack, and the CPU can actually reach it faster from its cache.
+
 ### Resources
 * [lock](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/lock)
 * [Data Locality](https://gameprogrammingpatterns.com/data-locality.html)
