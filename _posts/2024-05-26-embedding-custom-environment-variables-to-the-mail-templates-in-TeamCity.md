@@ -37,4 +37,4 @@ Click on the parameters, and you will be greeted by a list of available paramete
 
 - After clicking on the 'Save' button, you should see the environment variable you've added in the parameters window. Mine looks like below after adding:
 
-[Parameter Add Result](https://github.com/iozsaygi/iozsaygi.github.io/blob/main/assets/imgs/ecevttmtit/environment_variable.png?raw=true
+[Parameter Add Result](https://github.com/iozsaygi/iozsaygi.github.io/blob/main/assets/imgs/ecevttmtit/environment_variable.png?raw=true)
