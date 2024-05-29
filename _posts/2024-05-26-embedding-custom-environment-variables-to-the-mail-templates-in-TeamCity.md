@@ -39,5 +39,4 @@ Click on the parameters, and you will be greeted by a list of available paramete
 
 ![Parameter Add Result](https://github.com/iozsaygi/iozsaygi.github.io/blob/main/assets/imgs/ecevttmtit/parameter_add_result.png?raw=true)
 
-
 Well, we already accomplished most of the manual and effort-required steps with this work. Let's now take a look at the example PowerShell script that basically edits and saves our environment variable during build time.
