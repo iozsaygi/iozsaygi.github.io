@@ -24,3 +24,11 @@ First things first, we need to define our custom environment variable. You can s
 
 Click on the parameters, and you will be greeted by a list of available parameters for your build. So far, the path looks like this: 
 **Project | Project Configuration | Parameters**
+
+Inside the parameters window, click on the **'Add new parameter'** button.
+
+![Add New Parameter](https://github.com/iozsaygi/iozsaygi.github.io/blob/main/assets/imgs/ecevttmtit/add_new_parameter.png?raw=true)
+
+It will open up a new popup window that requires you to fill in the in the properties of the new environment variable.
+
+![Environment Variable](https://github.com/iozsaygi/iozsaygi.github.io/blob/main/assets/imgs/ecevttmtit/environment_variable.png?raw=true)
