@@ -35,7 +35,7 @@ Click on the parameters, and you will be greeted by a list of available paramete
 
 - To add a new environment variable, select the kind as **'Environment variable (env.)'**. I will be choosing **'Text'** as my value type and give it a name you prefer.
 
-- After clicking on the 'Save' button, you should see the environment variable you've added in the parameters window. Mine looks like below after adding:
+- After clicking on the **'Save'** button, you should see the environment variable you've added in the parameters window. Mine looks like below after adding:
 
 ![Parameter Add Result](https://github.com/iozsaygi/iozsaygi.github.io/blob/main/assets/imgs/ecevttmtit/parameter_add_result.png?raw=true)
 
