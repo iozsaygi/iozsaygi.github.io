@@ -14,3 +14,11 @@ Figuring out how to edit custom environment variables during builds and embeddin
 We will be creating a dummy environment variable for the TeamCity project, editing it during the build by using PowerShell, and then, at the final step, embedding it in the mail notification.
 
 Let's get started!
+
+### Adding a new environment variable
+Well, at this point, I am pretty much assuming you have an up-and-running TeamCity server and agent instance(s) that you can use to try the things I explain.
+
+First things first, we need to define our custom environment variable. You can see the environment variables by accessing the specific project that you defined. Within the project, you need to basically edit its build configuration. When you enter the build configuration page, you will see a menu that looks something like this:
+![Build Configuration](https://github.com/iozsaygi/iozsaygi.github.io/blob/main/assets/imgs/ecevttmtit/build_configuration.png?raw=true)
+
+Click on the parameters, and you will be greeted by a list of available parameters for your build. So far, the path looks like this: **Project | Project Configuration | Parameters**
