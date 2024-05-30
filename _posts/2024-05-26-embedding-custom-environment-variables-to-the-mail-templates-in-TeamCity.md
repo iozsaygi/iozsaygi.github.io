@@ -47,7 +47,7 @@ We need to add a new build step to work with PowerShell scripts. Let's go to **P
 Choose **PowerShell** as runner type and give your build step a proper name. Also, don't forget to change **'Script'** to **'Source code'** so you can directly edit the script from the TeamCity interface. The other option will let you use the scripts that are located on the machine.
 
 Here is our little script, pretty straight forward and on purpose:
-```PowerShell
+```shell
 Write-Host "##teamcity[setParameter name='env.Person' value='İsmail Özsaygı']"
 Write-Output $env:Person
 ```
