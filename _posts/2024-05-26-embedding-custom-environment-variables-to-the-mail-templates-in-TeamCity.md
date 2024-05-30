@@ -56,4 +56,6 @@ Let's explain it line by line:
 1. The first line actually finds the environment variable that we defined in the build configuration and updates its value as 'İsmail Özsaygı' which is my name and surname.
 2. The second line is just for debugging; it prints out the environment variable that we just sent to let us debug if it is working correctly.
 
-One thing to note is that once the build ends and a new build starts, the environment variable we modified will be reset to its default value. Now, let's see how we can edit our mail templates to show that environment variable on our mail notifications. But before that, I'll assume you've already setup a mail server and notifications by using the TeamCity interface.
+One thing to note is that once the build ends and a new build starts, the environment variable we modified will be reset to its default value.
+
+Now, let's see how we can edit our mail templates to show that environment variable on our mail notifications. But before that, I'll assume you've already setup a mail server and notifications by using the TeamCity interface.
