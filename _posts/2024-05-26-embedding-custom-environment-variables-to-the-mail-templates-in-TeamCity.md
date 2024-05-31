@@ -59,3 +59,5 @@ Let's explain it line by line:
 One thing to note is that once the build ends and a new build starts, the environment variable we modified will be reset to its default value.
 
 Now, let's see how we can edit our mail templates to show that environment variable on our mail notifications. But before that, I'll assume you've already setup a mail server and notifications by using the TeamCity interface.
+
+### Editing the mail template to show a custom environment variable
