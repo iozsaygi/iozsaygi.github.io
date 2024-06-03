@@ -64,3 +64,10 @@ Now, let's see how we can edit our mail templates to show that environment varia
 Now we need to edit the mail templates that are defined in TeamCity. You can access the templates from **Administration | Global Settings** and click on the **'Browse'** button near the **'Data directory'** section. It will list the data directory for TeamCity in the interface. Then go to **config | notifications | email | build_successful.ftl**, and it will open a simple text editor in the TeamCity interface for you to edit the mail template.
 
 One thing to note is that we are only going to edit the notifications that are triggered upon successful builds; it is up to you and your workflow to edit different types of templates.
+
+I only added the following line of code to the ``<div>`` tag under ``<#global bodyHtml>``, and it worked like a charm!
+
+``<b>Person:</b> ${build.parametersProvider.all['env.Person]}``
+
+And here is our new mail that I just received!
+![Mail result](https://github.com/iozsaygi/iozsaygi.github.io/blob/main/assets/imgs/ecevttmtit/mail_result.png?raw=true)
