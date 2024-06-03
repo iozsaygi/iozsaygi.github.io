@@ -61,3 +61,6 @@ One thing to note is that once the build ends and a new build starts, the enviro
 Now, let's see how we can edit our mail templates to show that environment variable on our mail notifications. But before that, I'll assume you've already setup a mail server and notifications by using the TeamCity interface.
 
 ### Editing the mail template to show a custom environment variable
+Now we need to edit the mail templates that are defined in TeamCity. You can access the templates from **Administration | Global Settings** and click on the **'Browse'** button near the **'Data directory'** section. It will list the data directory for TeamCity in the interface. Then go to **config | notifications | email | build_successful.ftl**, and it will open a simple text editor in the TeamCity interface for you to edit the mail template.
+
+One thing to note is that we are only going to edit the notifications that are triggered upon successful builds; it is up to you and your workflow to edit different types of templates.
