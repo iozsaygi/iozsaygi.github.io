@@ -71,3 +71,9 @@ I only added the following line of code to the ``<div>`` tag under ``<#global bo
 
 And here is our new mail that I just received!
 ![Mail result](https://github.com/iozsaygi/iozsaygi.github.io/blob/main/assets/imgs/ecevttmtit/mail_result.png?raw=true)
+
+Well, that's it. We learned how to add a small but really effective feature to our TeamCity CI pipeline. What you can do with this is pretty much up to your imagination and project requirements.
+### Conclusion
+Now that was pretty niche content, I assume! It was really fun to tackle with TeamCity, and I definitely had a smoother experience than Jenkins. Maybe I'll write a blog post about the differences between TeamCity and Jenkins one day.
+
+Thank you for reading it through!
