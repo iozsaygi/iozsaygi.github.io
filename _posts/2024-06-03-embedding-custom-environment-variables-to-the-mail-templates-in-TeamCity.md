@@ -74,6 +74,6 @@ And here is our new mail that I just received!
 
 Well, that's it. We learned how to add a small but really effective feature to our TeamCity CI pipeline. What you can do with this is pretty much up to your imagination and project requirements.
 ### Conclusion
-Now that was pretty niche content, I assume! It was really fun to tackle with TeamCity, and I definitely had a smoother experience than Jenkins. Maybe I'll write a blog post about the differences between TeamCity and Jenkins one day.
+Now that was pretty niche content, I assume! It was really fun to tackle with TeamCity, and I definitely had a smoother experience than Jenkins. Maybe I'll write a blog post about the differences I experienced between TeamCity and Jenkins one day.
 
 Thank you for reading it through!
