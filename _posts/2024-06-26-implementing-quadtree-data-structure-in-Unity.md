@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Implementing quadtree data structure in Unity
-description: Implementing a quadtree in the Unity engine.
+description: How quadtrees can affect optimization by reducing the search space.
 tags:
   - Unity
 ---
