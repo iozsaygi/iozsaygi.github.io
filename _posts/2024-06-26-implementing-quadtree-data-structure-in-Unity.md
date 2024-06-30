@@ -31,4 +31,4 @@ Here's a quick list to overview general properties of quadtrees:
 * Each quadrant will subdivide upon reaching the data capacity
 * Whole data structure built with recursive operations
 
-Now, let's see how we can implement quadtree in C#. Also,  we will be using the Unity engine to visualize and debug our implementation.
+Now, let's see how we can implement quadtree in C#. Also, we will be using the Unity engine to visualize and debug our implementation.
