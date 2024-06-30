@@ -23,7 +23,7 @@ Quadtrees are tree data structures where each node of tree exactly has four chil
 Assuming we are working on a 2D top-down environment, quadrants will have names as **north west**, **north east**, **south west**, and **south east**. Each representing different bounds inside a big quadrant.
 
 See the image below. A quadtree has one root quadrant, and it has four different quadrants that divide the space into four equal areas. (The colorful dots are the entities available inside the quadtree.)
-![Quadrants](https://github.com/iozsaygi/iozsaygi.github.io/blob/main/assets/imgs/iaqiue/quadrants.png)
+![Quadrants](https://raw.githubusercontent.com/iozsaygi/iozsaygi.github.io/main/assets/imgs/iaqiue/quadrants.png)
 
 Here's a quick list to overview general properties of quadtrees:
 * They divide space into four equal regions
