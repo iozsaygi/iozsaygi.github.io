@@ -18,3 +18,8 @@ At that time, I wasn't really aware that there was a specific data structure tha
 Oh, by the way, if you ever wonder about the game I am talking about, It was [Underlands](https://ldjam.com/events/ludum-dare/47/underlands), a game that initially aimed to have thousands of entities handle each frame but ended up being a classic 2D top-down shooter.
 
 ### What is a quadtree?
+Quadtrees are tree data structures where each node of tree exactly has four children. Each node of a quadtree is called a **quadrant**, and each quadrant has its own bounds (spatial area) and capacity for those bounds. If data inside the quadrant's bounds exceeds its capacity, the quadrant will be divided into four different quadrants.
+
+Assuming we are working on a 2D top-down environment, quadrants will have names as **north west**, **north east**, **south west**, and **south east**. Each representing different bounds inside a big quadrant.
+
+They are really useful when we want to execute operations that highly depend on positional or spatial data. especially when we have large amounts of data to consider.
