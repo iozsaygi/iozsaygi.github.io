@@ -22,4 +22,13 @@ Quadtrees are tree data structures where each node of tree exactly has four chil
 
 Assuming we are working on a 2D top-down environment, quadrants will have names as **north west**, **north east**, **south west**, and **south east**. Each representing different bounds inside a big quadrant.
 
-They are really useful when we want to execute operations that highly depend on positional or spatial data. especially when we have large amounts of data to consider.
+See the image below. A quadtree has one root quadrant, and it has four different quadrants that divide the space into four equal areas. (The colorful dots are the entities available inside the quadtree.)
+![Quadrants](https://github.com/iozsaygi/iozsaygi.github.io/blob/main/assets/imgs/iaqiue/quadrants.png)
+
+Here's a quick list to overview general properties of quadtrees:
+* They divide space into four equal regions
+* They can decrease the search/query space and optimize performance drastically
+* Each quadrant will subdivide upon reaching the data capacity
+* Whole data structure built with recursive operations
+
+Now, let's see how we can implement quadtree in C#. Also,  we will be using the Unity engine to visualize and debug our implementation.
