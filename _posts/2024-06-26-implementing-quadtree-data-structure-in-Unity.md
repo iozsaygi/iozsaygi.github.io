@@ -32,3 +32,30 @@ Here's a quick list to overview general properties of quadtrees:
 * Whole data structure built with recursive operations
 
 Now, let's see how we can implement quadtree in C#. Also, we will be using the Unity engine to visualize and debug our implementation.
+
+### Definition of quadrants
+Just like we talked earlier, quadrants are basically children of another quadrant, and they divide space into four equal regions. In this section, we'll talk about the general definition of quadrant class; we will not dive into actual implementations since they will be explained in different sections separately.
+
+Let's see how we can define a quadrant with basic C# classes.
+```csharp
+public class Quadrant
+{
+    // The bounds of the quadrant, its volume in space.
+    private readonly Bounds _bounds;
+
+    // How many points can be stored inside this quadrant at maximum?
+    private readonly byte _positionRegistryCapacity;
+
+    // Positions that are inside of this quadrant's boundaries.
+    private readonly List<Vector3> _positionRegistry; 
+
+    // Reference to each child quadrant, they will be allocated during subdivision operation.
+    private Quadrant _northWest;  
+    private Quadrant _northEast;  
+    private Quadrant _southWest;  
+    private Quadrant _southEast;
+
+    // Basic flag to see if the quadrant is already subdivided.
+    private bool _isSubdivided;
+}
+```
