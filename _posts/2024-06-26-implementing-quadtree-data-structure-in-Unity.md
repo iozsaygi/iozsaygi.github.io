@@ -59,3 +59,12 @@ public class Quadrant
     private bool _isSubdivided;
 }
 ```
+
+Quadrants have some properties:
+* The **bounds** property determines the occupation area of the quadrant
+* **positionRegistryCapacity** determines how many points can quadrant store within its bounds
+* **positionRegistry** is the list of points (world coordinates) that are inside within the bounds of this quadrant
+* It also has four different references to possible child quadrants
+* And, finally, the **isSubdivided** flag to see if a specific quadrant is already partitioned into smaller chunks also prevents the algorithm from endless recursive steps
+
+After defining the base quadrant class, now we will talk about its logic. We will see how to implement `Construct`, `InsertPosition`, and `GetPositionsNearby` APIs.
