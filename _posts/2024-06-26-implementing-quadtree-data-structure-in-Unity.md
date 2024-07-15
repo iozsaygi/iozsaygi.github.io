@@ -116,3 +116,39 @@ Here, we are basically calculating the new rectangular area of each child quadra
 However, do not forget that I am working on a 2D top-down environment to implement quadtrees, so subdividing calculations might be different for the space that you are working on.
 
 Now let's get to the actual part: inserting a new position into the quadtree.
+
+### Inserting a position into the quadtree
+This one is fairly simple; it will work as a recursive API, and of course, just like other recursive logic, we must have a failure condition to not recursively call this into exceptions.
+
+Before taking a look at the code, let's explain the steps that we need to perform:
+1. Check if the passed position parameter is inside this quadrant's bounds; don't do anything if this evaluates to `false`.
+2. Now that we are sure that the given position is inside the bounds, check if the quadrant reached its capacity for the position registry.
+3. If the quadrant has not reached its capacity yet, then just add the passed position to the position registry.
+4. If the quadrant has reached its capacity, then subdivide it into four equal quadrants and try to add the given position to each child quadrant.
+
+With these steps, we are ensuring that the given position is fed into the correct quadrant and that the required subdividing operations are performed as well.
+
+Now, let's take a look at the code. The function itself is pretty short, but it works recursively.
+```csharp
+public void InsertPosition(Vector3 position)
+{
+    // Check if given position is inside the bounds of the quadrant.
+    if (!_bounds.Contains(position)) return;
+
+    // Check if we have enough space in registry to save/add given position.
+    if (_positionRegistry.Count < _positionRegistryCapacity)
+    {        _positionRegistry.Add(position);
+    }    else
+    {
+        // We don't have enough space in registry, it is time to subdivide the quadrant.
+        // But we need to check if it is subdivided before.
+        if (!_isSubdivided) Subdivide();  
+
+        // Try to add given position to each quadrant.
+        _northWest.InsertPosition(position);
+        _northEast.InsertPosition(position);
+        _southWest.InsertPosition(position);
+        _southEast.InsertPosition(position);
+    }
+}
+```
