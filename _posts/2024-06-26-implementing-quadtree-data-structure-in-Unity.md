@@ -68,3 +68,45 @@ Quadrants have some properties:
 * And, finally, the **isSubdivided** flag to see if a specific quadrant is already partitioned into smaller chunks also prevents the algorithm from endless recursive steps
 
 After defining the base quadrant class, now we will talk about its logic. We will see how to implement `InsertPosition`, `GetPositionsNearby`, and `Subdivide` APIs.
+
+### Subdividing a quadrant
+We haven't implemented the `InsertPosition(Vector3);` API yet, but before doing that, we need to know how we can subdivide a quadrant into four equal pieces. We will divide the quadrants when a single piece reaches its maximum capacity for position registry.
+
+Let's see how we can subdivide a quadrant into four equal pieces:
+```csharp
+private void Subdivide()
+{
+    // Calculate the size for each child quadrant. 
+    var originalCenter = _bounds.center;
+    var originalSize = _bounds.size;
+    var newSize = new Vector3(originalSize.x / 2, originalSize.y / 2, originalSize.z);
+
+    // Calculate half sizes for easier calculations.
+    var halfHorizontalSize = newSize.x / 2;
+    var halfVerticalSize = newSize.y / 2;
+  
+    // Calculate centers for the four child quadrants.  
+    var northWestCenter = new Vector3(originalCenter.x - halfHorizontalSize,  
+        originalCenter.y + halfVerticalSize, originalCenter.z);
+    var northEastCenter = new Vector3(originalCenter.x + halfHorizontalSize,  
+        originalCenter.y + halfVerticalSize, originalCenter.z);
+    var southWestCenter = new Vector3(originalCenter.x - halfHorizontalSize,  
+        originalCenter.y - halfVerticalSize, originalCenter.z);
+    var southEastCenter = new Vector3(originalCenter.x + halfHorizontalSize,  
+        originalCenter.y - halfVerticalSize, originalCenter.z);
+
+    // Create bounds for each child quadrant.
+    var northWestBounds = new Bounds(northWestCenter, newSize);
+    var northEastBounds = new Bounds(northEastCenter, newSize);
+    var southWestBounds = new Bounds(southWestCenter, newSize);
+    var southEastBounds = new Bounds(southEastCenter, newSize);
+  
+    // Allocate every single child quadrant reference.
+    _northWest = new Quadrant(northWestBounds, _positionRegistryCapacity);
+    _northEast = new Quadrant(northEastBounds, _positionRegistryCapacity);
+    _southWest = new Quadrant(southWestBounds, _positionRegistryCapacity);
+    _southEast = new Quadrant(southEastBounds, _positionRegistryCapacity);
+
+    _isSubdivided = true;
+}
+```
