@@ -137,8 +137,10 @@ public void InsertPosition(Vector3 position)
 
     // Check if we have enough space in registry to save/add given position.
     if (_positionRegistry.Count < _positionRegistryCapacity)
-    {        _positionRegistry.Add(position);
-    }    else
+    {  
+    _positionRegistry.Add(position);
+    }
+    else
     {
         // We don't have enough space in registry, it is time to subdivide the quadrant.
         // But we need to check if it is subdivided before.
