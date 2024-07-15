@@ -138,7 +138,7 @@ public void InsertPosition(Vector3 position)
     // Check if we have enough space in registry to save/add given position.
     if (_positionRegistry.Count < _positionRegistryCapacity)
     {  
-	    _positionRegistry.Add(position);
+	_positionRegistry.Add(position);
     }
     else
     {
