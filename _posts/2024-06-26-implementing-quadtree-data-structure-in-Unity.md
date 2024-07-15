@@ -154,3 +154,5 @@ public void InsertPosition(Vector3 position)
     }
 }
 ```
+
+Well, this was the core API for a quadtree, but we have one more thing to implement, and that is way more important than this. Next, we'll figure out how we can query the positions in a quadrant just by passing the origin or reference position to it.
