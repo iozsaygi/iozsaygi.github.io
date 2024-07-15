@@ -110,3 +110,9 @@ private void Subdivide()
     _isSubdivided = true;
 }
 ```
+
+Here, we are basically calculating the new rectangular area of each child quadrant (northwest, north east, south west, and south east) and then allocating each child quadrant with the calculated areas. There is no magic going on here, just simple math.
+
+However, do not forget that I am working on a 2D top-down environment to implement quadtrees, so subdividing calculations might be different for the space that you are working on.
+
+Now let's get to the actual part: inserting a new position into the quadtree.
