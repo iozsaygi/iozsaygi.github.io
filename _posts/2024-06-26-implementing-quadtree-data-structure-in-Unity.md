@@ -185,3 +185,25 @@ public IReadOnlyList<Vector3> GetPositionsNearby(Vector3 origin)
     return nearbyPositions.AsReadOnly();
 }
 ```
+
+Just like I promised, let's run it down step by step:
+1. First, we have to check if the given `origin` position is inside the bounds. This is also a termination condition for the recursive calls, making them safer to use.
+2. Then we are checking if the current quadrant is subdivided; if not, we will just return positions inside the current quadrant.
+3. Now this is the recursive part; if the current quadrant is subdivided, we are eventually visiting each child quadrant and then continuing the previous steps until we reach a quadrant that meets the conditions. While doing that, we are also keeping track of the positions we find.
+4. Eventually, after recursive calls, we are just returning the total read-only list of positions that we calculated.
+
+Yep, so with this API, we are actually able to decrease the search space that we are working on, hopefully leading to better performance.
+
+### When to use quadtrees
+I would like to create a compilation list that I think is a good reason to implement quadtrees into your game development workflow:
+- When you want to handle collisions for thousands of entities.
+- When you want to implement AoE spells but have lots of entities in the scene.
+- When you want to stream the assets of the environment in your open-world game.
+- When you want to decrease the amount of data you are working with, So your operations will work on smaller input sizes.
+
+### Conclusion
+What a year! I think we just celebrated the first year of my blog with quadtrees! I can't even believe that it has been a year since I started blogging. Time just flies away.
+
+I strongly think that it was a great entry for the anniversary blog post. Hopefully, it will give some ideas to someone out there and ease the workflow for my fellow developers.
+
+Thank you so much for sticking with me until the end. Let's see which type of blog posts await me in the next few years!
