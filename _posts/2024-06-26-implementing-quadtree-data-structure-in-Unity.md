@@ -156,3 +156,32 @@ public void InsertPosition(Vector3 position)
 ```
 
 Well, this was the core API for a quadtree, but we have one more thing to implement, and that is way more important than this. Next, we'll figure out how we can query the positions in a quadrant just by passing the origin or reference position to it.
+
+### Implementing an API to query nearby positions
+Well, let's dive into the most important part of quadtree: position querying. We implemented all of this functionality so we can query less data whenever needed, resulting in a decreased search space and improved performance.
+
+The signature of the API is pretty simple: `public IReadOnlyList<Vector3> GetPositionsNearby(Vector3 origin);`
+
+The `origin` parameter is basically the position in world coordinates. We will try to find a related quadrant based on it and eventually return all of the positions inside that quadrant.
+
+Let's see the actual implementation, and then we will review it step by step.
+```csharp
+public IReadOnlyList<Vector3> GetPositionsNearby(Vector3 origin)
+{
+    // Check if given 'origin' is inside the bounds of current quadrant.
+    if (!_bounds.Contains(origin)) return new List<Vector3>().AsReadOnly();
+
+    // Check if current quadrant subdivided before.
+    if (!_isSubdivided) return _positionRegistry.AsReadOnly();
+
+    // The quadrant is subdivided, query each child quadrant it has.
+    var nearbyPositions = new List<Vector3>();
+
+    nearbyPositions.AddRange(_northWest.GetPositionsNearby(origin));
+    nearbyPositions.AddRange(_northEast.GetPositionsNearby(origin));
+    nearbyPositions.AddRange(_southWest.GetPositionsNearby(origin));
+    nearbyPositions.AddRange(_southEast.GetPositionsNearby(origin)); 
+
+    return nearbyPositions.AsReadOnly();
+}
+```
