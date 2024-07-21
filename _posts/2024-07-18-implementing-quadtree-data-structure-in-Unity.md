@@ -26,10 +26,10 @@ See the image below. A quadtree has one root quadrant, and it has four different
 ![Quadrants](https://raw.githubusercontent.com/iozsaygi/iozsaygi.github.io/main/assets/imgs/iaqiue/quadrants.png)
 
 Here's a quick list to overview general properties of quadtrees:
-* They divide space into four equal regions
-* They can decrease the search/query space and optimize performance drastically
-* Each quadrant will subdivide upon reaching the data capacity
-* Whole data structure built with recursive operations
+* They divide space into four equal regions.
+* They can decrease the search/query space and optimize performance drastically.
+* Each quadrant will subdivide upon reaching the data capacity.
+* Whole data structure built with recursive operations.
 
 Now, let's see how we can implement quadtree in C#. Also, we will be using the Unity engine to visualize and debug our implementation.
 
@@ -61,11 +61,11 @@ public class Quadrant
 ```
 
 Quadrants have some properties:
-* The **bounds** property determines the occupation area of the quadrant
-* **positionRegistryCapacity** determines how many points can quadrant store within its bounds
-* **positionRegistry** is the list of points (world coordinates) that are inside within the bounds of this quadrant
-* It also has four different references to possible child quadrants
-* And, finally, the **isSubdivided** flag to see if a specific quadrant is already partitioned into smaller chunks also prevents the algorithm from endless recursive steps
+* The **bounds** property determines the occupation area of the quadrant.
+* **positionRegistryCapacity** determines how many points can quadrant store within its bounds.
+* **positionRegistry** is the list of points (world coordinates) that are inside within the bounds of this quadrant.
+* It also has four different references to possible child quadrants.
+* And, finally, the **isSubdivided** flag to see if a specific quadrant is already partitioned into smaller chunks also prevents the algorithm from endless recursive steps.
 
 After defining the base quadrant class, now we will talk about its logic. We will see how to implement `InsertPosition`, `GetPositionsNearby`, and `Subdivide` APIs.
 
