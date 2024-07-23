@@ -206,6 +206,6 @@ What a year! I think we just celebrated the first year of my blog with quadtrees
 
 I strongly think that it was a great entry for the anniversary blog post. Hopefully, it will give some ideas to someone out there and ease the workflow for my fellow developers.
 
-Oh! I almost forgot. You can view my [repository](https://github.com/iozsaygi/unity-quadtree) for the full quadtree implementation, fork it, and try to make your own adjustments if you want.
+Oh! I almost forgot. You can view my [repository](https://github.com/iozsaygi/unity-quadtree) for the full quadtree implementation, fork it, and try to make your own adjustments if you want. I am sure there is room for improvement.
 
 Thank you so much for sticking with me until the end. Let's see which type of blog posts await me in the next few years!
