@@ -26,7 +26,7 @@ See the image below. A quadtree has one root quadrant, and it has four different
 ![Quadrants](https://raw.githubusercontent.com/iozsaygi/iozsaygi.github.io/main/assets/imgs/iaqiue/quadrants.png)
 
 Here's a quick list to overview general properties of quadtrees:
-* They divide space into four equal regions.
+* They divide space into four equal regions or rectangles.
 * They can decrease the search/query space and optimize performance drastically.
 * Each quadrant will subdivide upon reaching the data capacity.
 * Whole data structure built with recursive operations.
