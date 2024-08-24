@@ -10,3 +10,5 @@ Recently, I was learning more about [SortedSet](https://learn.microsoft.com/en-u
 But the things I've learned stayed with me. In this post, I want to talk about how we can use sorted sets with our custom data types.
 
 First things first, let's take a quick look at the [IComparable](https://learn.microsoft.com/en-us/dotnet/api/system.icomparable?view=net-8.0) interface.
+
+### IComparable interface
