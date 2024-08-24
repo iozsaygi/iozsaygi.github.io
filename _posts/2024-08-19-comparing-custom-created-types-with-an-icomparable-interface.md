@@ -91,3 +91,23 @@ public class Inventory
     }
 }
 ```
+
+Basic inventory class defines the items with a custom order, not respecting the priorities. Also has print function to ease debugging process.
+
+Even when we declare items without any sorted order when we call the print function, the result is pretty much sorted based on item priorities. Here's the result of the print function with the current item set:
+```
+Item information: Database ID: 1 Priority: 1 Vendor Price: 100
+Item information: Database ID: 4 Priority: 2 Vendor Price: 250
+Item information: Database ID: 0 Priority: 3 Vendor Price: 50
+Item information: Database ID: 3 Priority: 4 Vendor Price: 200
+Item information: Database ID: 2 Priority: 7 Vendor Price: 150
+```
+
+It is totally up to us to define how C# is going to sort our types; we can combine several properties and implement even more complicated sorting guidelines.
+
+### Conclusion
+I wrote this article while I was chasing a gameplay bug for so long (5-6 hours), and I kind of wanted to change my area of focus with some kind of blog post. Also, the IComparable interface was something that I really wanted to dive deep into, and I think this post made a cool entry for it.
+
+I will definitely use this interface more but not really with sorted sets. I feel like sorted sets are the perfect way to waste CPU cycles since they are most likely doing item shifting under the hood very often. So I think it is cool to know about this interface, but sorted set usage is something to be carefull on.
+
+Thank you for reading, and see you next time!
