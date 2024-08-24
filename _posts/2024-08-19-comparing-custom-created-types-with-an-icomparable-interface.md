@@ -12,7 +12,7 @@ But the things I've learned stayed with me. In this post, I want to talk about h
 First things first, let's take a quick look at the [IComparable](https://learn.microsoft.com/en-us/dotnet/api/system.icomparable?view=net-8.0) interface.
 
 ### IComparable interface
-When working with native.NET types like int, byte, and double. C# already knows how to compare them, but things get tricky when you want to also compare your custom types.
+When working with native .NET types like int, byte, and double. C# already knows how to compare them, but things get tricky when you want to also compare your custom types.
 
 Let's say you have a struct called Item, and items have some level of priority; the higher the priority of the item, the higher the value of it. Inside your inventory class, let's imagine you want to sort your items somehow; since it is your custom type, C# doesn't know how to sort it actually. At this point, you can implement the IComparable interface to your struct and define custom guidelines for C# about how to sort your struct instances.
 
@@ -56,3 +56,13 @@ public readonly struct Item : IComparable<Item>
     }
 }
 ```
+
+Now let's actually implement the `CompareTo` method; it is pretty simple:
+```cs
+public int CompareTo(Item other)
+{
+    return Priority.CompareTo(other.Priority);
+}
+```
+
+Since we will be using priority as a way to compare our items, this is pretty easy. We are just creating a wrapper around byte's IComparable implementation.
