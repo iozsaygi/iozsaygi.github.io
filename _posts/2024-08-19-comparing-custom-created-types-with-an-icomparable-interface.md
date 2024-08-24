@@ -74,7 +74,8 @@ public class Inventory
 {  
     // Items in the inventory. (Sorted)  
     private readonly SortedSet<Item> _items = new()
-    {        new Item(0, 3, 50),  
+    {        
+        new Item(0, 3, 50),  
         new Item(1, 1, 100),  
         new Item(2, 7, 150),  
         new Item(3, 4, 200),  
@@ -85,7 +86,7 @@ public class Inventory
     {
         foreach (var item in _items)
         {
-        Debug.Log($"Item information:\n Database ID: {item.DatabaseID}\n" + $"Priority: {item.Priority}\n" +  $"Vendor Price: {item.VendorPrice}");
+            Debug.Log($"Item information:\n Database ID: {item.DatabaseID}\n" + $"Priority: {item.Priority}\n" +  $"Vendor Price: {item.VendorPrice}");
         }
     }
 }
