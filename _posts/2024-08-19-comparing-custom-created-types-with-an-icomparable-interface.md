@@ -26,3 +26,33 @@ public readonly struct Item : IComparable<Item>
     }
 }
 ```
+
+Just forces us to implement a new method called `CompareTo`. This is where we are going to define our sorting logic for C#.
+
+### Defining custom sorting guidelines
+We talked about item priorities; let's populate our struct with dummy data, including the priority. Then we'll be using that priority to define custom sorting guidelines for C#.
+```cs
+public readonly struct Item : IComparable<Item>
+{
+	// Dummy ID value that will be representing the unique number for item in database.  
+	public readonly byte DatabaseID;  
+  
+	// The priority of the item, will be used for sorting guideline.  
+	public readonly byte Priority;  
+  
+	// Dummy data to represent item's price at the vendor.  
+	public readonly double VendorPrice;
+
+	public Item(byte databaseID, byte priority, double vendorPrice)
+	{
+	    DatabaseID = databaseID;  
+	    Priority = priority;  
+	    VendorPrice = vendorPrice;  
+	}
+
+    public int CompareTo(Item other)
+    {
+	throw new NotImplementedException();
+    }
+}
+```
