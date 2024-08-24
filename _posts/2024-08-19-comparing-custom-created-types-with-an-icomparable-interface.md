@@ -22,7 +22,7 @@ public readonly struct Item : IComparable<Item>
 {
     public int CompareTo(Item other)
     {
-		throw new NotImplementedException();
+	throw new NotImplementedException();
     }
 }
 ```
