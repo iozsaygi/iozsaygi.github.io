@@ -66,3 +66,27 @@ public int CompareTo(Item other)
 ```
 
 Since we will be using priority as a way to compare our items, this is pretty easy. We are just creating a wrapper around byte's IComparable implementation.
+
+### Using sorted sets with our custom type
+I am not really a fan of sorted sets, but let's use one to automatically sort our custom type based on the item priorities.
+```cs
+public class Inventory
+{  
+    // Items in the inventory. (Sorted)  
+    private readonly SortedSet<Item> _items = new()
+    {        new Item(0, 3, 50),  
+        new Item(1, 1, 100),  
+        new Item(2, 7, 150),  
+        new Item(3, 4, 200),  
+        new Item(4, 2, 250)  
+    };
+
+    public void Print()
+    {
+    foreach (var item in _items)
+        {            Debug.Log($"Item information:\n Database ID: {item.DatabaseID}\n" + $"Priority: {item.Priority}\n" +  
+                      $"Vendor Price: {item.VendorPrice}");
+        }    
+    }
+}
+```
