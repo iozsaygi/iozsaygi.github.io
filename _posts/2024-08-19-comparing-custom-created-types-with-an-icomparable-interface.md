@@ -83,10 +83,10 @@ public class Inventory
 
     public void Print()
     {
-    foreach (var item in _items)
-        {            Debug.Log($"Item information:\n Database ID: {item.DatabaseID}\n" + $"Priority: {item.Priority}\n" +  
-                      $"Vendor Price: {item.VendorPrice}");
-        }    
+        foreach (var item in _items)
+        {
+        Debug.Log($"Item information:\n Database ID: {item.DatabaseID}\n" + $"Priority: {item.Priority}\n" +  $"Vendor Price: {item.VendorPrice}");
+        }
     }
 }
 ```
