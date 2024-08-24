@@ -17,3 +17,12 @@ When working with native.NET types like int, byte, and double. C# already knows 
 Let's say you have a struct called Item, and items have some level of priority; the higher the priority of the item, the higher the value of it. Inside your inventory class, let's imagine you want to sort your items somehow; since it is your custom type, C# doesn't know how to sort it actually. At this point, you can implement the IComparable interface to your struct and define custom guidelines for C# about how to sort your struct instances.
 
 Let's see the basic implementation of the IComparable interface.
+```cs
+public readonly struct Item : IComparable<Item>
+{
+    public int CompareTo(Item other)
+    {
+		throw new NotImplementedException();
+    }
+}
+```
