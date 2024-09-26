@@ -31,7 +31,7 @@ public class Effect
 {
     public virtual void Apply()
     {
-    throw new NotImplementedException();
+	    throw new NotImplementedException();
     }
 }  
 
@@ -39,7 +39,7 @@ public class Heal : Effect
 {
     public override void Apply()
     {
-    // Entity.Heal(healAmount);
+	    // Entity.Heal(healAmount);
     }
 }
 
@@ -47,8 +47,8 @@ public class Poison : Effect
 {
     public override void Poison()
     {
-    // Entity.Heal(-healAmount);  
-    // Entity.UpdateMovementSpeed(movementSpeedDecrease);    
+	    // Entity.Heal(-healAmount);  
+	    // Entity.UpdateMovementSpeed(movementSpeedDecrease);    
     }
 }
 
