@@ -59,3 +59,6 @@ public class Item : MonoBehaviour
     [SerializeReference] private List<Effect> effects;
 }
 ```
+
+### Conclusion
+I am passing through a very strict period in terms of my work schedule, so for this post I wasn't able to do detailed research like the one I did for other posts, but I think I was able to express myself clearly. Thank you for sticking around!
