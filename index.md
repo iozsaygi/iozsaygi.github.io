@@ -1,5 +1,3 @@
-Here you can say lots of fun things about your site.
+I've been working in the games industry as an engineer for almost five years now and have always wanted to create a blog where I can share snapshots from my game development journey. Finally, I've managed to take the first step by creating this web page.
 
-Maybe say a some things about yourself.
-
-Or maybe what you plan to blog about.
+Hopefully, you will enjoy your stay here.
