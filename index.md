@@ -1,5 +1,3 @@
-Here you can say lots of fun things about your site.
+Alright, I think creating a blog and maintaining one is a pretty good side hustle for any game developer. Even if we are working hard on our beloved titles, we should be creating enough space to take a step back and share things that we discovered and enjoyed. This also gives us room to reconsider our ideas and clearly see what we did right and wrong.
 
-Maybe say a some things about yourself.
-
-Or maybe what you plan to blog about.
+I think it's been almost five years now since I joined the games industry, and I had the chance to work on several platforms, including PC, mobile, and virtual reality. Even if it is a short period of time, I still feel like I have some stories to share. I hope you will enjoy your stay here as much as I enjoyed writing those posts.
