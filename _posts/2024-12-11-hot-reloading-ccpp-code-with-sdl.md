@@ -13,4 +13,3 @@ There are a lot of small and big details that go into hot reloading, and I think
 ### Concept of hot reloading
 Let's imagine a very simple game development environment. You are not using any engine, just pure C/C++ code and maybe some help from your favorite third-party library. The development cycle for this scenario will probably look something like this within the flow diagram:
 ![Simple C/C++ development iteration](https://github.com/iozsaygi/iozsaygi.github.io/blob/main/assets/images/simple-c++-development-iteration.png?raw=true)
-![Simple C/C++ development iteration]()
