@@ -11,3 +11,5 @@ For the past few weeks, I was able to create a C/C++ environment to research hot
 There are a lot of small and big details that go into hot reloading, and I think it is a great software engineering project on its own. However, we will try to keep it simple as much as possible during this post, so let's try to understand the actual idea and how it really works.
 
 ### Concept of hot reloading
+Let's imagine a very simple game development environment. You are not using any engine, just pure C/C++ code and maybe some help from your favorite third-party library. The development cycle for this scenario will probably look something like this within the flow diagram:
+![Simple C/C++ development iteration]()
