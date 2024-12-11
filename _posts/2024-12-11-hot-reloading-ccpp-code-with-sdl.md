@@ -10,5 +10,4 @@ For the past few weeks, I was able to create a C/C++ environment to research hot
 
 There are a lot of small and big details that go into hot reloading, and I think it is a great software engineering project on its own. However, we will try to keep it simple as much as possible during this post, so let's try to understand the actual idea and how it really works.
 
-First things first, let's try to understand the actual idea and how it works.
 ### Concept of hot reloading
