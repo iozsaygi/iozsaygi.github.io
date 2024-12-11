@@ -8,4 +8,7 @@ Most of us experienced the hot reload within the engine that we used. Unreal sho
 
 For the past few weeks, I was able to create a C/C++ environment to research hot reloading with greater detail. I decided to use SDL to handle the native platform layer, such as window creation, reading inputs, and basic rendering calls because SDL also has cross-platform APIs that really helped me a lot when implementing the hot reload.
 
-First, let's try to understand the idea behind it and how it actually works.
+There are a lot of small and big details that go into hot reloading, and I think it is a great software engineering project on its own. However, we will try to keep it simple as much as possible during this post.
+
+First things first, let's try to understand the actual idea and how it works.
+### Concept of hot reloading
