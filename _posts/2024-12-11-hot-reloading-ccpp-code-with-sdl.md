@@ -19,7 +19,7 @@ _The development cycle for this scenario will probably look something like this 
 <img src="https://github.com/iozsaygi/iozsaygi.github.io/blob/main/assets/images/simple-c++-development-iteration.png?raw=true" alt="Simple C/C++ development iteration"> 
 </div>
 
-
+<br>
 With hot reloading, we will separate our platform layer from our actual game code. While we are creating the window and handling inputs within the platform layer, the game code will actually be built as a shared library.
 
 _Take a look at the following diagram:_
