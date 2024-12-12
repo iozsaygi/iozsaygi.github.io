@@ -27,3 +27,6 @@ _Take a look at the following diagram:_
 <div style="text-align: center;"> 
 <img src="https://github.com/iozsaygi/iozsaygi.github.io/blob/main/assets/images/hot-reload-flow.png?raw=true" alt="Hot reload development flow"> 
 </div>
+
+<br>
+Now the platform layer has the additional responsibility to watch over built game code and detect any changes made to it. This simple change will be key to achieving hot reloading.
