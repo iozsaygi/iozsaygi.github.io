@@ -24,5 +24,5 @@ With hot reloading, we will separate our platform layer from our actual game cod
 _Take a look at the following diagram:_
 
 <div style="text-align: center;"> 
-<img src="https://github.com/iozsaygi/iozsaygi.github.io/blob/main/assets/images/simple-c++-development-iteration.png?raw=true" alt="Simple C/C++ development iteration"> 
+<img src="https://github.com/iozsaygi/iozsaygi.github.io/blob/main/assets/images/hot-reload-flow.png?raw=true" alt="Hot reload development flow"> 
 </div>
