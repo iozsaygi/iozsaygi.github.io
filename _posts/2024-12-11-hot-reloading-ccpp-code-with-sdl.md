@@ -13,7 +13,16 @@ There are a lot of small and big details that go into hot reloading, and I think
 ### Concept of hot reloading
 Let's imagine a very simple game development environment. You are not using any engine, just pure C/C++ code and maybe some help from your favourite third-party library. 
 
-*The development cycle for this scenario will probably look something like this within the flow diagram:*
+_The development cycle for this scenario will probably look something like this within the flow diagram:_
+
+<div style="text-align: center;"> 
+<img src="https://github.com/iozsaygi/iozsaygi.github.io/blob/main/assets/images/simple-c++-development-iteration.png?raw=true" alt="Simple C/C++ development iteration"> 
+</div>
+
+With hot reloading, we will separate our platform layer from our actual game code. While we are creating the window and handling inputs within the platform layer, the game code will actually be built as a shared library.
+
+_Take a look at the following diagram:_
+
 <div style="text-align: center;"> 
 <img src="https://github.com/iozsaygi/iozsaygi.github.io/blob/main/assets/images/simple-c++-development-iteration.png?raw=true" alt="Simple C/C++ development iteration"> 
 </div>
