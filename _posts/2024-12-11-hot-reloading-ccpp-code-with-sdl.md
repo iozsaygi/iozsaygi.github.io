@@ -30,3 +30,5 @@ _Take a look at the following diagram:_
 
 <br>
 Now the platform layer has the additional responsibility to watch over built game code and detect any changes made to it. This simple change will be key to achieving hot reloading.
+
+Now, let's get our hands dirty a bit and see how we can implement this at the C/C++ level.
