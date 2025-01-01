@@ -171,7 +171,7 @@ void Engine_Update(const struct render_context* rCtx, struct game_code* gc) {
 This simple example demonstrates how we can hot reload rendering calls of our game, but it didn't actually detect the changes made to the game's code during the update loop. This is something that I am still researching, but triggering hot reloads with key binds also works well for this case.
 
 ## Conclusion
-Hot reload is a great software engineering project on its own. I checked a lot of resources to understand it, and there are some amazing ones that I find really helpful. Check them below:
+_Hot reload is a great software engineering project on its own. I checked a lot of resources to understand it, and there are some amazing ones that I find really helpful. Check them below:_
 - [Handmade Hero Day 021 - Loading Game Code Dynamically](https://www.youtube.com/watch?v=WMSBRk5WG58)
 - [Hot Reload Gameplay Code: What, why, limitations and examples!](https://zylinski.se/posts/hot-reload-gameplay-code/)
 
