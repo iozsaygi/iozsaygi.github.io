@@ -87,3 +87,13 @@ int Engine_TryUpdateGameCodeInstance(struct game_code* gc) {
     return 0;  
 }
 ```
+
+We won't get into detail on the part where we are triggering a build for game code since it might be specific to your workflow, but at least for Windows it was enough for me to trigger an `MSBuild` on the game's solution file.
+
+Also, please note that we need to **trigger builds in release mode** so we can prevent unnecessary hooks that are embedded into our shared libraries for debugging. This will prevent us from hot reloading the code because it is held by another process at the time.
+
+*So the following steps are performed when loading a new version of game code:*
+1. Free the current game code instance (if any)
+2. Trigger a build for the game code instance (do not try to reload if the build fails)
+3. Load the shared library
+4. Load the target function from the shared library
