@@ -113,3 +113,57 @@ void Engine_FreeGameCodeInstance(struct game_code* gc) {
     printf("Successfully freed the existing game code instance\n");  
 }
 ```
+
+After we are done with the essential part, we just need to construct an update loop in the engine to call our game code if it is valid. Please note that how we are passing required data into the game code within the engine, so the game state is preserved between hot reload calls.
+
+_A very simple update loop that updates the game code instance based on keybind triggers:_
+```cpp
+void Engine_Update(const struct render_context* rCtx, struct game_code* gc) {  
+    assert(rCtx != nullptr);  
+    assert(gc != nullptr);  
+  
+    bool active = true;  
+    SDL_Event event;  
+  
+    while (active) {  
+        // Event handling.  
+        while (SDL_PollEvent(&event)) {  
+            switch (event.type) {  
+                case SDL_QUIT:  
+                    active = false;  
+                    break;  
+                case SDL_KEYDOWN:  
+                    switch (event.key.keysym.sym) {  
+                        case SDLK_ESCAPE:  
+                            active = false;  
+                            break;  
+                        case SDLK_SPACE:  
+                            Engine_TryUpdateGameCodeInstance(gc);  
+                            break;  
+                        default:;  
+                    }  
+                    break;  
+                default:;  
+            }  
+        }  
+  
+        // Render scene.  
+        SDL_SetRenderDrawColor(rCtx->renderer, 0, 0, 0, 255);  
+        SDL_RenderClear(rCtx->renderer);  
+  
+        // Only call game code if it is valid.  
+        if (gc->isValid) {  
+            // Notice how we are passing data from engine in order to save game state between hot reloads.  
+            SDL_Rect rect;  
+            rect.x = 450;  
+            rect.y = 350;  
+            rect.w = 100;  
+            rect.h = 100;  
+  
+            gc->onEngineRenderScene(rCtx->renderer, rect);  
+        }  
+  
+        SDL_RenderPresent(rCtx->renderer);  
+    }  
+}
+```
