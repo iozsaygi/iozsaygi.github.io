@@ -6,6 +6,9 @@ tag: C/C++
 ---
 Most of us are involved with hot reload in one way or another. Unreal Engine supports it out of the box, and you can also achieve it by using several plugins in the Unity engine as well. If you ever wondered how things work under the hood, you will end up just like me and try to implement it into your workflow. I was lucky enough to spend some time researching it and even implement a very simple version of it by using cross-platform [SDL](https://www.libsdl.org/) APIs.
 
+_Here's a little footage to demonstrate hot reloading of basic SDL rendering calls:_
+![Hot reload footage](https://github.com/iozsaygi/sdl-hot-reload/raw/main/Showcase/render-call-change.gif)
+
 Before taking a look at some code, let's try to understand the idea of hot reloading.
 
 ## Idea of hot reload
