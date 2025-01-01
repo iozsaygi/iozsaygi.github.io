@@ -97,3 +97,19 @@ Also, please note that we need to **trigger builds in release mode** so we can p
 2. Trigger a build for the game code instance (do not try to reload if the build fails)
 3. Load the shared library
 4. Load the target function from the shared library
+
+Freeing the current instance of game code is much, much simpler; we are doing this before loading the new instance.
+
+_Take a look at the following code snippet:_
+```cpp
+void Engine_FreeGameCodeInstance(struct game_code* gc) {  
+    assert(gc != nullptr && gc->instance != nullptr);  
+  
+    SDL_UnloadObject(gc->instance);  
+    gc->onEngineRenderScene = nullptr;  
+    gc->instance = nullptr;  
+    gc->isValid = false;  
+  
+    printf("Successfully freed the existing game code instance\n");  
+}
+```
