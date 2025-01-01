@@ -14,6 +14,6 @@ Before taking a look at some code, let's try to understand the idea of hot reloa
 ## Idea of hot reload
 In a very basic game development environment, we are usually building our game code directly into the executable of the platform that we are targeting. This approach works pretty well, but if we want to take advantage of hot reload, we need to force ourselves to think a bit differently.
 
-Instead of directly building our game code into the executable, now we need to treat it as a separate layer and build it as a shared library. Of course we can't just get away by making our game code a shared library; we also have to write a separate application (which I really like to call 'Engine' for this case) that is responsible for managing an instance of our game code at runtime. Whenever a change is detected within the game code, we will go ahead and refresh the instance of it within the engine.
+Instead of directly building our game code into the executable, now we need to treat it as a separate layer and build it as a shared library. Of course we can't just get away by making our game code a shared library; we also have to write a separate application (which I really like to call `Engine` for this case) that is responsible for managing an instance of our game code at runtime. Whenever a change is detected within the game code, we will go ahead and refresh the instance of it within the engine.
 
 _If I need to represent it with some kind of graph, it would look like the following:_
