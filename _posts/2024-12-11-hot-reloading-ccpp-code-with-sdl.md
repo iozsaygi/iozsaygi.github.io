@@ -26,3 +26,5 @@ _If I need to represent the workflow with some kind of graph, it would look like
 Also, detecting the changes in the game code can be a bottleneck for the engine if we try to run it every frame; setting an interval value for it should be a valid move.
 
 Before everything else, we need to define what we are going to hot reload, so let's see how we can represent the game code within the engine.
+
+## Representing the game code
