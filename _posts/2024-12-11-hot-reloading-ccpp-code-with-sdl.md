@@ -20,3 +20,9 @@ _If I need to represent the workflow with some kind of graph, it would look like
 <p align="center">
 <img src="https://github.com/iozsaygi/iozsaygi.github.io/blob/main/assets/images/hot-reload-workflow.png?raw=true" />
 </p>
+
+**There is one thing really crucial:** memory of the game code needs to be managed by the engine so we won't lose the game state between our hot reload calls.
+
+Also, detecting the changes in the game code can be a bottleneck for the engine if we try to run it every frame; setting an interval value for it should be a valid move.
+
+Before everything else, we need to define what we are going to hot reload, so let's see how we can represent the game code within the engine.
