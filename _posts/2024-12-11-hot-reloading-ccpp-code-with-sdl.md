@@ -26,3 +26,15 @@ _If I need to represent the workflow with some kind of graph, it would look like
 Before everything else, we need to define what we are going to hot reload, so let's see how we can represent the game code within the engine.
 
 ## Representing the game code
+```cpp
+// The signature of game code that we will be loading from shared library and call within the engine's render loop.  
+// This can be expanded with other functions that we would like to hot reload.  
+typedef void (*Game_OnEngineRenderScene)(SDL_Renderer* renderer, SDL_Rect rect);
+
+struct game_code {  
+    bool isValid;  
+    const char* path;  
+    void* instance;  
+    Game_OnEngineRenderScene onEngineRenderScene;  
+};
+```
