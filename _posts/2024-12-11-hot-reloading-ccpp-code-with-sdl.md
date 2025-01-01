@@ -52,4 +52,4 @@ void Game_OnEngineRenderScene(SDL_Renderer* renderer, SDL_Rect rect) {
 }
 ```
 
-Please note that game code struct is defined within the engine's scope (will be built as an executable) and render calls are defined within the game code's (will be built as a shared library) scope.
+Please note that game code struct is defined within the engine's scope (will be built as an executable) and render calls are defined within the game code's scope (will be built as a shared library).
