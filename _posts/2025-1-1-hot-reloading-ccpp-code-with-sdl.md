@@ -175,4 +175,6 @@ _Hot reload is a great software engineering project on its own. I checked a lot 
 - [Handmade Hero Day 021 - Loading Game Code Dynamically](https://www.youtube.com/watch?v=WMSBRk5WG58)
 - [Hot Reload Gameplay Code: What, why, limitations and examples!](https://zylinski.se/posts/hot-reload-gameplay-code/)
 
+You can also check the [repository](https://github.com/iozsaygi/sdl-hot-reload) where I am still researching this topic.
+
 Thank you for spending some time to read my post; I wish you a happy new year!
