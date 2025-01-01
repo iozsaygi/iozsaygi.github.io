@@ -53,3 +53,37 @@ void Game_OnEngineRenderScene(SDL_Renderer* renderer, SDL_Rect rect) {
 ```
 
 Please note that game code struct is defined within the engine's scope (will be built as an executable) and render calls are defined within the game code's scope (will be built as a shared library).
+
+Now, let's see how we can manage the instance of game code at runtime.
+
+## Managing game code instance
+When it comes to loading shared libraries at runtime, luckily SDL has some cross-platform APIs that come to our aid.
+
+_Take a look at the following code snippet, which loads a new version of game code by triggering a build for it beforehand:_
+```cpp
+int Engine_TryUpdateGameCodeInstance(struct game_code* gc) {  
+    assert(gc != nullptr);  
+  
+    // Remove the existing game code instance before updating.  
+    if (gc->instance != nullptr) Engine_FreeGameCodeInstance(gc);  
+  
+    if (Engine_TriggerGameBuild() != 0) return -1;  
+  
+    gc->instance = SDL_LoadObject(gc->path);  
+    if (gc->instance == nullptr) {  
+        printf("Failed to load game code, the reason was: %s\n", SDL_GetError());  
+        return -1;  
+    }  
+  
+    gc->onEngineRenderScene = Game_OnEngineRenderScene(SDL_LoadFunction(gc->instance, "Game_OnEngineRenderScene"));  
+    if (gc->onEngineRenderScene == nullptr) {  
+        printf("Failed to load game render callback from game code, the reason was: %s\n", SDL_GetError());  
+        return -1;  
+    }  
+  
+    gc->isValid = true;  
+    printf("Successfully updated the game code instance\n");  
+  
+    return 0;  
+}
+```
