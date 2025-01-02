@@ -4,13 +4,14 @@ title: "Hot reloading C/C++ code with SDL"
 description: "Using cross-platform APIs provided by SDL to hot reload C/C++ code."
 tag: C/C++
 ---
-Most of us are involved with hot reload in one way or another. Unreal Engine supports it out of the box, and you can also achieve it by using several plugins in the Unity engine as well. If you ever wondered how things work under the hood, you will end up just like me and try to implement it into your workflow. I was lucky enough to spend some time researching it and even implement a very simple version of it by using cross-platform [SDL](https://www.libsdl.org/) APIs.
+Most of us are involved in hot reloading in some way or another. Unreal should be supporting this out of the box; Unity can achieve this with the help of several plugins, and even better, you integrated it into your in-house engine. It is a way to manipulate your game code while it is running on the executable program. Helps to achieve faster development cycles by avoiding restarting the game each time we make a change in the code.
 
-_Here's a little footage to demonstrate hot reloading of basic SDL rendering calls:_
+I was lucky enough to research it within the C/C++ context by using cross-platform APIs that the SDL library provides. Let's take a look at the following footage where I am manipulating a very basic render call while the game is actually running.
 ![Hot reload footage](https://github.com/iozsaygi/sdl-hot-reload/raw/main/Showcase/render-call-change.gif)
 
-Before taking a look at some code, let's try to understand the idea of hot reloading.
+If you want to see detailed implementation, you can always check out the [repository](https://github.com/iozsaygi/sdl-hot-reload).
 
+There are many aspects involved in the hot reload, but first we will try to understand the core idea behind it.
 ## Idea of hot reload
 In a very basic game development environment, we are usually building our game code directly into the executable of the platform that we are targeting. This approach works pretty well, but if we want to take advantage of hot reload, we need to force ourselves to think a bit differently.
 
@@ -24,7 +25,6 @@ _If I need to represent the workflow with some kind of graph, it would look like
 **There is one thing really crucial:** memory of the game code needs to be managed by the engine so we won't lose the game state between our hot reload calls. Also, detecting the changes in the game code can be a bottleneck for the engine if we try to run it every frame; setting an interval value for it should be a valid move.
 
 Before everything else, we need to define what we are going to hot reload, so let's see how we can represent the game code within the engine.
-
 ## Representing the game code
 At least for the engine, the game code is pretty simple. It contains a **flag** that represents the availability of the game code, a **path** to the actual shared library on the disk, an **opaque pointer** to hold the code instance, and a **function signature** to target specific functions within the game code.
 
@@ -55,7 +55,6 @@ void Game_OnEngineRenderScene(SDL_Renderer* renderer, SDL_Rect rect) {
 Please note that game code struct is defined within the engine's scope (will be built as an executable) and render calls are defined within the game code's scope (will be built as a shared library).
 
 Now, let's see how we can manage the instance of game code at runtime.
-
 ## Managing game code instance
 When it comes to loading shared libraries at runtime, luckily SDL has some cross-platform APIs that come to our aid.
 
@@ -169,7 +168,6 @@ void Engine_Update(const struct render_context* rCtx, struct game_code* gc) {
 ```
 
 This simple example demonstrates how we can hot reload rendering calls of our game, but it didn't actually detect the changes made to the game's code during the update loop. This is something that I am still researching, but triggering hot reloads with key binds also works well for this case.
-
 ## Conclusion
 _Hot reload is a great software engineering project on its own. I checked a lot of resources to understand it, and there are some amazing ones that I find really helpful. Check them below:_
 - [Handmade Hero Day 021 - Loading Game Code Dynamically](https://www.youtube.com/watch?v=WMSBRk5WG58)
