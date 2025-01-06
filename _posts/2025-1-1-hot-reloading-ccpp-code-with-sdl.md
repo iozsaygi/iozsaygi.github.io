@@ -26,7 +26,9 @@ Let's visualize it a bit and see how it would look within the engine loop.
 3. Memory layout changes within a game can require additional effort to keep hot reload stable.
 4. This isn't a feature that we need to ship players with our game, so ensuring the hot reload will work only during development is essential.
 
-Let's see how we can define a simple representation of game code.
+In case of my own implementation, I decided to build the engine as an executable program that hot reloads the game code, and it is also responsible for the update loop for the overall system.
+
+Now we will inspect some C/C++ code to implement a very basic version of hot reload that works dependent on keybinds. To achieve this, we first need to define our game code so that the engine will be able to manage it.
 ## Representing the game code
 At least for the engine, the game code is pretty simple. It contains a **flag** that represents the availability of the game code, a **path** to the actual shared library on the disk, an **opaque pointer** to hold the code instance, and a **function signature** to target specific functions within the game code.
 
