@@ -105,7 +105,61 @@ void Engine_FreeGameCodeInstance(struct game_code* gc) {
 
 Notice how we are immediately setting `isValid` to false in order to prevent any mistake within the update loop.
 ## Update loop
-Content will be placed here.
+Now I am pretty sure it can look like I dumped a huge piece of code suddenly, but I tried my best to produce a very simple update loop that actually triggers hot reloading with a single keybind. I even removed all of the unrelated logic, such as frame rate capping, collision checks, etc.
+```cpp
+void Engine_Update(const struct render_context* rCtx, struct game_code* gc) {
+    assert(rCtx != nullptr);
+    assert(gc != nullptr);
+
+    bool active = true;
+    SDL_Event event;
+
+    while (active) {
+        // Event handling.
+        while (SDL_PollEvent(&event)) {
+            switch (event.type) {
+                case SDL_QUIT:
+                    active = false;
+                    break;
+                case SDL_KEYDOWN:
+                    switch (event.key.keysym.sym) {
+                        case SDLK_ESCAPE:
+                            active = false;
+                            break;
+                        case SDLK_SPACE:
+                            Engine_TryUpdateGameCodeInstance(gc);
+                            break;
+                        default:;
+                    }
+                    break;
+                default:;
+            }
+        }
+
+        // Render scene.
+        SDL_SetRenderDrawColor(rCtx->renderer, 0, 0, 0, 255);
+        SDL_RenderClear(rCtx->renderer);
+
+        if (gc->isValid) {
+            SDL_Rect rect;
+            rect.x = 450;
+            rect.y = 350;
+            rect.w = 100;
+            rect.h = 100;
+
+            gc->onEngineRenderScene(rCtx->renderer, rect);
+        }
+
+        SDL_RenderPresent(rCtx->renderer);
+    }
+}
+```
+
+Just like most of the game's update loop, it starts the frame by reading input from the player. If specific input (the space key in this case) is received, it tries to update the instance of the game code.
+
+Considering our game code consists of a very simple rendering call, it directly switches to rendering and calls the `onEngineRenderScene` function, which is available within the game code .`dll` file. It also checks if the game code is valid before doing that so it won't try to iterate over a null game code instance and crash.
+
+Also, game code receives the data it requires to work with as a parameter, which results in a preserved game state between unlimited hot reload calls. (Assuming memory layout didn't change for game code at all.)
 ## Conclusion
 Hot reload is a great software engineering project on its own, and there are still related features that I want to experiment with. The form of hot reloading can also be applied to the game assets, such as textures, so I will definitely see what I can do. Also getting rid of the keybind trigger requires me to write some kind of watcher over the file notification system of the OS. Both sound amazingly fun.
 
