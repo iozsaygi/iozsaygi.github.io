@@ -13,18 +13,20 @@ If you want to see detailed implementation, you can always check out the [reposi
 
 There are many aspects involved in the hot reload, but first we will try to understand the core idea behind it.
 ## Idea of hot reload
-In a very basic game development environment, we are usually building our game code directly into the executable of the platform that we are targeting. This approach works pretty well, but if we want to take advantage of hot reload, we need to force ourselves to think a bit differently.
+Unlike our traditional game development environment, where you have to close your game, change code, and build to see effects on the screen, hot reloading enables us to modify game code on the fly.
 
-Instead of directly building our game code into the executable, now we need to treat it as a separate layer and build it as a shared library. Of course we can't just get away by making our game code a shared library; we also have to write a separate application (which I really like to call `Engine` for this case) that is responsible for managing an instance of our game code at runtime. Whenever a change is detected within the game code, we will go ahead and refresh the instance of it within the engine.
-
-_If I need to represent the workflow with some kind of graph, it would look like the following:_
-<p align="center">
-<img src="https://github.com/iozsaygi/iozsaygi.github.io/blob/main/assets/images/hot-reload-workflow.png?raw=true" />
+Let's visualize it a bit and see how it would look within the engine loop.
+<p align="center">  
+<img src="https://github.com/iozsaygi/iozsaygi.github.io/blob/main/assets/images/hot-reload-workflow.png?raw=true" />  
 </p>
 
-**There is one thing really crucial:** memory of the game code needs to be managed by the engine so we won't lose the game state between our hot reload calls. Also, detecting the changes in the game code can be a bottleneck for the engine if we try to run it every frame; setting an interval value for it should be a valid move.
+*There are several things that we need to consider when implementing hot reload:*
+1. Memory should be managed outside of game code in order to preserve game state between reloads.
+2. Our game code needs to be built as a shared library (`.dll` on Windows) in **release mode** so we won't be affected by unnecessary debug hooks on the process.
+3. Memory layout changes within a game can require additional effort to keep hot reload stable.
+4. This isn't a feature that we need to ship players with our game, so ensuring the hot reload will work only during development is essential.
 
-Before everything else, we need to define what we are going to hot reload, so let's see how we can represent the game code within the engine.
+Let's see how we can define a simple representation of game code.
 ## Representing the game code
 At least for the engine, the game code is pretty simple. It contains a **flag** that represents the availability of the game code, a **path** to the actual shared library on the disk, an **opaque pointer** to hold the code instance, and a **function signature** to target specific functions within the game code.
 
@@ -172,7 +174,5 @@ This simple example demonstrates how we can hot reload rendering calls of our ga
 _Hot reload is a great software engineering project on its own. I checked a lot of resources to understand it, and there are some amazing ones that I find really helpful. Check them below:_
 - [Handmade Hero Day 021 - Loading Game Code Dynamically](https://www.youtube.com/watch?v=WMSBRk5WG58)
 - [Hot Reload Gameplay Code: What, why, limitations and examples!](https://zylinski.se/posts/hot-reload-gameplay-code/)
-
-You can also check the [repository](https://github.com/iozsaygi/sdl-hot-reload) where I am still researching this topic.
 
 Thank you for spending some time to read my post; I wish you a happy new year!
