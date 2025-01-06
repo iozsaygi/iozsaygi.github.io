@@ -53,122 +53,65 @@ _Before going further, check out the following APIs if you want to explore a bit
 - [SDL_LoadFunction](https://wiki.libsdl.org/SDL3/SDL_LoadFunction)
 - [SDL_UnloadObject](https://wiki.libsdl.org/SDL3/SDL_UnloadObject)
 
-## Managing game code instance
-When it comes to loading shared libraries at runtime, luckily SDL has some cross-platform APIs that come to our aid.
-
-_Take a look at the following code snippet, which loads a new version of game code by triggering a build for it beforehand:_
+## Loading game code instance
+Loading the game code is just a single function call; however, we need to ensure that the path to the shared library is correct; otherwise, this call will fail.
 ```cpp
-int Engine_TryUpdateGameCodeInstance(struct game_code* gc) {  
-    assert(gc != nullptr);  
-  
-    // Remove the existing game code instance before updating.  
-    if (gc->instance != nullptr) Engine_FreeGameCodeInstance(gc);  
-  
-    if (Engine_TriggerGameBuild() != 0) return -1;  
-  
-    gc->instance = SDL_LoadObject(gc->path);  
-    if (gc->instance == nullptr) {  
-        printf("Failed to load game code, the reason was: %s\n", SDL_GetError());  
-        return -1;  
-    }  
-  
-    gc->onEngineRenderScene = Game_OnEngineRenderScene(SDL_LoadFunction(gc->instance, "Game_OnEngineRenderScene"));  
-    if (gc->onEngineRenderScene == nullptr) {  
-        printf("Failed to load game render callback from game code, the reason was: %s\n", SDL_GetError());  
-        return -1;  
-    }  
-  
-    gc->isValid = true;  
-    printf("Successfully updated the game code instance\n");  
-  
-    return 0;  
+int Engine_TryUpdateGameCodeInstance(struct game_code* gc) {
+    assert(gc != nullptr);
+
+    // Remove the existing game code instance before updating.
+    if (gc->instance != nullptr) Engine_FreeGameCodeInstance(gc);
+
+    if (Engine_TriggerGameBuild() != 0) return -1;
+
+    gc->instance = SDL_LoadObject(gc->path);
+    if (gc->instance == nullptr) {
+        printf("Failed to load game code, the reason was: %s\n", SDL_GetError()); 
+        return -1;
+    }
+
+    gc->onEngineRenderScene = Game_OnEngineRenderScene(SDL_LoadFunction(gc->instance, "Game_OnEngineRenderScene"));
+    if (gc->onEngineRenderScene == nullptr) {
+        printf("Failed to load game render callback from game code, the reason was: %s\n", SDL_GetError());
+        return -1;
+    }
+
+    gc->isValid = true;
+    printf("Successfully updated the game code instance\n");
+
+    return 0;
 }
 ```
 
-We won't get into detail on the part where we are triggering a build for game code since it might be specific to your workflow, but at least for Windows it was enough for me to trigger an `MSBuild` on the game's solution file.
+First, we are unloading the existing game code instance. This is a must-do in order to open room for the newest version. During unloading the game code, we also mark it as `invalid` so our update loop will be safer.
 
-Also, please note that we need to **trigger builds in release mode** so we can prevent unnecessary hooks that are embedded into our shared libraries for debugging. This will prevent us from hot reloading the code because it is held by another process at the time.
+After unloading the game code, we are triggering a new build (it just executes the `MSBuild` command under the hood) to produce a new version of our `.dll` file. Then it's just calling SDL APIs and some error handling.
 
-*So the following steps are performed when loading a new version of game code:*
-1. Free the current game code instance (if any)
-2. Trigger a build for the game code instance (do not try to reload if the build fails)
-3. Load the shared library
-4. Load the target function from the shared library
-
-Freeing the current instance of game code is much, much simpler; we are doing this before loading the new instance.
-
-_Take a look at the following code snippet:_
+We can bind this function to a specific key, or we can just execute it whenever a change is detected in the game code.
+## Unloading the game code instance
+This is pretty much straightforward. Just freeing some memory with the SDL API.
 ```cpp
-void Engine_FreeGameCodeInstance(struct game_code* gc) {  
-    assert(gc != nullptr && gc->instance != nullptr);  
-  
-    SDL_UnloadObject(gc->instance);  
-    gc->onEngineRenderScene = nullptr;  
-    gc->instance = nullptr;  
-    gc->isValid = false;  
-  
-    printf("Successfully freed the existing game code instance\n");  
+void Engine_FreeGameCodeInstance(struct game_code* gc) {
+    assert(gc != nullptr && gc->instance != nullptr);
+
+    SDL_UnloadObject(gc->instance);
+    gc->onEngineRenderScene = nullptr;
+    gc->instance = nullptr;
+    gc->isValid = false;
+
+    printf("Successfully freed the existing game code instance\n");
 }
 ```
 
-After we are done with the essential part, we just need to construct an update loop in the engine to call our game code if it is valid. Please note that how we are passing required data into the game code within the engine, so the game state is preserved between hot reload calls.
-
-_A very simple update loop that updates the game code instance based on keybind triggers:_
-```cpp
-void Engine_Update(const struct render_context* rCtx, struct game_code* gc) {  
-    assert(rCtx != nullptr);  
-    assert(gc != nullptr);  
-  
-    bool active = true;  
-    SDL_Event event;  
-  
-    while (active) {  
-        // Event handling.  
-        while (SDL_PollEvent(&event)) {  
-            switch (event.type) {  
-                case SDL_QUIT:  
-                    active = false;  
-                    break;  
-                case SDL_KEYDOWN:  
-                    switch (event.key.keysym.sym) {  
-                        case SDLK_ESCAPE:  
-                            active = false;  
-                            break;  
-                        case SDLK_SPACE:  
-                            Engine_TryUpdateGameCodeInstance(gc);  
-                            break;  
-                        default:;  
-                    }  
-                    break;  
-                default:;  
-            }  
-        }  
-  
-        // Render scene.  
-        SDL_SetRenderDrawColor(rCtx->renderer, 0, 0, 0, 255);  
-        SDL_RenderClear(rCtx->renderer);  
-  
-        // Only call game code if it is valid.  
-        if (gc->isValid) {  
-            // Notice how we are passing data from engine in order to save game state between hot reloads.  
-            SDL_Rect rect;  
-            rect.x = 450;  
-            rect.y = 350;  
-            rect.w = 100;  
-            rect.h = 100;  
-  
-            gc->onEngineRenderScene(rCtx->renderer, rect);  
-        }  
-  
-        SDL_RenderPresent(rCtx->renderer);  
-    }  
-}
-```
-
-This simple example demonstrates how we can hot reload rendering calls of our game, but it didn't actually detect the changes made to the game's code during the update loop. This is something that I am still researching, but triggering hot reloads with key binds also works well for this case.
+Notice how we are immediately setting `isValid` to false in order to prevent any mistake within the update loop.
+## Update loop
+Content will be placed here.
 ## Conclusion
-_Hot reload is a great software engineering project on its own. I checked a lot of resources to understand it, and there are some amazing ones that I find really helpful. Check them below:_
-- [Handmade Hero Day 021 - Loading Game Code Dynamically](https://www.youtube.com/watch?v=WMSBRk5WG58)
-- [Hot Reload Gameplay Code: What, why, limitations and examples!](https://zylinski.se/posts/hot-reload-gameplay-code/)
+Hot reload is a great software engineering project on its own, and there are still related features that I want to experiment with. The form of hot reloading can also be applied to the game assets, such as textures, so I will definitely see what I can do. Also getting rid of the keybind trigger requires me to write some kind of watcher over the file notification system of the OS. Both sound amazingly fun.
 
-Thank you for spending some time to read my post; I wish you a happy new year!
+_I would also like to share several resources that I followed while implementing it; check them out below:_
+- [# Hot Reload Gameplay Code: What, why, limitations and examples!](https://zylinski.se/posts/hot-reload-gameplay-code/)
+- [A fun little test of a SDL2 platform layer for hot code reloading with rayfork](https://gist.github.com/chrisdill/291c938605c200d079a88d0a7855f31a)
+- [Handmade Hero Day 021 - Loading Game Code Dynamically](https://www.youtube.com/watch?v=WMSBRk5WG58)
+
+Thank you for reading this through; I wish you a happy new year!
