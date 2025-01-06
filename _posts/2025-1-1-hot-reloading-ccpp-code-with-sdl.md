@@ -159,7 +159,7 @@ Just like most of the game's update loop, it starts the frame by reading input f
 
 Considering our game code consists of a very simple rendering call, it directly switches to rendering and calls the `onEngineRenderScene` function, which is available within the game code .`dll` file. It also checks if the game code is valid before doing that so it won't try to iterate over a null game code instance and crash.
 
-Also, game code receives the data it requires to work with as a parameter, which results in a preserved game state between unlimited hot reload calls. (Assuming memory layout didn't change for game code at all.)
+The game code receives the data it requires to work with as a parameter, which results in a preserved game state between unlimited hot reload calls. (Assuming memory layout didn't change for game code at all.)
 ## Conclusion
 Hot reload is a great software engineering project on its own, and there are still related features that I want to experiment with. The form of hot reloading can also be applied to the game assets, such as textures, so I will definitely see what I can do. Also getting rid of the keybind trigger requires me to write some kind of watcher over the file notification system of the OS. Both sound amazingly fun.
 
