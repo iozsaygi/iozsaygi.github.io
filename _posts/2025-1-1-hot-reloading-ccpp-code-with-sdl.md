@@ -110,7 +110,7 @@ Content will be placed here.
 Hot reload is a great software engineering project on its own, and there are still related features that I want to experiment with. The form of hot reloading can also be applied to the game assets, such as textures, so I will definitely see what I can do. Also getting rid of the keybind trigger requires me to write some kind of watcher over the file notification system of the OS. Both sound amazingly fun.
 
 _I would also like to share several resources that I followed while implementing it; check them out below:_
-- [# Hot Reload Gameplay Code: What, why, limitations and examples!](https://zylinski.se/posts/hot-reload-gameplay-code/)
+- [Hot Reload Gameplay Code: What, why, limitations and examples!](https://zylinski.se/posts/hot-reload-gameplay-code/)
 - [A fun little test of a SDL2 platform layer for hot code reloading with rayfork](https://gist.github.com/chrisdill/291c938605c200d079a88d0a7855f31a)
 - [Handmade Hero Day 021 - Loading Game Code Dynamically](https://www.youtube.com/watch?v=WMSBRk5WG58)
 
