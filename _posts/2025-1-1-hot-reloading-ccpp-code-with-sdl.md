@@ -52,6 +52,7 @@ _Before going further, check out the following APIs if you want to explore a bit
 - [SDL_LoadObject](https://wiki.libsdl.org/SDL3/SDL_LoadObject)
 - [SDL_LoadFunction](https://wiki.libsdl.org/SDL3/SDL_LoadFunction)
 - [SDL_UnloadObject](https://wiki.libsdl.org/SDL3/SDL_UnloadObject)
+
 ## Managing game code instance
 When it comes to loading shared libraries at runtime, luckily SDL has some cross-platform APIs that come to our aid.
 
