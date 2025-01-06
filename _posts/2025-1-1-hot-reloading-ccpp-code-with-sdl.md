@@ -29,36 +29,29 @@ Let's visualize it a bit and see how it would look within the engine loop.
 In case of my own implementation, I decided to build the engine as an executable program that hot reloads the game code, and it is also responsible for the update loop for the overall system.
 
 Now we will inspect some C/C++ code to implement a very basic version of hot reload that works dependent on keybinds. To achieve this, we first need to define our game code so that the engine will be able to manage it.
-## Representing the game code
-At least for the engine, the game code is pretty simple. It contains a **flag** that represents the availability of the game code, a **path** to the actual shared library on the disk, an **opaque pointer** to hold the code instance, and a **function signature** to target specific functions within the game code.
-
-We will call game code only if the instance is valid and reliable.
+## Defining the game code
+Game code is pretty simple: a **flag** that represents the availability of the game code, a **path** to the actual shared library on the disk, an **opaque pointer** to hold the code instance, and a **function instance**.
 ```cpp
-// The signature of game code that we will be loading from shared library and call within the engine's render loop.  
-// This can be expanded with other functions that we would like to hot reload.  
+// The signature of game code that we will be loading from shared library and call within the engine's render loop.
+// This can be expanded with other functions that we would like to hot reload. 
 typedef void (*Game_OnEngineRenderScene)(SDL_Renderer* renderer, SDL_Rect rect);
 
-struct game_code {  
-    bool isValid;  
-    const char* path;  
-    void* instance;  
-    Game_OnEngineRenderScene onEngineRenderScene;  
+struct game_code {
+    bool isValid;
+    const char* path;
+    void* instance;
+    Game_OnEngineRenderScene onEngineRenderScene;
 };
 ```
 
-This game code structure works pretty well if we only need to hot reload rendering logic. Needless to say, functions to hot reload are totally dependent on our workflow.
+The important thing is that we can expand the number of functions that we want to hot reload; in this case we are only going to reload simple rendering calls.
 
-*For the sake of simplicity, our game code is just a single render call that draws a rectangle at given coordinates:*
-```cpp
-void Game_OnEngineRenderScene(SDL_Renderer* renderer, SDL_Rect rect) {  
-    SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);  
-    SDL_RenderFillRect(renderer, &rect);  
-}
-```
+We also need some way to load and free the instance of game code; luckily, the SDL library provides us with the cross-platform APIs to achieve this.
 
-Please note that game code struct is defined within the engine's scope (will be built as an executable) and render calls are defined within the game code's scope (will be built as a shared library).
-
-Now, let's see how we can manage the instance of game code at runtime.
+_Before going further, check out the following APIs if you want to explore a bit more detail: (These are the core APIs we are going to rely on.)_
+- [SDL_LoadObject](https://wiki.libsdl.org/SDL3/SDL_LoadObject)
+- [SDL_LoadFunction](https://wiki.libsdl.org/SDL3/SDL_LoadFunction)
+- [SDL_UnloadObject](https://wiki.libsdl.org/SDL3/SDL_UnloadObject)
 ## Managing game code instance
 When it comes to loading shared libraries at runtime, luckily SDL has some cross-platform APIs that come to our aid.
 
