@@ -157,7 +157,7 @@ void Engine_Update(const struct render_context* rCtx, struct game_code* gc) {
 
 Just like most of the game's update loop, it starts the frame by reading input from the player. If specific input (the space key in this case) is received, it tries to update the instance of the game code.
 
-Considering our game code consists of a very simple rendering call, it directly switches to rendering and calls the `onEngineRenderScene` function, which is available within the game code .`dll` file. It also checks if the game code is valid before doing that so it won't try to iterate over a null game code instance and crash.
+Considering our game code consists of a very simple rendering call, it directly switches to rendering and calls the `onEngineRenderScene` function, which is available within the `game.dll` file. It also checks if the game code is valid before doing that so it won't try to iterate over a null game code instance and crash.
 
 The game code receives the data it requires to work with as a parameter, which results in a preserved game state between unlimited hot reload calls. (Assuming memory layout didn't change for game code at all.)
 ## Conclusion
