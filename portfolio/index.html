@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iozsaygi Portfolio</title>
+    <title>Game Developer Portfolio</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+        
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Inter', sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f9f9f9;
@@ -24,11 +26,13 @@
         .header h1 {
             margin: 0;
             font-size: 32px;
+            font-weight: 600;
             color: #222;
         }
         .header h2 {
             margin: 5px 0;
             font-size: 20px;
+            font-weight: 400;
             color: #555;
         }
         .section {
@@ -45,7 +49,7 @@
         .game-list {
             display: flex;
             flex-wrap: wrap;
-            justify-content: center;
+            justify-content: flex-start;
         }
         .game-card {
             background: #fff;
@@ -68,12 +72,21 @@
             font-size: 18px;
             margin: 10px 0;
             color: #222;
-            font-weight: bold;
+            font-weight: 600;
         }
         .game-role {
-            font-weight: bold;
+            font-weight: 600;
             color: #555;
             font-size: 14px;
+            margin-bottom: 5px;
+        }
+        .game-details {
+            font-size: 14px;
+            color: #777;
+            margin-bottom: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
         }
         .footer {
             text-align: center;
@@ -81,21 +94,15 @@
             padding: 20px;
             background-color: #eee;
         }
-        .footer a {
-            margin: 0 10px;
-            text-decoration: none;
-            color: #333;
-            font-size: 20px;
-        }
-        .footer a:hover {
-            color: #0073e6;
-        }
         .footer img {
             width: 32px;
             height: 32px;
             margin: 0 10px;
         }
         @media (max-width: 600px) {
+            .game-list {
+                justify-content: center;
+            }
             .game-card {
                 width: 90%;
                 margin: 10px 0;
@@ -106,8 +113,8 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>İsmail Özsaygı</h1>
-            <h2>Video Game Developer</h2>
+            <h1>Your Name</h1>
+            <h2>Game Developer</h2>
         </div>
         
         <div class="section">
@@ -116,7 +123,11 @@
                 <div class="game-card">
                     <img src="game1.jpg" alt="Game 1">
                     <div class="game-title">Game Title 1</div>
-                    <div class="game-role">Role: Game Designer</div>
+                    <div class="game-role">Game Designer, Level Designer</div>
+                    <div class="game-details">
+                        <span><b>Platform:</b> PC, Console</span>
+                        <span><b>Release Date:</b> 2023</span>
+                    </div>
                     <p>Short description of the game.</p>
                 </div>
             </div>
@@ -128,7 +139,11 @@
                 <div class="game-card">
                     <img src="game2.jpg" alt="Game 2">
                     <div class="game-title">Game Title 2</div>
-                    <div class="game-role">Role: Lead Programmer</div>
+                    <div class="game-role">Lead Programmer, UI Designer</div>
+                    <div class="game-details">
+                        <span><b>Platform:</b> Mobile</span>
+                        <span><b>Release Date:</b> 2022</span>
+                    </div>
                     <p>Short description of the game.</p>
                 </div>
             </div>
@@ -140,7 +155,11 @@
                 <div class="game-card">
                     <img src="game3.jpg" alt="Game 3">
                     <div class="game-title">Game Title 3</div>
-                    <div class="game-role">Role: Artist</div>
+                    <div class="game-role">Artist, Sound Designer</div>
+                    <div class="game-details">
+                        <span><b>Platform:</b> Web</span>
+                        <span><b>Release Date:</b> 2021</span>
+                    </div>
                     <p>Short description of the game.</p>
                 </div>
             </div>
