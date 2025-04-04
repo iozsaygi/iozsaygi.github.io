@@ -13,3 +13,5 @@ Why is this considered more performant than a regular function call? _Because it
 That said, inlining isn’t something you can—or should—sprinkle throughout your codebase. In most cases, the compiler is actually better at deciding when and where inlining makes sense.
 
 Here’s the catch: even though I attempted to manually inline some functions, I had no real way of knowing whether the compiler agreed with my efforts. I wanted to verify if my inlining choices were actually removing the `call` instructions in the generated assembly code. After some digging, I was fortunate enough to discover that [BenchmarkDotNet](https://benchmarkdotnet.org) can help uncover exactly that.
+
+!!!TODO: When not to inline!!!
