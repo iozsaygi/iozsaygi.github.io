@@ -1,8 +1,9 @@
 ---
 layout: post
-title: "Disassembling your C# code with BenchmarkDotNet"
-description: "Using BenchmarkDotNet to disassemble our C# code."
-tag: C#
+title: Disassembling your C# code
+description: Using BenchmarkDotNet to disassemble our C# code.
+tags:
+  - C#
 ---
 If you spend enough time tackling optimization challenges, you’ll eventually come across the concept of method inlining. Over the past few weeks, I’ve had the chance to explore it in depth. Before diving deeper, let me briefly explain what it’s all about.
 
