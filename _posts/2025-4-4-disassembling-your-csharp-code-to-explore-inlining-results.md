@@ -92,3 +92,13 @@ After the benchmarks are run, you should be able to see the `<benchmark-name>-as
        7FF9CC77FB33 ret
 ; Total bytes of code 4
 ```
+
+Let's point out critical things in this generated assembly code:
+
+- There is a `call` instruction to `qword ptr [7FF9CCA8E7F0]; Collection. Add(Int32)`
+- The generated code is 39 bytes.
+- `Collection.Add(Int32)` was JIT-compiled into a separate function.
+
+Now, what would happen if the compiler decided to inline our benchmarks? Let's see!
+
+## When there is inlining
