@@ -26,7 +26,7 @@ For example:
 ## Requirements
 To run the example on your Windows machine, you'll need to install a few things:
 - **.NET SDK** is required to build and run the project.  
-    The easiest way is to install the **“.NET Desktop Development”** workload via the Visual Studio Installer.
+    The easiest way is to install the **.NET Desktop Development** workload via the Visual Studio Installer.
 - **BenchmarkDotNet** to disassemble and analyze the generated code.  
     You can install it by running: `dotnet add package BenchmarkDotNet`
 
@@ -72,6 +72,7 @@ public class BenchmarkHook
 - Finally, our benchmark class that actually communicates with the BenchmarkDotNet. When we run the benchmarks, it automatically tracks the methods with the `[Benchmark]`attribute.
 
 Let's open up our terminal and run this project to see how assembly is generated for this piece of code. Run the following command on the terminal window: (Within the directory of your `.csproj` file)
+
 `dotnet run -c Release`
 
 After the benchmarks are run, you should be able to see the `<benchmark-name>-asm.md` file within the `BenchmarkDotNet.Artifacts/results` directory. Let's open it up and review our generated assembly code.
