@@ -32,6 +32,7 @@ To run the example on your Windows machine, you'll need to install a few things:
 
 ## When there is no inlining
 Let's consider the following C# code, a very basic one indeed:
+
 ```csharp
 using System.Runtime.CompilerServices;  
 using BenchmarkDotNet.Attributes;  
