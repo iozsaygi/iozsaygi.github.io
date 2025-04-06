@@ -59,7 +59,7 @@ public class BenchmarkHook
     [Benchmark]
     public void Execute()
     {
-	    var collection = new Collection();
+	var collection = new Collection();
         collection.Add(1);
     }
 }
