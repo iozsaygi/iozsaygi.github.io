@@ -135,8 +135,8 @@ Software engineering is a giant ocean for me; feeling the need to constantly lea
 
 I was very interested in this topic for the past several weeks and learned a lot of things from the following resources:
 
-- [.NET Methods Inlining and Loops](https://www.codeproject.com/Articles/1072041/NET-Methods-Inlining-and-Loops](https://www.codeproject.com/Articles/1072041/NET-Methods-Inlining-and-Loops)
-- [When is a method eligible to be inlined by the CLR](https://stackoverflow.com/questions/4660004/when-is-a-method-eligible-to-be-inlined-by-the-clr](https://stackoverflow.com/questions/4660004/when-is-a-method-eligible-to-be-inlined-by-the-clr)
-- [C# Aggressive inlining benefits][https://schwabencode.com/blog/2025/01/20/csharp_aggressive-inlining-benefit](https://schwabencode.com/blog/2025/01/20/csharp_aggressive-inlining-benefit
+- [.NET Methods Inlining and Loops](https://www.codeproject.com/Articles/1072041/NET-Methods-Inlining-and-Loops)
+- [When is a method eligible to be inlined by the CLR](https://stackoverflow.com/questions/4660004/when-is-a-method-eligible-to-be-inlined-by-the-clr)
+- [C# Aggressive inlining benefits](https://schwabencode.com/blog/2025/01/20/csharp_aggressive-inlining-benefit)
 
 I hope I was able to introduce you to a new concept or at least enable another vision for you. Thank you so much for taking your time to read this through!
