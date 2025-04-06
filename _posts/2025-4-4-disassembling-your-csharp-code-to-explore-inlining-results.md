@@ -68,3 +68,27 @@ public class BenchmarkHook
 - We first start by running our benchmark. However, as you also noticed, we are setting up a configuration to disassemble our benchmarked C# code. There are several things we can adjust to manipulate the behavior of the disassembler; please check [here](https://benchmarkdotnet.org/articles/features/disassembler.html) for more information.
 - Then we have a very basic class with an `Add` function that we marked with [MethodImpl(MethodImplOptions.NoInlining)](https://learn.microsoft.com/en-us/dotnet/api/system.runtime.compilerservices.methodimploptions?view=net-9.0). This tells JIT to not inline this function and possibly generate a code that has more IL byte size than the inlined version.
 - Finally, our benchmark class that actually communicates with the BenchmarkDotNet. When we run the benchmarks, it automatically tracks the methods with the `[Benchmark]`attribute.
+
+Let's open up our terminal and run this project to see how assembly is generated for this piece of code. Run the following command on the terminal window: (Within the directory of your `.csproj` file)
+`dotnet run -c Release`
+
+After the benchmarks are run, you should be able to see the `<benchmark-name>-asm.md` file within the `BenchmarkDotNet.Artifacts/results` directory. Let's open it up and review our generated assembly code.
+
+```assembly
+; BenchmarkHook.Execute()
+       7FF9CC77FB50 sub       rsp,28
+       7FF9CC77FB54 mov       rcx,offset MT_Collection
+       7FF9CC77FB5E call      CORINFO_HELP_NEWSFAST
+       7FF9CC77FB63 mov       rcx,rax
+       7FF9CC77FB66 mov       edx,1
+       7FF9CC77FB6B call      qword ptr [7FF9CCA8E7F0]; Collection.Add(Int32)
+       7FF9CC77FB71 nop
+       7FF9CC77FB72 add       rsp,28
+       7FF9CC77FB76 ret
+; Total bytes of code 39
+
+; Collection.Add(Int32)
+       7FF9CC77FB30 lea       eax,[rdx+0A] 
+       7FF9CC77FB33 ret
+; Total bytes of code 4
+```
