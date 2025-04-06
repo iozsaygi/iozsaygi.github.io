@@ -29,3 +29,35 @@ To run the example on your Windows machine, you'll need to install a few things:
     The easiest way is to install the **“.NET Desktop Development”** workload via the Visual Studio Installer.
 - **BenchmarkDotNet** to disassemble and analyze the generated code.  
     You can install it by running: `dotnet add package BenchmarkDotNet`
+
+## When there is no inlining
+Let's consider the following C# code, a very basic one indeed:
+```csharp
+using System.Runtime.CompilerServices;  
+using BenchmarkDotNet.Attributes;  
+using BenchmarkDotNet.Configs;  
+using BenchmarkDotNet.Diagnosers;  
+using BenchmarkDotNet.Running;  
+  
+BenchmarkRunner.Run<BenchmarkHook>(ManualConfig.Create(DefaultConfig.Instance)  
+    .AddDiagnoser(new DisassemblyDiagnoser(new DisassemblyDiagnoserConfig(printInstructionAddresses: true, maxDepth: 3))));  
+  
+public class Collection  
+{  
+    private const int Effect = 10;  
+  
+    [MethodImpl(MethodImplOptions.NoInlining)]  
+    public int Add(int number)  
+    {     
+	    return number + Effect;  
+    }
+}  
+  
+public class BenchmarkHook  
+{  
+    [Benchmark]  
+    public void Execute()  
+    {        var collection = new Collection();  
+        collection.Add(1);  
+    }
+}```
