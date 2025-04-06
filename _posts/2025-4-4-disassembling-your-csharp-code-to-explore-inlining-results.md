@@ -22,3 +22,10 @@ For example:
 - Virtual methods typically aren’t inlined, as their abstraction adds an extra layer that makes inlining difficult.
 - Methods larger than 32 bytes of IL code are usually skipped—unless you explicitly use the [MethodImplOptions.AggressiveInlining](https://learn.microsoft.com/en-us/dotnet/api/system.runtime.compilerservices.methodimploptions?view=net-9.0) attribute to suggest otherwise.
 - Methods with complex or non-trivial bodies are also less likely to be inlined.
+
+## Requirements
+To run the example on your Windows machine, you'll need to install a few things:
+- **.NET SDK** — required to build and run the project.  
+    The easiest way is to install the **“.NET Desktop Development”** workload via the Visual Studio Installer.
+- **BenchmarkDotNet** — this library will allow us to disassemble and analyze the generated code.  
+    You can install it by running: `dotnet add package BenchmarkDotNet`
