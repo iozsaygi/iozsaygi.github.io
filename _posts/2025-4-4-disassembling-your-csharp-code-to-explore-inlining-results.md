@@ -61,4 +61,5 @@ public class BenchmarkHook
     {        var collection = new Collection();  
         collection.Add(1);  
     }
-}```
+}
+```
