@@ -50,7 +50,7 @@ public class Collection
     [MethodImpl(MethodImplOptions.NoInlining)]
     public int Add(int number)
     {
-	    return number + Effect;
+	return number + Effect;
     }
 }
 
