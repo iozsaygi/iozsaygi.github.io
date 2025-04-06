@@ -55,12 +55,14 @@ public class Collection
 }
 
 public class BenchmarkHook
-{  
+{
+	private int _resultCache;
+
     [Benchmark]
     public void Execute()
     {
 	var collection = new Collection();
-        collection.Add(1);
+        _resultCache = collection.Add(1);
     }
 }
 ```
@@ -76,29 +78,47 @@ After the benchmarks are run, you should be able to see the `<benchmark-name>-as
 
 ```assembly
 ; BenchmarkHook.Execute()
-       7FF9CC77FB50 sub       rsp,28
-       7FF9CC77FB54 mov       rcx,offset MT_Collection
-       7FF9CC77FB5E call      CORINFO_HELP_NEWSFAST
-       7FF9CC77FB63 mov       rcx,rax
-       7FF9CC77FB66 mov       edx,1
-       7FF9CC77FB6B call      qword ptr [7FF9CCA8E7F0]; Collection.Add(Int32)
-       7FF9CC77FB71 nop
-       7FF9CC77FB72 add       rsp,28
-       7FF9CC77FB76 ret
-; Total bytes of code 39
+       7FF9CC74FB50 push      rbx
+       7FF9CC74FB51 sub       rsp,20
+       7FF9CC74FB55 mov       rbx,rcx
+       7FF9CC74FB58 mov       rcx,offset MT_Collection
+       7FF9CC74FB62 call      CORINFO_HELP_NEWSFAST
+       7FF9CC74FB67 mov       rcx,rax
+       7FF9CC74FB6A mov       edx,1
+       7FF9CC74FB6F call      qword ptr [7FF9CCA5E8C8]; Collection.Add(Int32)  
+       7FF9CC74FB75 mov       [rbx+8],eax
+       7FF9CC74FB78 add       rsp,20
+       7FF9CC74FB7C pop       rbx
+       7FF9CC74FB7D ret
+; Total bytes of code 46
 
 ; Collection.Add(Int32)
-       7FF9CC77FB30 lea       eax,[rdx+0A] 
-       7FF9CC77FB33 ret
+       7FF9CC74FB30 lea       eax,[rdx+0A]
+       7FF9CC74FB33 ret
 ; Total bytes of code 4
 ```
 
 Let's point out critical things in this generated assembly code:
 
 - There is a `call` instruction to `qword ptr [7FF9CCA8E7F0]; Collection. Add(Int32)`
-- The generated code is 39 bytes.
+- The generated code is 46 bytes.
 - `Collection.Add(Int32)` was JIT-compiled into a separate function.
 
 Now, what would happen if the compiler decided to inline our benchmarks? Let's see!
 
 ## When there is inlining
+After adding `[MethodImpl(MethodImplOptions.AggressiveInlining)]`
+attribute, the compiler starts to do some optimizations; let's see the assembly-generated code with inlining:
+
+```assembly
+; BenchmarkHook.Execute()
+       7FF9CC76FB50 mov       dword ptr [rcx+8],0B
+       7FF9CC76FB57 ret
+; Total bytes of code 8
+```
+
+- There are no longer separate calls for `Collection.Add(Int32)`
+- Total bytes of generated code is 8.
+- Caching result of operation by using `mov` instruction.
+
+The generated code is much more optimized, and instructions are minimized.
