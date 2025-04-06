@@ -25,7 +25,7 @@ For example:
 
 ## Requirements
 To run the example on your Windows machine, you'll need to install a few things:
-- **.NET SDK** — required to build and run the project.  
+- **.NET SDK** is required to build and run the project.  
     The easiest way is to install the **“.NET Desktop Development”** workload via the Visual Studio Installer.
-- **BenchmarkDotNet** — this library will allow us to disassemble and analyze the generated code.  
+- **BenchmarkDotNet** to disassemble and analyze the generated code.  
     You can install it by running: `dotnet add package BenchmarkDotNet`
