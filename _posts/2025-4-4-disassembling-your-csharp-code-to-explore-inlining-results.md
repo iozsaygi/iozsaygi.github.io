@@ -66,5 +66,5 @@ public class BenchmarkHook
 ```
 
 - We first start by running our benchmark. However, as you also noticed, we are setting up a configuration to disassemble our benchmarked C# code. There are several things we can adjust to manipulate the behavior of the disassembler; please check [here](https://benchmarkdotnet.org/articles/features/disassembler.html) for more information.
-- Then we have a very basic class with an 'Add' function that we marked with [MethodImpl(MethodImplOptions.NoInlining)](https://learn.microsoft.com/en-us/dotnet/api/system.runtime.compilerservices.methodimploptions?view=net-9.0). This tells JIT to not inline this function and possibly generate a code that has more IL byte size than the inlined version.
+- Then we have a very basic class with an `Add` function that we marked with [MethodImpl(MethodImplOptions.NoInlining)](https://learn.microsoft.com/en-us/dotnet/api/system.runtime.compilerservices.methodimploptions?view=net-9.0). This tells JIT to not inline this function and possibly generate a code that has more IL byte size than the inlined version.
 - Finally, our benchmark class that actually communicates with the BenchmarkDotNet. When we run the benchmarks, it automatically tracks the methods with the `[Benchmark]`attribute.
