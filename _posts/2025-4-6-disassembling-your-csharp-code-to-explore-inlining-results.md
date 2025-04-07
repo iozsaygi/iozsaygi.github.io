@@ -56,9 +56,9 @@ public class Collection
 
 public class BenchmarkHook
 {
-	private int _resultCache;
+private int _resultCache;
 
-    [Benchmark]
+	[Benchmark]
     public void Execute()
     {
 	var collection = new Collection();
