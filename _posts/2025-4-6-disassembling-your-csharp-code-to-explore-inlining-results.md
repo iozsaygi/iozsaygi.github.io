@@ -101,7 +101,7 @@ After the benchmarks are run, you should be able to see the `<benchmark-name>-as
 
 Let's point out critical things in this generated assembly code:
 
-- There is a `call` instruction to `qword ptr [7FF9CCA8E7F0]; Collection. Add(Int32)`
+- There is a `call` instruction to `qword ptr [7FF9CCA8E7F0]; Collection.Add(Int32)`
 - The generated code is 46 bytes.
 - `Collection.Add(Int32)` was JIT-compiled into a separate function.
 
