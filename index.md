@@ -1,3 +1,1 @@
-Alright, I got to admit that creating a blog and maintaining one is a pretty good side hustle for any game developer out there. Even though I can't promise to post regularly, at least I have some place to share my opinions. Whenever you decide to read my posts, please keep in mind that you can encounter posts that are in progress.
-
-I really do hope that you will enjoy your stay here.
+Maintaining a blog is a pretty intense side hustle for any game developer out there, so I can't promise to post regularly, but here is the blog page that I have been considering for a long time. I hope you will enjoy your stay here.
