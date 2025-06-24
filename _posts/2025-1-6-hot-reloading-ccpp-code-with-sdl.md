@@ -9,8 +9,6 @@ Most of us are involved in hot reloading in some way or another. Unreal should b
 I was lucky enough to research it within the C/C++ context by using cross-platform APIs that the [SDL](https://www.libsdl.org/) library provides. Let's take a look at the following footage where I am manipulating a very basic render call while the game is actually running.
 ![Hot reload footage](https://github.com/iozsaygi/sdl-hot-reload/raw/main/Showcase/render-call-change.gif)
 
-If you want to see detailed implementation, you can always check out the [repository](https://github.com/iozsaygi/sdl-hot-reload).
-
 There are many aspects involved in the hot reload, but first we will try to understand the core idea behind it.
 ## Idea of hot reload
 Unlike our traditional game development environment, where you have to close your game, change code, and build to see effects on the screen, hot reloading enables us to modify game code on the fly.
