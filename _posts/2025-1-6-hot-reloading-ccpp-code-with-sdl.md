@@ -7,7 +7,7 @@ tag: C/C++
 Most of us are involved in hot reloading in some way or another. Unreal should be supporting this out of the box; Unity can achieve this with the help of several plugins, and even better, you integrated it into your in-house engine. It is a way to manipulate your game code while it is running on the executable program. Helps to achieve faster development cycles by avoiding restarting the game each time we make a change in the code.
 
 I was lucky enough to research it within the C/C++ context by using cross-platform APIs that the [SDL](https://www.libsdl.org/) library provides. Let's take a look at the following footage where I am manipulating a very basic render call while the game is actually running.
-![Hot reload footage](https://github.com/iozsaygi/sdl-hot-reload/raw/main/Showcase/render-call-change.gif)
+![Hot reload footage](https://github.com/iozsaygi/iozsaygi.github.io/blob/main/assets/images/render-call-change.gif?raw=true)
 
 There are many aspects involved in the hot reload, but first we will try to understand the core idea behind it.
 ## Idea of hot reload
