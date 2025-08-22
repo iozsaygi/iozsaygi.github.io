@@ -7,9 +7,6 @@ tags:
 ---
 It's been quite a while since I updated here, trying my best to share new posts against my hectic work schedule. Lately, I have been working heavily on integrating authentication systems for Google Play (Android) and Game Center (iOS). This process taught me decent things, and I should not forget them in the future, so I decided to record them in a simple blog post. Also hoping that it will help me to get my hands back in this lovely blog again.
 
-This post will be more text-oriented; you can think of it as some kind of checklist to remember when integrating Google Play authentication into your Unity game.
-
-## Preface
 If it's your first time integrating the authentication, it can be quite chaotic for Google Play because there are many things moving at the same time. Fear not, I would like to share some tricky details that might help you during this. 
 
 _Keep in mind that this is not a full guide; it is just notes for tricky steps that you might miss during integration._
