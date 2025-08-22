@@ -27,14 +27,19 @@ SHA-1 keys become pretty important when we are adding OAuth credentials to our G
 ## Tricky checklist
 1. `You will have to enter your SHA-1 fingerprint into the OAuth credentials.`
 	* We can't skip this step considering Google Play needs to match their authentication services with your game. This is where SHA-1 fingerprints come in; you will need to provide the SHA-1 fingerprint from your keystore to the OAuth client.
+
 2. `Don't be like me and publish your Google Play Services project before testing authentication.`
 	* Okay, this sounds silly, but I think I lost around 4-5 hours trying to figure out why my authentication does not work. At the end of the day, I realized that I forgot to press the publish button in Google Play Console. Yep, it happens.
+
 3. `You don't need to recreate your Google Play Console project if you decide to change your keystore, which also changes your SHA-1 fingerprint.`
 	 * I created a dummy keystore, and I eventually forgot the password and alias of it. This led me to change the keystore of the game, which also changed the SHA-1 fingerprint. This immediately broke the authentication because my OAuth credentials were relying on the old SHA-1 fingerprint. I totally forgot about that and was considering recreating the Google Play Console project; luckily, I realized that updating the OAuth credentials with the new keystore's SHA-1 fingerprint is enough to work this around.
+
 4. `You can create a list of internal testers and test authentication with them by using Google Play's app distribution pipeline.`
 	* It is always good to test authentication on multiple devices, and internal test releases are a cool way to achieve this. Just include the people's e-mail that you want, and they will be able to download your game and check if authentication works even if the game is not released on the Google Play Store yet.
+
 5. `Don't forget to embed OAuth resources from Google Play Console to the Unity editor by using the Google Play Games plugin.`
 	* After you feed your SHA-1 fingerprint to the Google Play Console, it will generate resource data for you to embed into Unity by using the Google Play Games plugin. It is a good idea to check this embedded data in the Unity editor from time to time, considering it gets reset by some kind of editor bug after producing Android builds.
+
 6. `Even though you set up everything correctly, authentication will still fail if the following conditions are not met in the test device:`
 	* You have to bind a Google account to your device for authentication to succeed.
 	* If there is no gamer profile created in the Play Games application, the authentication will ask you to create one. It will eventually fail if you decide to not create a gamer profile.
