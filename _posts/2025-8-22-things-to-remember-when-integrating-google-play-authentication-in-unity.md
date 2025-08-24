@@ -35,7 +35,7 @@ It is always good to test authentication on multiple devices, and internal test 
 **Don't forget to embed OAuth resources from Google Play Console to the Unity editor by using the Google Play Games plugin.** <br/>
 After you feed your SHA-1 fingerprint to the Google Play Console, it will generate resource data for you to embed into Unity by using the Google Play Games plugin. It is a good idea to check this embedded data in the Unity editor from time to time, considering it gets reset by some kind of editor bug after producing Android builds.
 <br/><br/>
-**Even though you set up everything correctly, authentication will still fail if the following conditions are not met in the test device:** <br/>
+**Even though you set up everything correctly, authentication will still fail if the following conditions are not met:** <br/>
 1. You have to bind a Google account to your device for authentication to succeed.
 2. If there is no gamer profile created in the Play Games application, the authentication will ask you to create one. It will eventually fail if you decide to not create a gamer profile.
 3. If you are testing via internal test builds (the case where the game is not publicly released yet), authentication will fail if somehow you are trying to log in with a Google account that is not invited to test.
