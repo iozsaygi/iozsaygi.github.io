@@ -7,9 +7,11 @@ tags:
 ---
 It's been quite a while since I updated here, trying my best to share new posts against my hectic work schedule. Lately, I have been working heavily on integrating authentication systems for Google Play (Android) and Game Center (iOS). This process taught me decent things, and I should not forget them in the future, so I decided to record them in a simple blog post. Also hoping that it will help me to get my hands back in this lovely blog again.
 
-_Keep in mind that this is not a full guide; it is just notes for tricky steps that you might miss during integration._
+To understand Google Play authentication, we will first need to figure out the connection between SHA-1 fingerprints and keystores.
 
-## What exactly are the SHA-1 keys?
+_Also please keep in mind that this is not a full guide; it is just notes for tricky steps that you might miss during integration._
+
+## SHA-1 fingerprints and keystores
 SHA-1 is basically an algorithm that helps us encrypt our data. I don't know how this algorithm exactly works yet, but whenever we sign our Unity game with a keystore, whether it be the debug one or the release one that you created manually, an SHA-1 key is also generated that is related and specific to your keystore.
 
 _You can run the following command (requires JDK) to learn the SHA-1 fingerprint of your keystore:_
