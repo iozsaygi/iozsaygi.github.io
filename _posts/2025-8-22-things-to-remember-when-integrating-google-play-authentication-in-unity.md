@@ -14,7 +14,7 @@ _Also please keep in mind that this is not a full guide; it is just notes for tr
 ## SHA-1 fingerprints and keystores
 SHA-1 is basically an algorithm that helps us encrypt our data. I don't know how this algorithm exactly works yet, but whenever we sign our Unity game with a keystore, whether it be the debug one or the release one that you created manually, an SHA-1 key is also generated that is related and specific to your keystore.
 
-_You can run the following command (requires JDK) to learn the SHA-1 fingerprint of your keystore:_
+_You can run the following command (requires [JDK](https://www.oracle.com/java/technologies/downloads/)) to learn the SHA-1 fingerprint of your keystore:_
 `keytool -list -v -keystore your_keystore_name.keystore -alias your_alias_name`
 
 After executing this command, you will be asked to enter the keystore password and alias password within the terminal.
@@ -42,6 +42,11 @@ After you feed your SHA-1 fingerprint to the Google Play Console, it will genera
 2. If there is no gamer profile created in the Play Games application, the authentication will ask you to create one. It will eventually fail if you decide to not create a gamer profile.
 3. If you are testing via internal test builds (the case where the game is not publicly released yet), authentication will fail if somehow you are trying to log in with a Google account that is not invited to test.
 4. If you build your game with a different keystore with a different SHA-1 fingerprint than the one you have in OAuth credentials, the authentication will fail because Google will not be able to match your game, considering the SHA-1 fingerprint has changed.
+
+## Resources
+* [What is a SHA-1 fingerprint?](https://stackoverflow.com/questions/25685124/what-is-a-sha1-fingerprint)
+* [Client authentication](https://developers.google.com/android/guides/client-auth)
+* [Tutorial - Authentication with Google Play Games](https://discussions.unity.com/t/tutorial-authentication-with-google-play-games/911430)
 
 ## Conclusion
 It took me around two or three days to fully integrate Google Play authentication. It would definitely have taken shorter if I had known these tips beforehand. Sharing these tips, hoping it will help someone out there, or at least will help me in the future if I try to integrate this again at some point.
