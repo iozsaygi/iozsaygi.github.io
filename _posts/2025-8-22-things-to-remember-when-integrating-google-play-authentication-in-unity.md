@@ -28,7 +28,7 @@ Don't forget to save your SHA-1 fingerprint somewhere; you will need it heavily.
 One of the essential steps is to provide your SHA-1 fingerprint for OAuth credentials within the Google Cloud Console; authentication will simply fail if you skip or forget this step, considering Google needs that SHA-1 fingerprint to match authentication with your game.
 
 #### **Publish your Google Play Services project before testing authentication**
-Within Google Play Developer Console, there is something called Play Services Project, which you need to complete setting up and publish (even if your game is not released on Google Play Store) for authentication to work. Otherwise, your mail account will be the only one that is able to authenticate in your game.
+Within Google Play Developer Console, there is something called [Play Services Project](https://developers.google.com/android), which you need to complete setting up and publish (even if your game is not released on Google Play Store) for authentication to work. Otherwise, your mail account will be the only one that is able to authenticate in your game.
 
 #### **You can update your SHA-1 fingerprint later on if you decide to change your keystore**
 For some reason, if you update your keystore after the build is uploaded to Google Developer Console, you can just replace your OAuth credentials in Google Cloud Console with the new SHA-1 fingerprint that is available within your updated keystore.
