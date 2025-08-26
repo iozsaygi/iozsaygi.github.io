@@ -44,7 +44,7 @@ _This case mostly works for the games that are not released yet; there are sever
 It is good to check if you used the correct keystore to sign your game whenever authentication fails. OAuth credentials require you to sign the game with the same SHA-1 fingerprint that you provided.
 
 ### Conclusion
-Google Play Games authentication can get tricky if it is your first time tackling it; I am building this list of small tips to help out for future references.
+Google Play Games authentication can get tricky if it is your first time tackling it; I built this list of small tips to help out for future references.
 
 _I would like to share some resources that I used a lot:_
 * [What is a SHA-1 fingerprint?](https://stackoverflow.com/questions/25685124/what-is-a-sha1-fingerprint)
