@@ -51,4 +51,4 @@ _I would like to share some resources that I used a lot:_
 * [Client authentication](https://developers.google.com/android/guides/client-auth)
 * [Tutorial - Authentication with Google Play Games](https://discussions.unity.com/t/tutorial-authentication-with-google-play-games/911430)
 
-See you!
+See you soon!
