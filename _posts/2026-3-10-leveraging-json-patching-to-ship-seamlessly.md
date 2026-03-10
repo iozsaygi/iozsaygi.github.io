@@ -34,9 +34,9 @@ Here is a simple example:
 ```
 
 Each entry in the patch document defines:
-- `op` is the operation to perform such as _add_,  _remove_,  or _replace_
-- `path` is the location in the JSON document where the change should occur
-- `value` is the new value to apply _(if required)_
+- `op` which is the operation to perform such as _add_, _remove_, or _replace_
+- `path` which is the location in the JSON document where the change should occur
+- `value` which is the new value to apply _(if required)_
 
 Because these operations target specific paths within a document, a patch can represent complex modifications with very little overhead.
 
