@@ -13,7 +13,7 @@ The situation becomes even more complicated when multiple feature branches int
 
 After running into this bottleneck myself, I started looking for a way to apply changes across multiple configurations without manually editing each one. Ideally, I wanted a solution that would let me define configuration changes once and apply them wherever needed.
 
-During this search, I came across the concept of **JSON patch**.
+During this search, I came across the concept of JSON patch.
 
 ## What is JSON patch?
 JSON patch is a standardized format used to describe a sequence of operations applied to a JSON document.
@@ -34,9 +34,9 @@ Here is a simple example:
 ```
 
 Each entry in the patch document defines:
-- **op** – the operation to perform (`add`, `remove`, `replace`, etc.)
-- **path** – the location in the JSON document where the change should occur
-- **value** – the new value to apply (if required)
+- `op` is the operation to perform such as _add_,  _remove_,  or _replace_
+- `path` is the location in the JSON document where the change should occur
+- `value` is the new value to apply _(if required)_
 
 Because these operations target specific paths within a document, a patch can represent complex modifications with very little overhead.
 
@@ -102,6 +102,7 @@ So far, we’ve focused mostly on the required code, but in a real application, 
 Also, note that we didn’t include the `remove` operation in our examples. In real-world scenarios, however, you’ll likely want to support removals as well.
 
 Current mental model of the workflow:
+
 ```Original Config → Generate Diff → Create Patch → Apply Patch → Updated Config```
 
 ## How JSON patching improved my workflow
