@@ -25,7 +25,7 @@ This concept is commonly used in networking scenarios, where transmitting only t
 A JSON patch itself is also represented as a JSON document, which contains a list of operations that will be applied to a target JSON object.
 
 Here is a simple example:
-```csharp
+```json
 [
   { "op": "replace", "path": "/baz", "value": "boo" },
   { "op": "add", "path": "/hello", "value": ["world"] },
@@ -42,6 +42,42 @@ Because these operations target specific paths within a document, a patch can 
 
 This makes JSON Patch particularly useful when you want to apply consistent changes across multiple configuration files.
 
+Take a look at the following example:
+
+**Before**
+```json
+{
+    "user": {
+        "name": "John",
+        "address": {
+            "city": "Berlin",
+            "zip": "10115"
+	    }
+	}
+}
+```
+
+**Patch**
+```json
+[
+  { "op": "replace", "path": "/user/address/city", "value": "Munich" },
+  { "op": "remove", "path": "/user/address/zip" }
+]
+```
+
+**After**
+```json
+{
+  "user": {
+    "name": "John",
+    "address": {
+      "city": "Munich"
+    }
+  }
+}
+```
+
+After applying the patch, the `city` is updated and the `zip` code is removed from the `user` object.
 ## Detailing the implementation in .NET
 The implementation involves two separate steps. For each step, you will likely want to rely on a third-party library to handle most of the heavy lifting.
 
