@@ -137,7 +137,7 @@ So far, we’ve focused mostly on the required code, but in a real application, 
 
 Also, note that we didn’t include the `remove` operation in our examples. In real-world scenarios, however, you’ll likely want to support removals as well.
 
-**Mental model of the workflow was established:**
+**Mental model of the workflow was established as:**
 
 ```Original Config → Generate Diff → Create Patch → Apply Patch → Updated Config```
 
