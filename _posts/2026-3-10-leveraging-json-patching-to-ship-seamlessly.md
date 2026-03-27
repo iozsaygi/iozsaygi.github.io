@@ -133,14 +133,14 @@ var targetConfig = JsonConvert.DeserializeObject<YourTypeToDeserialize>(File.
 patchDoc.ApplyTo(targetConfig);
 ```
 
+We iterated through the generated `diff` object and registered patch operations based on each property’s type. Once the patch document was fully constructed, we deserialized the target JSON into a C# object and applied the patch.
+
 So far, we’ve focused mostly on the required code, but in a real application, much of this would be handled through the UI. For example, you could build a tree view that lets users select or deselect specific parts of the patch, making the implementation more interactive and detailed.
 
-Also, note that we didn’t include the `remove` operation in our examples. In real-world scenarios, however, you’ll likely want to support removals as well.
+To give you a clearer picture of how this can look in practice, take a look at the screenshot from the live version of the patching tool I’ve built below.
+![[patching-demonstration.png]]
 
-**Mental model of the workflow was established as:**
-
-```Original Config → Generate Diff → Create Patch → Apply Patch → Updated Config```
-
+Users can explore the tree view in detail and selectively choose which changes to apply, providing a more flexible and precise way to manage configuration differences.
 ## How JSON patching improved my workflow
 For a long time, I was performing these operations manually, which became a major bottleneck during release periods.
 
