@@ -135,12 +135,12 @@ patchDoc.ApplyTo(targetConfig);
 
 We iterated through the generated `diff` object and registered patch operations based on each property’s type. Once the patch document was fully constructed, we deserialized the target JSON into a C# object and applied the patch.
 
-So far, we’ve focused mostly on the required code, but in a real application, much of this would be handled through the UI. For example, you could build a tree view that lets users select or deselect specific parts of the patch, making the implementation more interactive and detailed.
+So far, we’ve focused on the underlying logic, but much of the workflow will be handled directly through the user interface. For example, a tree view can let users navigate and manage patches easily.
 
 To give you a clearer picture of how this can look in practice, take a look at the screenshot from the live version of the patching tool I’ve built below.
 ![Patching demonstration](https://github.com/iozsaygi/iozsaygi.github.io/blob/main/assets/images/patching-demonstration.png?raw=true)
 
-Users can explore the tree view in detail and selectively choose which changes to apply, providing a more flexible and precise way to manage configuration differences.
+Users can expand and collapse nodes in the tree view to explore the changes in detail and selectively choose which updates to apply.
 ## How JSON patching improved my workflow
 For a long time, I was performing these operations manually, which became a major bottleneck during release periods.
 
