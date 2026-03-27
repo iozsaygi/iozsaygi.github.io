@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Leveraging JSON patching to ship seamlessly
+title: Easier content management with JSON patching
 description: Taking advantage of JSON patching to reduce frictions in the release pipeline.
 tags:
   - C#
