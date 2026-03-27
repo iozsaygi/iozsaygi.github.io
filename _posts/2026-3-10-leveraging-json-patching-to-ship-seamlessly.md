@@ -138,7 +138,7 @@ We iterated through the generated `diff` object and registered patch operation
 So far, we’ve focused mostly on the required code, but in a real application, much of this would be handled through the UI. For example, you could build a tree view that lets users select or deselect specific parts of the patch, making the implementation more interactive and detailed.
 
 To give you a clearer picture of how this can look in practice, take a look at the screenshot from the live version of the patching tool I’ve built below.
-![[patching-demonstration.png]]
+![Patching demonstration](https://github.com/iozsaygi/iozsaygi.github.io/blob/main/assets/images/patching-demonstration.png?raw=true)
 
 Users can explore the tree view in detail and selectively choose which changes to apply, providing a more flexible and precise way to manage configuration differences.
 ## How JSON patching improved my workflow
