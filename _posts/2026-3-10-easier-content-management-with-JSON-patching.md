@@ -38,9 +38,7 @@ Each entry in the patch document defines:
 - `path` which is the location in the JSON document where the change should occur
 - `value` which is the new value to apply _(if required)_
 
-Because these operations target specific paths within a document, a patch can represent complex modifications with very little overhead.
-
-This makes JSON Patch particularly useful when you want to apply consistent changes across multiple configuration files.
+Because these operations target specific paths within a document, a patch can represent complex modifications with very little overhead. This makes JSON Patch particularly useful when you want to apply consistent changes across multiple configuration files.
 
 Take a look at the following example:
 
